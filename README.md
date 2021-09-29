@@ -1,6 +1,4 @@
 # CPS5301
 ## hello
 
-i really wanna go sleep
-im going to do howework now
-i promise
+last test and im going to do homework
