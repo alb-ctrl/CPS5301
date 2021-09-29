@@ -1,5 +1,4 @@
 # CPS5301
 ## hello
 
-new day 
-i shohuld pay attention to class
+im gonnna regret this later
