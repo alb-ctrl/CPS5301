@@ -12,14 +12,15 @@ $address = "";
 $errors = array(); 
 
 
-require ("/home/bitnami/dbconfig.php");
-$db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
-	die('Coul not connect MySQL: ' . mysqli_connect_error () );
-// Set the encoding...
-mysqli_set_charset($db, 'utf8');
-
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
+
+  require ("/home/bitnami/dbconfig.php");
+  $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
+	  die('Coul not connect MySQL: ' . mysqli_connect_error () );
+  // Set the encoding...
+  mysqli_set_charset($db, 'utf8');
+
   // receive all input values from the form
   $username = mysqli_real_escape_string($db, $_POST['username']);
   $fname = mysqli_real_escape_string($db, $_POST['fname']);
@@ -69,18 +70,30 @@ if (isset($_POST['reg_user'])) {
     // ?? Guys I need to know how we gonna have the database 
 
   	$query = "INSERT INTO users (username, fname, lname, phone, address, email, password) 
-  			  VALUES('$username', $fname, $lname, $phone, address $fname, '$email', '$password')";
+  			  VALUES('$username', '$fname', '$lname', '$phone', '$address', '$fname', '$email', '$password')";
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $username;
   	$_SESSION['password'] = $password;
   	header('location: index.php');
   }
+
+  /* Close the connection as soon as it's no longer needed */
+  mysqli_close($db);
+
 }
 
 // ... 
 
 // LOGIN USER
 if (isset($_POST['login_user'])) {
+
+  require ("/home/bitnami/dbconfig.php");
+  $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
+	  die('Coul not connect MySQL: ' . mysqli_connect_error () );
+  // Set the encoding...
+  mysqli_set_charset($db, 'utf8');
+
+
   $username = mysqli_real_escape_string($db, $_POST['username']);
   $password = mysqli_real_escape_string($db, $_POST['password']);
 
@@ -112,6 +125,10 @@ if (isset($_POST['login_user'])) {
   		array_push($errors, "Wrong username/password combination");
   	}
   }
+
+  /* Close the connection as soon as it's no longer needed */
+  mysqli_close($db);
+  
 }
 
 ?>
