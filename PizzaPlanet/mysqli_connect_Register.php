@@ -70,11 +70,11 @@ if (isset($_POST['reg_user'])) {
     // ?? Guys I need to know how we gonna have the database 
 
   	$query = "INSERT INTO users (username, fname, lname, phone, address, email, password) 
-  			  VALUES('$username', '$fname', '$lname', '$phone', '$address', '$fname', '$email', '$password')";
+  			  VALUES('$username', '$fname', '$lname', '$phone', '$address', '$email', '$password')";
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $username;
   	$_SESSION['password'] = $password;
-  	header('location: index.php');
+  	//header('location: index.php');
   }
 
   /* Close the connection as soon as it's no longer needed */
