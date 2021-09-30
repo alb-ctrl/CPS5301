@@ -74,7 +74,7 @@ if (isset($_POST['reg_user'])) {
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $username;
   	$_SESSION['password'] = $password;
-  	//header('location: index.php');
+  	header('location: index.php');
   }
 
   /* Close the connection as soon as it's no longer needed */
