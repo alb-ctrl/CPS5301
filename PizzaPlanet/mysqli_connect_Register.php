@@ -13,7 +13,7 @@ $errors = array();
 
 
 require ("/home/bitnami/dbconfig.php");
-$dbc = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
+$db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
 	die('Coul not connect MySQL: ' . mysqli_connect_error () );
 // Set the encoding...
 mysqli_set_charset($db, 'utf8');
