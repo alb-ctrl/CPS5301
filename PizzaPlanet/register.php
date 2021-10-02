@@ -99,10 +99,10 @@
     <input type="password" placeholder="Enter Password Again" name="password_2" required>
 
      <label for="phone"><b>Primary Phone Number:</b></label>
-    <input type="tel" placeholder="Phone" pattern="^[a-z0-9_-]{3,15}$" name="phone" value="<?php echo $phone; ?>" required>
+    <input type="text" placeholder="Phone" pattern="" name="phone" value="<?php echo $phone; ?>" required>
 
      <label for="address"><b>Address:</label>
-    <input type="text" placeholder="Enter an address" pattern="^[a-z0-9_-]{3,15}$" title="Three to fifteen lowercase letters, numbers, underscores or hyphens" name="address" value="<?php echo $address; ?>" required>
+    <input type="text" placeholder="Enter an address" pattern="" title="Three to fifteen lowercase letters, numbers, underscores or hyphens" name="address" value="<?php echo $address; ?>" required>
 
         
     <button type="submit" class="btn" name="reg_user">Register</button>
@@ -119,4 +119,3 @@
 
 </body>
 </html>
-
