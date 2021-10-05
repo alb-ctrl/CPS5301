@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://kit.fontawesome.com/de6bb176d6.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="stylest.css">
+    <link rel="stylesheet" type="text/css" href="temphomeStyles.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
