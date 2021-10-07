@@ -3,7 +3,7 @@
 <html>
 <head>
   <title>Login</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="../rsrc/styles/login_style.css">
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -73,7 +73,7 @@
 <form action="register.php" method="post">
 <?php include('errors.php'); ?>
   <div class="register">
-    <img src="images/avatar1.jpg" alt="Avatar" class="avatar">
+    <img src="../rsrc/imgs/avatar1.jpg" alt="Avatar" class="avatar">
   </div>
 
   <div class="container">
