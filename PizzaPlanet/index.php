@@ -19,11 +19,11 @@
                 <a href="#"><img src="../rsrc/imgs/pizza.png" alt="logo" class="logo"></a>
             </label>
         <ul class = "links">
-            <li><a href="#">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Menu</a></li>
             <li>
-            <a href="#">Sign in  <span class="diff"><i class="fas fa-user-astronaut fa-2sx" style="margin-left:2px;font-size:18px;"></i></span></a>
+            <a href="login.php">Sign in  <span class="diff"><i class="fas fa-user-astronaut fa-2sx" style="margin-left:2px;font-size:18px;"></i></span></a>
             </li>
             <li>
             <a href="#">Cart <i class="fas fa-shopping-cart" style="font-size: 18px"></i></a>
