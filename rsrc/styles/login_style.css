@@ -4,7 +4,7 @@
 }
 body {
   font-size: 120%;
-  background-image: url("pizza-background.jpeg");
+  background-image: url("../imgs/pizza-background.jpeg");
   background-size: contain;
   background-position: center;
   
