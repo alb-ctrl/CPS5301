@@ -2,13 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
 <title>Login</title>
 <link rel="stylesheet" type="text/css" href="login_style.css">
-=======
-  <title>Login</title>
-  <link rel="stylesheet" type="text/css" href="../rsrc/styles/login_style.css">
->>>>>>> 5e695150ea502da6af2ff8c86134dde9a3e9e95c
 
 <!-- Bootstrap Scripts -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
