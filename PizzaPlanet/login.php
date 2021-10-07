@@ -77,15 +77,9 @@
 
 <form action="login.php" method="post">
 <?php include('errors.php'); ?>
-<<<<<<< HEAD
 <div class="imgcontainer">
     <img src="../rsrc/imgs/avatar.png" alt="Avatar" class="avatar">
 </div>
-=======
-  <div class="imgcontainer">
-    <img src="../rsrc/imgs/avatar.png" alt="Avatar" class="avatar">
-  </div>
->>>>>>> 5e695150ea502da6af2ff8c86134dde9a3e9e95c
 
 <div class="container">
     <label for="uname"><b>Username</b></label>
