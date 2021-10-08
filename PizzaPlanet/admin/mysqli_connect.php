@@ -6,6 +6,7 @@ $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
 mysqli_set_charset($db, 'utf8');
 
 session_start();
+$errors = array(); 
 
 if(isset($_POST['login'])) {
 	$username = $_POST['username'];
@@ -19,7 +20,7 @@ if(isset($_POST['login'])) {
       $_SESSION["adm_id"] = $row['adm_id'];
 			header("location: dashboard.php");
     } else {
-      $message = "Invalid Username or Password!";
+      array_push($errors, "Invalid Username or Password!");
       }
 	}	
 }
@@ -30,7 +31,7 @@ if(isset($_POST['register'] )) {
 		empty($_POST['pass']) ||  
 		empty($_POST['cpass']) ||
 		empty($_POST['code'])){
-		$message = "ALL fields must be fill";
+		array_push($errors, "ALL fields must be fill");
 	}
   else {
 		
@@ -38,22 +39,23 @@ if(isset($_POST['register'] )) {
   	$check_email = mysqli_query($db, "SELECT email FROM admin where email = '".$_POST['email']."' ");
   	
   	if($_POST['pass'] != $_POST['cpass']){
-      $message = "Password not match";
+      array_push($errors, "Password not match";
     } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-      $message = "Invalid email address please type a valid email!";
+      array_push($errors, "Invalid email address please type a valid email!");
     } elseif(mysqli_num_rows($check_username) > 0) {
-      $message = 'username Already exists!';
+      array_push($errors, 'username Already exists!');
     } elseif(mysqli_num_rows($check_email) > 0) {
-      $message = 'Email Already exists!';
+      array_push($errors, 'Email Already exists!');
     } else {
       $result = mysqli_query($db,"SELECT id FROM admin_code WHERE code =  '".$_POST['code']."'");  
   		if(mysqli_num_rows($result) == 0){
-  			$message = "invalid code!";
+  			array_push($errors, "invalid code!");
       } 
       else {
         $mql = "INSERT INTO admin (username,password,email,code) VALUES ('".$_POST['user']."','".md5($_POST['pass'])."','".$_POST['email']."','".$_POST['code']."')";
   			mysqli_query($db, $mql);
-  			$success = "Admin Added successfully!";
+  			echo "Admin Added successfully!";
+        header("location: dashboard.php");
   		}
     }
  }
