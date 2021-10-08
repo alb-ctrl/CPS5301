@@ -1,61 +1,87 @@
 * {
   margin: 0px;
   padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
+input[type=text], input[type=password] {
+width: 100%;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+box-sizing: border-box;
+border-radius: 5px;
+}
+
+button {
+padding: 14px 20px;
+margin: 8px 0;
+border:none;
+cursor: pointer;
+width: 100%;
+border-radius: 5px;
+background: rgb(255, 0, 0);
+color: white;
+font-size: 15px;
+}
+
+button:hover {
+background: #da0000;
+}
+
+.imgcontainer {
+text-align: center;
+margin: 24px 0 12px 0;
+}
+
+.container {
+padding: 5px;
+}
+
+a{
+  color: #000;
+}
+span.Signup a:hover{
+color: red;
+}
+
+span.Signup {
+font-size: 17px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+span.psw {
+  display: block;
+  float: none;
+}		
+}
+
+@media screen and (max-width: 800px) {
+
+  #check:checked ~ ul.links{
+    top: 4.4em !important;
+    transition: all .5s ease-in-out;
+}
+}
+
 body {
   font-size: 120%;
-  background-image: url("../imgs/pizza-background.jpeg");
-  background-size: contain;
-  background-position: center;
-  
 }
 
-.header {
-  width: 25%;
-  margin: 50px auto 0px;
-  color: white;
-  background: #5F9EA0;
-  text-align: center;
-  border: 1px solid #B0C4DE;
-  border-bottom: none;
-  border-radius: 10px 10px 0px 0px;
-  padding: 20px;
-}
 form, .content {
+  max-width: 50vh;
+  min-width: 45vh;
+  min-height: 50vh;
+  margin: 100px auto;
+  padding: 60px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 7px rgb(255, 0, 0); 
+}
 
-  width: 25%;
-  margin: 0px auto;
-  padding: 20px;
-  border: 1px solid #9A211D;
-  background: #9A211D;
-  border-opacity: 0.1;
-  border-radius: 0.5px;
-  box-shadow: 0px 0px 0px 8px rgba(0,0,0,0.3);  
-}
-.input-group {
-  margin: 10px 0px 10px 0px;
-}
-.input-group label {
-  display: block;
-  text-align: left;
-  margin: 3px;
-}
-.input-group input {
-  height: 30px;
-  width: 93%;
-  padding: 5px 10px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: 1px solid gray;
-}
-.btn {
-  padding: 10px;
-  font-size: 15px;
-  color: white;
-  background: #5F9EA0;
-  border: none;
-  border-radius: 5px;
-}
+
 .error {
   width: 92%; 
   margin: 0px auto; 
@@ -72,8 +98,3 @@ form, .content {
   border: 1px solid #3c763d;
   margin-bottom: 20px;
 }
-
-
-
-
-
