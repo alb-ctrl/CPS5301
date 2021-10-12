@@ -1,5 +1,6 @@
 <?php header('Access-Control-Allow-Origin: *'); ?>
 <!DOCTYPE html>
+<?php header('Access-Control-Allow-Origin: *'); ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
