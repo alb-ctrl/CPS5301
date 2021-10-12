@@ -1,4 +1,4 @@
-<?php include('mysqli_connect_Register.php');header('Access-Control-Allow-Origin: *');  ?>
+<?php include('mysqli_connect_Register.php');header('Access-Control-Allow-Origin: *'); header('Access-Control-Allow-Methods: *');  ?>
 <!DOCTYPE html>
 <html>
 <head>
