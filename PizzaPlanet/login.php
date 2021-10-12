@@ -1,11 +1,10 @@
-<?php include('mysqli_connect_Register.php') ?>
+<?php include('mysqli_connect_Register.php'); 
+header('Access-Control-Allow-Origin: *');?>
 <!DOCTYPE html>
 <html>
 <head>
 <title>Login</title>
 <link rel="stylesheet" type="text/css" href="../rsrc/styles/login_style.css">
-<link rel="stylesheet" href="../rsrc/styles/index_styles.css">
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 <!-- Bootstrap Scripts -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -14,32 +13,68 @@
 
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+		body {font-family: Arial, Helvetica, sans-serif;}
+		form {border: 3px solid #f1f1f1; transform: translate(0%,10%); border-radius: 15px 15px 15px 15px;}
+
+		input[type=text], input[type=password] {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+		}
+
+		button {
+		background-color: #4CAF50;
+		color: white;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		cursor: pointer;
+		width: 100%;
+		}
+
+		button:hover {
+		opacity: 0.8;
+		}
+
+
+		.imgcontainer {
+		text-align: center;
+		margin: 24px 0 12px 0;
+		}
+
+		img.avatar {
+		width: 40%;
+		border-radius: 50%;
+		}
+
+		.container {
+		padding: 16px;
+		}
+
+		span.Signup {
+		float: right;
+		padding-top: 16px;
+		}
+
+		/* Change styles for span and cancel button on extra small screens */
+		@media screen and (max-width: 300px) {
+		span.psw {
+			display: block;
+			float: none;
+		}		
+		}
+		</style>
 </head>
 <body>
-<nav>
-        <input id="check" type="checkbox">
-        <label for="check" class="checkbtn">
-            <i class="fas fa-bars"></i>
-        </label>
-            <label href="#">
-                <a href="#"><img src="../rsrc/imgs/pizza.png" alt="logo" class="logo"></a>
-            </label>
-        <ul class = "links">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Menu</a></li>
-            <li>
-            <a href="login.php">Sign in  <span class="diff"><i class="fas fa-user-astronaut fa-2sx" style="margin-left:2px;font-size:18px;"></i></span></a>
-            </li>
-            <li>
-            <a href="#">Cart <i class="fas fa-shopping-cart" style="font-size: 18px"></i></a>
-            </li>
-        </ul>
-    </nav>
-<form action="login.php" method="post" id="hide">
+
+<form action="login.php" method="post">
 <?php include('errors.php'); ?>
 <div class="imgcontainer">
-<i class="fas fa-user-astronaut fa-5x" style="color: red;"></i>
+    <img src="../rsrc/imgs/avatar.png" alt="Avatar" class="avatar">
 </div>
 
 <div class="container">
@@ -49,15 +84,15 @@
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="password" required>
         
-    <button type="submit" name="login_user">Login</button>
+    <button type="submit" class="btn" name="login_user">Login</button>
     <label>
     <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
 </div>
 
-<div class="container">
-    <button type="reset">Clear</button>
-    <span class="Signup">Not yet a member?<a href="register.php"> Signup</a></span>
+<div class="container" style="background-color:#f1f1f1">
+    <button type="reset" class="clear">Clear</button>
+    <span class="Signup">Not yet a member? &nbsp <a href="register.php"> Signup</a></span>
 </div>
 </form>
 
