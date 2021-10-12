@@ -12,6 +12,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -19,7 +20,9 @@
 <nav>
         <input id="check" type="checkbox">
         <label for="check" class="checkbtn">
+
             <i class="fas fa-bars" color="red"></i>
+
         </label>
             <label href="#">
                 <a href="#"><img src="../rsrc/imgs/pizza.png" alt="logo" class="logo"></a>
@@ -29,10 +32,12 @@
             <li><a href="#">About</a></li>
             <li><a href="#">Menu</a></li>
             <li>
+
             <a href="login.php">Sign in  <span class="diff"><i class="fas fa-user-astronaut fa-5x"style="margin-left:2px;font-size:18px;"></i></span></a>
             </li>
             <li>
             <a href="#">Cart <i class="fas fa-shopping-cart" style="font-size: 18px" ></i></a>
+
             </li>
         </ul>
     </nav>
