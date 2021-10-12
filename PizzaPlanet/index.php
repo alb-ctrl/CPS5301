@@ -13,7 +13,7 @@
 <nav>
         <input id="check" type="checkbox">
         <label for="check" class="checkbtn">
-            <i class="fas fa-bars"></i>
+            <i class="fas fa-bars" color="red"></i>
         </label>
             <label href="#">
                 <a href="#"><img src="../rsrc/imgs/pizza.png" alt="logo" class="logo"></a>
