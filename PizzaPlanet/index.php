@@ -21,7 +21,7 @@
         <ul class = "links">
             <li><a href="index.php">Home</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="#">Menu</a></li>
+            <li><a href="get_menu.php">Menu</a></li>
             <li>
             <a href="login.php">Sign in <i class="fas fa-user-astronaut fa-5x" 
             style="margin-left:2px;font-size:18px;"></i></a>
