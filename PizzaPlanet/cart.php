@@ -4,6 +4,9 @@ if (!isset($_SESSION['cart'])){
 }
 $item_id = $_POST['menu_id'];
 $quantity = 1;
-echo "size: ". count($_SESSION['cart']);
-$_SESSION['cart'][$id] = array('menu_id' => $item_id, 'quantity' => $quantity);
+$index = count($_SESSION['cart']);
+$_SESSION['cart'][$index+1] = array('menu_id' => $item_id, 'quantity' => $quantity);
+foreach($_SESSION['cart'] as $key => $value){
+    echo "{$value['quanitiy'] }";
+}
 ?>
