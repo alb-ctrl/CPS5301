@@ -8,10 +8,11 @@
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous">
     </script>
-    <link rel="stylesheet" type="text/css" href="../rsrc/styles/index_styles.css">
+
 </head>
 
 <body>
+    hi
     <?php
     session_start();
     require("/home/bitnami/dbconfig.php");
