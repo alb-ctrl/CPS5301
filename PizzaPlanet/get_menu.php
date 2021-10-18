@@ -15,6 +15,7 @@
     hi
     <?php
     session_start();
+    echo "1";
     require("/home/bitnami/dbconfig.php");
     $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) or
         die('Coul not connect MySQL: ' . mysqli_connect_error());
@@ -23,12 +24,13 @@
 
     $query = "Select menu_id, name, description, tags, picture_path, cost from menu";
     $results = mysqli_query($db, $query);
-
+    echo "2";
     if (!$results) {
         //print error message 
         echo "didnt work";
 
     }
+    echo "3";
     while ($row = mysqli_fetch_array($result)) {
     ?>
         <div class="card" style="width: 18rem;">
