@@ -1,9 +1,11 @@
 <?php
-require ("/home/bitnami/dbconfig.php");
-$db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
-  die('Coul not connect MySQL: ' . mysqli_connect_error () );
-// Set the encoding...
-mysqli_set_charset($db, 'utf8');
+// require ("/home/bitnami/dbconfig.php");
+// $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
+//   die('Coul not connect MySQL: ' . mysqli_connect_error () );
+// // Set the encoding...
+// mysqli_set_charset($db, 'utf8');
+
+include("../connection/connect.php");
 
 session_start();
 $errors = array(); 
@@ -39,7 +41,7 @@ if(isset($_POST['register'] )) {
   	$check_email = mysqli_query($db, "SELECT email FROM admin where email = '".$_POST['email']."' ");
   	
   	if($_POST['pass'] != $_POST['cpass']){
-      array_push($errors, "Password not match";
+      array_push($errors, "Password not match");
     } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
       array_push($errors, "Invalid email address please type a valid email!");
     } elseif(mysqli_num_rows($check_username) > 0) {
