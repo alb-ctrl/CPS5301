@@ -9,5 +9,5 @@ $_SESSION['cart'][$index+1] = array('menu_id' => $item_id, 'quantity' => $quanti
 foreach($_SESSION['cart'] as $value){
     echo $value['quantity'];
 }
-print_r($_SESSION['cart']);
+//print_r($_SESSION['cart']);
 ?>
