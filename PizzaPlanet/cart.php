@@ -7,6 +7,6 @@ $quantity = 1;
 $index = count($_SESSION['cart']);
 $_SESSION['cart'][$index+1] = array('menu_id' => $item_id, 'quantity' => $quantity);
 foreach($_SESSION['cart'] as $key => $value){
-    echo "{$value['quanitiy'] }";
+    echo "{$value}";
 }
 ?>
