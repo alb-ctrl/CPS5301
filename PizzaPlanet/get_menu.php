@@ -12,7 +12,6 @@
 </head>
 
 <body>
-    hi
     <?php
     session_start();
     require("/home/bitnami/dbconfig.php");
@@ -32,9 +31,9 @@
     while ($row = mysqli_fetch_array($results)) {
     ?>
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
+            <img class="card-img-top" src="<?php echo $row['picture_path']; ?>" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title"><?php echo $row['name']; ?>/h5>
+                <h5 class="card-title"><?php echo $row['name']; ?></h5>
                     <p class="card-text"><?php echo $row['description']; ?></p>
                     <a href="#" id="<?php echo $row['menu_id']; ?>" class="btn btn-primary">Add to cart</a>
             </div>
