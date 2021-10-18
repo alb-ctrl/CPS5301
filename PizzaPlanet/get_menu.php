@@ -25,6 +25,7 @@
 
     if (!$results) {
         //print error message 
+        echo "didnt work";
 
     }
     while ($row = mysqli_fetch_array($result)) {
