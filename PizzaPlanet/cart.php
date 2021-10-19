@@ -10,4 +10,6 @@ foreach($_SESSION['cart'] as $value){
     echo $value['quantity'];
 }
 //print_r($_SESSION['cart']);
+// this is how you report an error to ajax
+//header("HTTP/1.0 500 You're not logged in. Try loggin in first");
 ?>
