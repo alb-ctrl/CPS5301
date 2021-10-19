@@ -11,7 +11,7 @@ if (!isset($_SESSION['cart'])){
     $index = count($_SESSION['cart']);
     $_SESSION['cart'][$index+1] = array('menu_id' => $item_id, 'quantity' => $quantity);
     foreach($_SESSION['cart'] as $value){
-        echo "<br>it should work<br>".$value['quantity'];
+        echo "<br>it should work<br>".$value['menu_id'];
     }
     print_r($_SESSION['cart']);
     // this is how you report an error to ajax
