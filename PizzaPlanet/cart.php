@@ -11,7 +11,8 @@ $_SESSION['cart'][$index+1] = array('menu_id' => $item_id, 'quantity' => $quanti
 foreach($_SESSION['cart'] as $value){
     echo "<br>it should work<br>".$value['quantity'];
 }
-print_r($_SESSION['cart']);
+//print_r($_SESSION['cart']);
+echo "Hello";
 // this is how you report an error to ajax
 //header("HTTP/1.0 500 You're not logged in. Try loggin in first");
 ?>
