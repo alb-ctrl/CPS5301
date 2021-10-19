@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Shopping Cart UI</title>
+    <title>Cart</title>
     <link rel="stylesheet" type="text/css" href="../rsrc/styles/cart_style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,900" rel="stylesheet">
 </head>
