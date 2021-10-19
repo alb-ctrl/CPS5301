@@ -88,7 +88,7 @@
 
 
 <label for="email"><b>Email:</b></label>
-<input type="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" name="email" placeholder="Enter Email" value="<?php echo $email; ?>" required>
+<input type="email"  name="email" placeholder="Enter Email" value="<?php echo $email; ?>" required>
 
 <label for="psw"><b>Password:</b></label>
 <input type="password"  title="Minimum eight characters, at least one uppercase letter, one lowercase letter and one number"  placeholder="Enter Password" name="password_1" required>
@@ -97,10 +97,10 @@
 <input type="password" placeholder="Enter Password Again" name="password_2" required>
 
 	<label for="phone"><b>Primary Phone Number:</b></label>
-<input type="tel" placeholder="Phone" pattern="" name="phone" value="<?php echo $phone; ?>" required>
+<input type="text" placeholder="Phone"  name="phone" value="<?php echo $phone; ?>" required>
 
 	<label for="address"><b>Address:</label>
-<input type="text" placeholder="Enter an address" pattern="" title="Three to fifteen lowercase letters, numbers, underscores or hyphens" name="address" value="<?php echo $address; ?>" required>
+<input type="text" placeholder="Enter an address" title="Three to fifteen lowercase letters, numbers, underscores or hyphens" name="address" value="<?php echo $address; ?>" required>
 
 	
 <button type="submit" class="btn" name="reg_user">Register</button>
