@@ -34,15 +34,18 @@ nav ul.links li a{
     border-radius: 10px;
 }
 
+
 nav i{
     color: rgb(255, 0, 0);
 }
 
 nav ul.links li a:hover{
     background: #FF0000;
+
     color: white;
     transition: .5s;
 }
+
 
 img.logo {
     max-width: 88px;

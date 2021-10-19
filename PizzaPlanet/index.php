@@ -1,4 +1,6 @@
+
 <?php header('Access-Control-Allow-Origin: *'); session_start();?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,11 +25,13 @@
             <li><a href="#">About</a></li>
             <li><a href="get_menu.php">Menu</a></li>
             <li>
+
             <a href="login.php">Sign in <i class="fas fa-user-astronaut fa-5x" 
             style="margin-left:2px;font-size:18px;"></i></a>
             </li>
             <li>
             <a href="view_cart.php">Cart <i class="fas fa-shopping-cart" style="font-size: 18px" ></i></a>
+
             </li>
         </ul>
     </nav>

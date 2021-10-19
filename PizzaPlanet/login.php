@@ -1,4 +1,6 @@
+
 <?php include('mysqli_connect_Register.php');header('Access-Control-Allow-Origin: *'); header('Access-Control-Allow-Methods: *'); session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,6 +34,7 @@
             <li><a href="#">About</a></li>
             <li><a href="#">Menu</a></li>
             <li>
+
 
             <a href="login.php">Sign in  <span class="diff"><i class="fas fa-user-astronaut fa-5x"style="margin-left:2px;font-size:18px;"></i></span></a>
             </li>
