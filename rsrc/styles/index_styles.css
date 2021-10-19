@@ -35,18 +35,13 @@ nav ul.links li a{
 }
 
 
-.bs{
+nav i{
     color: rgb(255, 0, 0);
 }
 
 nav ul.links li a:hover{
     background: #FF0000;
-    color: white ;
-    transition: .5s;
-    
-}
 
-nav ul.links li a:hover .bs{
     color: white;
     transition: .5s;
 }

@@ -1,4 +1,6 @@
-<?php include('mysqli_connect_Register.php');header('Access-Control-Allow-Origin: *'); header('Access-Control-Allow-Methods: *');  ?>
+
+<?php include('mysqli_connect_Register.php');header('Access-Control-Allow-Origin: *'); header('Access-Control-Allow-Methods: *'); session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,10 +35,11 @@
             <li><a href="#">Menu</a></li>
             <li>
 
-            <a href="login.php">Sign in<i class="fas fa-user-astronaut fa-5x bs" style="margin-left:2px;font-size:18px;"></i></a>
+
+            <a href="login.php">Sign in  <span class="diff"><i class="fas fa-user-astronaut fa-5x"style="margin-left:2px;font-size:18px;"></i></span></a>
             </li>
             <li>
-            <a href="#">Cart <i class="fas fa-shopping-cart bs" style="font-size: 18px" ></i></a>
+            <a href="#">Cart <i class="fas fa-shopping-cart" style="font-size: 18px" ></i></a>
 
             </li>
         </ul>
