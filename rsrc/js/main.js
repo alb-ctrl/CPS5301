@@ -2,7 +2,7 @@ function updateCart(menu_id, quantity) {
     $.ajax({
         url: "cart.php",
         method: "POST",
-        data:{manu_id:menu_id, quantity:quantity},
+        data:{menu_id:menu_id, quantity:quantity},
         //beforeSend: function () {$('#insert').val("Inserting"); },
         success:
             function (data) {
