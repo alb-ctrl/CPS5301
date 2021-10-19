@@ -13,5 +13,6 @@ function updateCart(menu_id, quantity) {
             alert('Error - ' + errorMessage);
         }
     });
+    return false;
 }  
 
