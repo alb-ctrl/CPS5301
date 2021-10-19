@@ -27,7 +27,7 @@
             style="margin-left:2px;font-size:18px;"></i></a>
             </li>
             <li>
-            <a href="#">Cart <i class="fas fa-shopping-cart" style="font-size: 18px" ></i></a>
+            <a href="view_cart.php">Cart <i class="fas fa-shopping-cart" style="font-size: 18px" ></i></a>
             </li>
         </ul>
     </nav>
