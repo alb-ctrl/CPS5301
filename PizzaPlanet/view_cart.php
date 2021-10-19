@@ -4,7 +4,6 @@
 <head>
     <title>Cart</title>
     <link rel="stylesheet" type="text/css" href="../rsrc/styles/cart_style.css">
-    <link rel="stylesheet" type="text/css" href="../rsrc/styles/index_styles.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,900" rel="stylesheet">
 </head>
 
