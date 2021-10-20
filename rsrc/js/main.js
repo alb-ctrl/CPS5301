@@ -16,7 +16,7 @@ function updateCart(menu_id, quantity) {
     return false;
 }  
 
-function removeCart(menu_id,quantity, cart_index) {
+function removeCart(menu_id,cart_index, cart_id) {
     console.log($(this).closest('.Cart-Items').attr('id'));
     console.log(cart_index);
     $.ajax({

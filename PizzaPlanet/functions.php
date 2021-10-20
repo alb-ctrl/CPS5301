@@ -40,7 +40,7 @@ function get_cart($item_id, $quanitiy, $cart_index){
             <div class="prices">
                 <div class="amount">$<?php echo $row['cost']*$quanitiy; ?></div>
                 <!-- <div class="save"><u>Save for later</u></div> -->
-                <div class="remove"><u onclick='return removeCart(<?php echo "$item_id, $quanitiy, $cart_index$item_id"; ?>);' >Remove</u></div>
+                <div class="remove"><u onclick='return removeCart(<?php echo "$item_id, $cart_index, $cart_index$item_id"; ?>);' >Remove</u></div>
             </div>
         </div>
 
