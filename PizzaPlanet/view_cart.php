@@ -96,7 +96,7 @@ require("functions.php");
     <script type="text/javascript" src="../rsrc/js/main.js"></script>
     <script>
     var all = $(".amount").map(function() {
-        return this.innerHTML;
+        return this.innerHTML.replace('$','');;
     }).get();
     console.log(all.join());
     </script>
