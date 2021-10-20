@@ -20,11 +20,16 @@ if (isset($_POST['menu_id'])) {
 
 }
 if (isset($_POST['remove_item'])) {
+    unset($_SESSION['cart'][$_POST['cart_index']]);
+    echo "success";
+    /*
     foreach($_SESSION['cart'] as $value){
         if ($value['menu_id'] == $_POST['remove_item'] && $value['cart_index'] == $_POST['cart_index']){
+            echo "$value was unset";
             unset($_SESSION['cart'][$_POST['cart_index']]);
         }
     }
+    */
 }
 
 ?>
