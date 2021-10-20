@@ -19,11 +19,11 @@ function get_cart($item_id, $quanitiy){
         echo "didnt work";
 
     }
-    $index=0;
+
     while ($row = mysqli_fetch_array($results)) {
 ?>
 
-<div <?php if($index==0) echo "class= 'Cart-Items' "; else echo "class= 'Cart-Items pad' "; ?> >
+<div class="Cart-Items pad">
             <div class="image-box">
                 <img src="<?php echo $row['picture_path']; ?>" style= 'height:"120px"'/>
             </div>
@@ -46,7 +46,8 @@ function get_cart($item_id, $quanitiy){
 
         
 <?php
-        $index++;
+
+
     }
 
 
