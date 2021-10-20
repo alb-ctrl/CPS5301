@@ -25,7 +25,7 @@ function get_cart($item_id, $quanitiy){
 
 <div class="Cart-Items pad">
             <div class="image-box">
-                <img src="<?php echo $row['picture_path']; ?>" style= 'height:"120px"'/>
+                <img src="<?php echo $row['picture_path']; ?>" style= 'height:120px'/>
             </div>
             <div class="about">
                 <h1 class="title"><?php echo $row['name']; ?></h1>
