@@ -2,7 +2,7 @@
 session_start(); 
 
 
-function get_cart($item_id, $quanitiy){
+function get_cart($item_id, $quanitiy, $cart_index){
 
     require ("/home/bitnami/dbconfig.php");
     $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
@@ -23,7 +23,7 @@ function get_cart($item_id, $quanitiy){
     while ($row = mysqli_fetch_array($results)) {
 ?>
 
-<div class="Cart-Items pad">
+<div id="<?php echo $cart_index;?>" class="Cart-Items pad">
             <div class="image-box">
                 <img src="<?php echo $row['picture_path']; ?>" style= 'height:120px'/>
             </div>

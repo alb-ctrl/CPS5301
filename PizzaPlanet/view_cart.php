@@ -65,7 +65,7 @@ require("functions.php");
         </div>
         <?php
         foreach($_SESSION['cart'] as $value){
-            get_cart($value['menu_id'], $value['quantity']);
+            get_cart($value['menu_id'], $value['quantity'], $value['cart_index']);
         }
         ?>
         <hr>
