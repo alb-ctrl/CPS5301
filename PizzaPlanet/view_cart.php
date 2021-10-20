@@ -8,7 +8,14 @@
 </head>
 
 <body>
-<?php session_start(); ?>
+<?php 
+session_start(); 
+if (!isset($_SESSION['cart'])){
+// print empty basket 
+}
+require("functions.php");
+
+?>
     <div class="CartContainer">
         <div class="Header">
             <h3 class="Heading">Shopping Cart</h3>
@@ -56,6 +63,11 @@
                 <div class="remove"><u>Remove</u></div>
             </div>
         </div>
+        <?php
+        foreach($_SESSION['cart'] as $value){
+            get_cart($value['menu_id'], $value['quantity']);
+        }
+        ?>
         <hr>
         <div class="checkout">
             <div class="total">
