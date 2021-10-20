@@ -23,7 +23,7 @@ function get_cart($item_id, $quanitiy, $cart_index){
     while ($row = mysqli_fetch_array($results)) {
 ?>
 
-<div id="<?php echo $cart_index;?>" class="Cart-Items pad">
+<div id="<?php echo "$cart_index$item_id";?>" class="Cart-Items pad">
             <div class="image-box">
                 <img src="<?php echo $row['picture_path']; ?>" style= 'height:120px'/>
             </div>
