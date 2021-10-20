@@ -30,7 +30,7 @@ function get_cart($item_id, $quanitiy){
             <div class="about">
                 <h1 class="title"><?php echo $row['name']; ?></h1>
                 <h3 class="subtitle"><?php echo $row['tags']; ?></h3>
-              <!--  <img src="images/veg.png" style='height:"30px" ' /> -->
+            <!--  <img src="images/veg.png" style='height:"30px" ' /> -->
             </div>
             <div class="counter">
                 <div class="btn">+</div>
@@ -39,7 +39,7 @@ function get_cart($item_id, $quanitiy){
             </div>
             <div class="prices">
                 <div class="amount">$<?php echo $row['cost']*$quanitiy; ?></div>
-                <div class="save"><u>Save for later</u></div>
+                <!-- <div class="save"><u>Save for later</u></div> -->
                 <div class="remove"><u>Remove</u></div>
             </div>
         </div>

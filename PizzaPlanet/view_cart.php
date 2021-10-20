@@ -96,12 +96,14 @@ require("functions.php");
     <script type="text/javascript" src="../rsrc/js/main.js"></script>
     <script>
     var all = $(".amount").map(function() {
-        return this.innerHTML.replace('$','');;
+        return this.innerHTML.replace('$', '');;
     }).get();
-   var sum = 0;
-$.each(all,function(){sum+=parseFloat(this) || 0;});
-$("#number_items_cart").html(all.length+" items");
-$("#total_amount_cart").html("$"+sum);
+    var sum = 0;
+    $.each(all, function() {
+        sum += parseFloat(this) || 0;
+    });
+    $("#number_items_cart").html(all.length + " items");
+    $("#total_amount_cart").html("$" + sum);
     console.log(all);
     console.log(sum);
     </script>
