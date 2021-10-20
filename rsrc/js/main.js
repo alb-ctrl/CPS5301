@@ -16,11 +16,12 @@ function updateCart(menu_id, quantity) {
     return false;
 }  
 
-function removeCart(menu_id, quantity) {
+function removeCart(menu_id,quantity, cart_index) {
+    console.log($(this).closest('.Cart-Items').attr('id'));
     $.ajax({
         url: "cart.php",
         method: "POST",
-        data:{remove_item:menu_id, quantity:quantity},
+        data:{remove_item:menu_id, cart_index:cart_index},
         //beforeSend: function () {$('#insert').val("Inserting"); },
         success:
             function (data) {
