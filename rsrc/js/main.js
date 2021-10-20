@@ -27,7 +27,8 @@ function removeCart(menu_id,cart_index, cart_id) {
         success:
             function (data) {
                 console.log(data);
-                $("#"+cart_id).remove();
+                location.reload();
+                //$("#"+cart_id).remove();
             },
         error: function (xhr, status, error) {
             var errorMessage = xhr.status + ': ' + xhr.statusText
