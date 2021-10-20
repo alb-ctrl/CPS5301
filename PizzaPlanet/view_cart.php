@@ -98,7 +98,10 @@ require("functions.php");
     var all = $(".amount").map(function() {
         return this.innerHTML.replace('$','');;
     }).get();
-    console.log(all.join());
+   var sum = 0;
+$.each(all,function(){sum+=parseFloat(this) || 0;});
+    console.log(all);
+    console.log(sum);
     </script>
 </body>
 
