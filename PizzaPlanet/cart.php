@@ -22,7 +22,7 @@ if (isset($_POST['menu_id'])) {
 if (isset($_POST['remove_item'])) {
     foreach($_SESSION['cart'] as $value){
         if ($value['menu_id'] == $_POST['remove_item'] && $value['cart_index'] == $_POST['cart_index']){
-            unset($_SESSION['cart'][$menu_id]);
+            unset($_SESSION['cart'][$_POST['cart_index']]);
         }
     }
 }

@@ -18,6 +18,7 @@ function updateCart(menu_id, quantity) {
 
 function removeCart(menu_id,quantity, cart_index) {
     console.log($(this).closest('.Cart-Items').attr('id'));
+    console.log(cart_index);
     $.ajax({
         url: "cart.php",
         method: "POST",
