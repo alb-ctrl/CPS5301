@@ -27,8 +27,9 @@ function removeCart(menu_id,cart_index, cart_id) {
         success:
             function (data) {
                 console.log(data);
-                location.reload();
-                //$("#"+cart_id).remove();
+                //location.reload();
+                $("#"+cart_id).remove();
+                sub_total();
             },
         error: function (xhr, status, error) {
             var errorMessage = xhr.status + ': ' + xhr.statusText
@@ -37,3 +38,17 @@ function removeCart(menu_id,cart_index, cart_id) {
     });
     return false;
 }  
+
+function sub_total(){
+    var all = $(".amount").map(function() {
+        return this.innerHTML.replace('$', '');;
+    }).get();
+    var sum = 0;
+    $.each(all, function() {
+        sum += parseFloat(this) || 0;
+    });
+    $("#number_items_cart").html(all.length + " items");
+    $("#total_amount_cart").html("$" + sum);
+    console.log(all);
+    console.log(sum);
+}
