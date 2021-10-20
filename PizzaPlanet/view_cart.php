@@ -73,7 +73,7 @@ require("functions.php");
             <div class="total">
                 <div>
                     <div class="Subtotal">Sub-Total</div>
-                    <div class="items">2 items</div>
+                    <div id="number_items_cart" class="items">2 items</div>
                 </div>
                 <div id="total_amount_cart" class="total-amount">$6.18</div>
             </div>
@@ -100,6 +100,7 @@ require("functions.php");
     }).get();
    var sum = 0;
 $.each(all,function(){sum+=parseFloat(this) || 0;});
+$("#numbers_items_cart").html(all.length+" items");
 $("#total_amount_cart").html("$"+sum);
     console.log(all);
     console.log(sum);
