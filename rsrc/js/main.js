@@ -17,7 +17,7 @@ function updateCart(menu_id, quantity) {
 }  
 
 function removeCart(menu_id,cart_index, cart_id) {
-    console.log($(this).closest('.Cart-Items').attr('id'));
+    console.log($(this).closest('div .Cart-Items').attr('id'));
     console.log(cart_index);
     $.ajax({
         url: "cart.php",
@@ -27,6 +27,7 @@ function removeCart(menu_id,cart_index, cart_id) {
         success:
             function (data) {
                 console.log(data);
+                $("#"+cart_id).remove();
             },
         error: function (xhr, status, error) {
             var errorMessage = xhr.status + ': ' + xhr.statusText
