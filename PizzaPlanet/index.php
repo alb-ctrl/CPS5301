@@ -25,10 +25,36 @@
             <li><a href="#">About</a></li>
             <li><a href="get_menu.php">Menu</a></li>
             <li>
+<?php
+if(empty($_SESSION['username'])){
 
-            <a href="login.php">Sign in <i class="fas fa-user-astronaut fa-5x" 
+
+?>
+
+                <a href="login.php">Sign in <i class="fas fa-user-astronaut fa-5x" 
             style="margin-left:2px;font-size:18px;"></i></a>
             </li>
+
+<?php
+}
+
+ else{
+?>
+
+                <a href="login.php">
+                    <?php
+                    echo$_SESSION['username'];
+                    ?>
+                    <i class="fas fa-user-astronaut fa-5x" 
+            style="margin-left:2px;font-size:18px;"></i></a>
+            </li>
+
+
+
+<?php            
+}
+?>
+
             <li>
             <a href="view_cart.php">Cart <i class="fas fa-shopping-cart" style="font-size: 18px" ></i></a>
 

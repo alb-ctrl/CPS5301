@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 // initializing variables
 $username = "";
@@ -11,6 +11,7 @@ $phone = "";
 $address = "";
 $errors = array(); 
 
+session_start();
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
@@ -109,17 +110,11 @@ if (isset($_POST['login_user'])) {
   	$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
   	$results = mysqli_query($db, $query);
   	if (mysqli_num_rows($results) == 1) {
-      if(strcmp($username,"admin") == 0 && strcmp($password,md5("admin")) == 0){
-        $_SESSION['username'] = $username;
-        $_SESSION['password'] = $password;
-        header('location: admin_dashboard.php');
-      }
-      else{
         $_SESSION['username'] = $username;
         $_SESSION['password'] = $password;
         header('location: index.php');
 
-      }
+      
   	}
     else {
   		array_push($errors, "Wrong username/password combination");

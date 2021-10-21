@@ -5,7 +5,6 @@
     <title>Cart</title>
     <link rel="stylesheet" type="text/css" href="../rsrc/styles/cart_style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,900" rel="stylesheet">
-
 </head>
 
 <body>
@@ -17,7 +16,6 @@ if (!isset($_SESSION['cart'])){
 require("functions.php");
 
 ?>
-
     <div class="CartContainer">
         <div class="Header">
             <h3 class="Heading">Shopping Cart</h3>
@@ -26,9 +24,7 @@ require("functions.php");
 
         <div class="Cart-Items">
             <div class="image-box">
-
                 <img src="images/apple.png" style='height:"120px"' />
-
             </div>
             <div class="about">
                 <h1 class="title">Apple Juice</h1>
@@ -49,9 +45,7 @@ require("functions.php");
 
         <div class="Cart-Items pad">
             <div class="image-box">
-
                 <img src="images/grapes.png" style='height:"120px"' />
-
             </div>
             <div class="about">
                 <h1 class="title">Grapes Juice</h1>
@@ -69,28 +63,23 @@ require("functions.php");
                 <div class="remove"><u>Remove</u></div>
             </div>
         </div>
-
         <?php
         foreach($_SESSION['cart'] as $value){
             get_cart($value['menu_id'], $value['quantity'], $value['cart_index']);
         }
         ?>
-
         <hr>
         <div class="checkout">
             <div class="total">
                 <div>
                     <div class="Subtotal">Sub-Total</div>
-
                     <div id="number_items_cart" class="items">2 items</div>
                 </div>
                 <div id="total_amount_cart" class="total-amount">$6.18</div>
-
             </div>
             <button class="button">Checkout</button>
         </div>
     </div>
-
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -113,7 +102,6 @@ require("functions.php");
 });
     
     </script>
-
 </body>
 
 </html>
