@@ -49,11 +49,6 @@ function increase_quantity(menu_id,cart_index, cart_id){
         url: "cart.php",
         method: "POST",
         data:{increase_quantity:menu_id, cart_index:cart_index},
-        beforeSend: function () {
-            var message = new Notification("RandomString");
-            
-            message.onclick = function(){alert("Succesfully increased to cart")}; 
-        },
         success:
             function (data) {
                 console.log(data);
