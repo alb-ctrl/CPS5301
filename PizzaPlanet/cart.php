@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 // https://stackoverflow.com/questions/21652702/multidimensional-array-in-php-session
 if (!isset($_SESSION['cart'])){
     $_SESSION['cart'] = array();
@@ -57,5 +58,6 @@ if (isset($_POST['decrease_quantity'])) {
         
     }
 }
+
 
 ?>

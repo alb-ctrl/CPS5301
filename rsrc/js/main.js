@@ -16,6 +16,7 @@ function updateCart(menu_id, quantity) {
     return false;
 }  
 
+
 function removeCart(menu_id,cart_index, cart_id) {
     console.log($(this).closest('div .Cart-Items').attr('id'));
     console.log(cart_index);
@@ -108,3 +109,4 @@ function sub_total(){
     console.log(all);
     console.log(sum);
 }
+
