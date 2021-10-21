@@ -56,6 +56,9 @@ function increase_quantity(menu_id,cart_index, cart_id){
                 $("#"+cart_id+" .count" ).text(function(i, t) {
                     return Number(t) + 1;
                 });
+                $("#"+cart_id+" .amount" ).text(function(i, t) {
+                    return Number(t) + 1;
+                });
                 //location.reload();
                 sub_total();
             },
