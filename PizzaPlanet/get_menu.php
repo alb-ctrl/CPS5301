@@ -74,6 +74,9 @@
         echo "didnt work";
 
     }
+    ?>
+    <div class="cont">
+    <?php
     while ($row = mysqli_fetch_array($results)) {
     ?>
     <!-- <div class="card" style="width: 18rem;">
@@ -84,7 +87,7 @@
                 onclick="return updateCart(<?php echo $row['menu_id']; ?>,1);">Add to cart</a>
         </div>
     </div> -->
-    <div class="cont">
+    
         <div class="item">
         <img class="card-img-top" src="<?php echo $row['picture_path']; ?>" alt="Card image cap">
         <div class="card-body">
@@ -94,11 +97,11 @@
                 onclick="return updateCart(<?php echo $row['menu_id']; ?>,1);">Add to cart</a></button>
         </div>
         </div>
-    </div>
+    
     <?php
     }
     ?>
-
+    </div>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
