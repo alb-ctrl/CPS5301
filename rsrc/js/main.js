@@ -52,6 +52,10 @@ function increase_quantity(menu_id,cart_index, cart_id){
         success:
             function (data) {
                 console.log(data);
+                //$("#"+cart_id+" .count" ).html();
+                $("#"+cart_id+" .count" ).text(function(i, t) {
+                    return Number(t) + 1;
+                });
                 //location.reload();
                 sub_total();
             },
