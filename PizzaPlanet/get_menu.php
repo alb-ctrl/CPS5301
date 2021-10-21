@@ -90,8 +90,8 @@
         <div class="card-body">
             <h5 class="card-title"><?php echo $row['name']; ?></h5>
             <p class="card-text"><?php echo $row['description']; ?></p>
-            <a href="#" id="<?php echo $row['menu_id']; ?>" class="btn btn-primary"
-                onclick="return updateCart(<?php echo $row['menu_id']; ?>,1);">Add to cart</a>
+            <button><a href="#" id="<?php echo $row['menu_id']; ?>" class="btn btn-primary"
+                onclick="return updateCart(<?php echo $row['menu_id']; ?>,1);">Add to cart</a></button>
         </div>
         </div>
     </div>
