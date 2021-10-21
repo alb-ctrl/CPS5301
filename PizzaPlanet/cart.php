@@ -4,6 +4,7 @@ session_start();
 if (!isset($_SESSION['cart'])){
     $_SESSION['cart'] = array();
 }
+//check cart here
 
 if (isset($_POST['menu_id'])) {
     $item_id = $_POST['menu_id'];
