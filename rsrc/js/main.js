@@ -80,7 +80,7 @@ function decrease_quantity(menu_id,cart_index, cart_id){
                 console.log(data);
                 //$("#"+cart_id+" .count" ).html();
                 $("#"+cart_id+" .count" ).text(function(i, t) {
-                    return Number(t) + 1;
+                    return Number(t) - 1;
                 });
                 
                 location.reload();
