@@ -23,7 +23,10 @@ function removeCart(menu_id,cart_index, cart_id) {
         url: "cart.php",
         method: "POST",
         data:{remove_item:menu_id, cart_index:cart_index},
-        //beforeSend: function () {$('#insert').val("Inserting"); },
+        beforeSend: function () {
+            var message = new Notification("RandomString");
+            message.onclick = function(){alert("Succesfully added to cart")}; 
+        },
         success:
             function (data) {
                 console.log(data);
