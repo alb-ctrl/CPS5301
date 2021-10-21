@@ -35,7 +35,7 @@ function get_cart($item_id, $quanitiy, $cart_index){
             <div class="counter">
                 <div class="btn" onclick='return increase_quantity(<?php echo "$item_id, $cart_index, $cart_index$item_id"; ?>);'>+</div>
                 <div class="count"><?php echo $quanitiy; ?></div>
-                <div class="btn">-</div>
+                <div class="btn" onclick='return decrease_quantity(<?php echo "$item_id, $cart_index, $cart_index$item_id"; ?>);'>-</div>
             </div>
             <div class="prices">
                 <div class="amount">$<?php echo $row['cost']*$quanitiy; ?></div>

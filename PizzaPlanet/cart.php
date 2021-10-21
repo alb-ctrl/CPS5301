@@ -44,4 +44,18 @@ if (isset($_POST['increase_quantity'])) {
     }
 }
 
+if (isset($_POST['decrease_quantity'])) {
+    foreach($_SESSION['cart'] as &$value){
+        if ($value['cart_index'] == $_POST['cart_index']){
+            echo "old quantity ". $value['quantity'];
+            if ($value['quantity'] == 1)
+                unset($_SESSION['cart'][$_POST['cart_index']]);
+            else
+                $value['quantity']-=1;
+            print_r($value);
+        }
+        
+    }
+}
+
 ?>
