@@ -36,6 +36,27 @@
             </li>
         </ul>
     </nav>
+
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../rsrc/imgs/menu/pizza_Cheese.png.jpeg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Big pizza</h5>
+            <p class="card-text">idk</p>
+            <a href="#" id="1" class="btn btn-primary"
+                onclick="return updateCart(1,1);">Add to cart</a>
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../rsrc/imgs/menu/pizza_Supreme.png.jpeg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Small pizza</h5>
+            <p class="card-text">I still dk</p>
+            <a href="#" id="2" class="btn btn-primary"
+                onclick="return updateCart(2,1);">Add to cart</a>
+        </div>
+    </div>
+
     <?php
     session_start();
     require("/home/bitnami/dbconfig.php");
