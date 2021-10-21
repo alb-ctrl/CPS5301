@@ -33,7 +33,7 @@ function get_cart($item_id, $quanitiy, $cart_index){
             <!--  <img src="images/veg.png" style='height:"30px" ' /> -->
             </div>
             <div class="counter">
-                <div class="btn">+</div>
+                <div class="btn" onclick='return increase_quantity(<?php echo "$item_id, $cart_index, $cart_index$item_id"; ?>);'>+</div>
                 <div class="count"><?php echo $quanitiy; ?></div>
                 <div class="btn">-</div>
             </div>
