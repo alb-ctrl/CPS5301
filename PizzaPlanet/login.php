@@ -32,7 +32,7 @@
         <ul class = "links">
             <li><a href="index.php">Home</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="#">Menu</a></li>
+            <li><a href="get_menu.php">Menu</a></li>
             <li>
 
 
