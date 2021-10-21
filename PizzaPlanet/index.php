@@ -18,7 +18,7 @@
             <i class="fas fa-bars" color="red"></i>
         </label>
             <label href="#">
-                <a href="#"><img src="../rsrc/imgs/pizza.png" alt="logo" class="logo"></a>
+                <a href="index.php"><img src="../rsrc/imgs/pizza.png" alt="logo" class="logo"></a>
             </label>
         <ul class = "links">
             <li><a href="index.php">Home</a></li>
@@ -39,7 +39,7 @@
         <img id = "ftr" src="../rsrc/imgs/top2.jpg" alt="featured-pizza">
         <div id = "ftrbl">
             <p>
-                Stuffed Crust Deep Dish <a href="#">Order now !</a>
+                Stuffed Crust Deep Dish <a href="get_menu.php">Order now !</a>
             </p> 
         </div>
     </div>

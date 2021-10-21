@@ -92,7 +92,9 @@
 <input type="email"  name="email" placeholder="Enter Email" value="<?php echo $email; ?>" required>
 
 <label for="psw"><b>Password:</b></label>
-<input type="password"  title="Minimum eight characters, at least one uppercase letter, one lowercase letter and one number"  placeholder="Enter Password" name="password_1" required>
+
+<input type="password"  minlength="4" maxlength="20" title="Minimum four characters, at least one uppercase letter, one lowercase letter and one number"  placeholder="Enter Password" name="password_1" required>
+
 
 
 <label for="psw"><b>Confirm Password:</b></label>
@@ -100,7 +102,9 @@
 
 	<label for="phone"><b>Primary Phone Number:</b></label>
 
-<input type="text" placeholder="Phone"  name="phone" value="<?php echo $phone; ?>" required>
+
+<input type="text" placeholder="123-467-8901" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="phone" value="<?php echo $phone; ?>" required>
+
 
 	<label for="address"><b>Address:</label>
 <input type="text" placeholder="Enter an address" title="Three to fifteen lowercase letters, numbers, underscores or hyphens" name="address" value="<?php echo $address; ?>" required>

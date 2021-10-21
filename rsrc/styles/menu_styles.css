@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.item{
+    border: solid 1px;
+    border-color: rgb(201, 201, 201);
+    display: inline-block;
+    padding-left: 20px;
+    margin-left: 10px;
+    width:60vh;
+    padding-bottom: 10px;
+}
+
+h5{
+    padding: 10px;
+    font-size: 16px;
+}
+
+button {
+    border-radius: 5px;
+    background: rgb(255, 0, 0);
+    width: 80%;
+    border-radius: 5px;
+    padding: 3px 13px;
+    border: solid 1px;
+    border-style: hidden;
+}
+
+button:hover{
+    background: #da0000;
+}
+
+button a{
+    color: white;
+}
+
+div.cont{
+    margin-left: 10%;
+    padding-top: 30px;
+}

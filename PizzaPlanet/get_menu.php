@@ -1,17 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous">
-    </script>
+<title>Menu</title>
+<link rel="stylesheet" href="../rsrc/styles/index_styles.css">
+<link rel="stylesheet" href="../rsrc/styles/menu_styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 
+<!-- Bootstrap Scripts -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
-
 <body>
+<nav>
+        <input id="check" type="checkbox">
+        <label for="check" class="checkbtn">
+
+            <i class="fas fa-bars" color="red"></i>
+
+        </label>
+            <label href="#">
+                <a href="index.php"><img src="../rsrc/imgs/pizza.png" alt="logo" class="logo"></a>
+            </label>
+        <ul class = "links">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Menu</a></li>
+            <li>
+
+
+            <a href="login.php">Sign in  <span class="diff"><i class="fas fa-user-astronaut fa-5x"style="margin-left:2px;font-size:18px;"></i></span></a>
+            </li>
+            <li>
+            <a href="view_cart.php">Cart <i class="fas fa-shopping-cart" style="font-size: 18px" ></i></a>
+
+            </li>
+        </ul>
+    </nav>
+    <div class="cont">
+        <div class="item">
+            <img class="card-img-top" src="../rsrc/imgs/menu/pizza_Cheese.png.jpeg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Cheese Pizza</h5>
+            <button><a href="#" id="1" class="btn btn-primary"
+                onclick="return updateCart(1,1);">Add to cart</a></button>
+        </div>
+        </div>
+        <div class="item">
+            <img class="card-img-top" src="../rsrc/imgs/menu/pizza_Supreme.png.jpeg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Veggie pizza</h5>
+                <button><a href="#" id="2" class="btn btn-primary"
+                    onclick="return updateCart(2,1);">Add to cart</a></button>
+            </div>
+        </div>
+    </div>
+        
+
+<!-- server side images -->
+
     <?php
     session_start();
     require("/home/bitnami/dbconfig.php");
@@ -28,22 +75,38 @@
         echo "didnt work";
 
     }
+
+  
+    ?>
+    <div class="cont">
+    <?php
     while ($row = mysqli_fetch_array($results)) {
     ?>
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="<?php echo $row['picture_path']; ?>" alt="Card image cap">
+    <!-- <div class="card" style="width: 18rem;">
+
         <div class="card-body">
             <h5 class="card-title"><?php echo $row['name']; ?></h5>
             <p class="card-text"><?php echo $row['description']; ?></p>
             <a href="#" id="<?php echo $row['menu_id']; ?>" class="btn btn-primary"
                 onclick="return updateCart(<?php echo $row['menu_id']; ?>,1);">Add to cart</a>
         </div>
-    </div>
 
+    </div> -->
+    
+        <div class="item">
+        <img class="card-img-top" src="<?php echo $row['picture_path']; ?>" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title"><?php echo $row['name']; ?></h5>
+            <p class="card-text"><?php echo $row['description']; ?></p>
+            <button><a href="#" id="<?php echo $row['menu_id']; ?>" class="btn btn-primary"
+                onclick="return updateCart(<?php echo $row['menu_id']; ?>,1);">Add to cart</a></button>
+        </div>
+        </div>
+    
     <?php
     }
-
     ?>
+    </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
