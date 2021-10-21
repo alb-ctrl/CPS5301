@@ -27,7 +27,7 @@
 
         </label>
             <label href="#">
-                <a href="#"><img src="../rsrc/imgs/pizza.png" alt="logo" class="logo"></a>
+                <a href="index.php"><img src="../rsrc/imgs/pizza.png" alt="logo" class="logo"></a>
             </label>
         <ul class = "links">
             <li><a href="index.php">Home</a></li>
