@@ -92,7 +92,7 @@
 <input type="email"  name="email" placeholder="Enter Email" value="<?php echo $email; ?>" required>
 
 <label for="psw"><b>Password:</b></label>
-<input type="password"  title="Minimum eight characters, at least one uppercase letter, one lowercase letter and one number"  placeholder="Enter Password" name="password_1" required>
+<input type="password"  minlength="4" maxlength="20" title="Minimum four characters, at least one uppercase letter, one lowercase letter and one number"  placeholder="Enter Password" name="password_1" required>
 
 
 <label for="psw"><b>Confirm Password:</b></label>
