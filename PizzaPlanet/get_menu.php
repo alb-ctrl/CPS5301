@@ -19,7 +19,7 @@
 
         </label>
             <label href="#">
-                <a href="#"><img src="../rsrc/imgs/pizza.png" alt="logo" class="logo"></a>
+                <a href="index.php"><img src="../rsrc/imgs/pizza.png" alt="logo" class="logo"></a>
             </label>
         <ul class = "links">
             <li><a href="index.php">Home</a></li>
@@ -48,7 +48,7 @@
         <div class="item">
             <img class="card-img-top" src="../rsrc/imgs/menu/pizza_Supreme.png.jpeg" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Small pizza</h5>
+                <h5 class="card-title">Veggie pizza</h5>
                 <button><a href="#" id="2" class="btn btn-primary"
                     onclick="return updateCart(2,1);">Add to cart</a></button>
             </div>
@@ -76,7 +76,16 @@
     }
     while ($row = mysqli_fetch_array($results)) {
     ?>
-    <div class="card" style="width: 18rem;">
+    <!-- <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title"><?php echo $row['name']; ?></h5>
+            <p class="card-text"><?php echo $row['description']; ?></p>
+            <a href="#" id="<?php echo $row['menu_id']; ?>" class="btn btn-primary"
+                onclick="return updateCart(<?php echo $row['menu_id']; ?>,1);">Add to cart</a>
+        </div>
+    </div> -->
+    <div class="cont">
+        <div class="item">
         <img class="card-img-top" src="<?php echo $row['picture_path']; ?>" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title"><?php echo $row['name']; ?></h5>
@@ -84,8 +93,9 @@
             <a href="#" id="<?php echo $row['menu_id']; ?>" class="btn btn-primary"
                 onclick="return updateCart(<?php echo $row['menu_id']; ?>,1);">Add to cart</a>
         </div>
+        </div>
     </div>
-
+    
     <?php
     }
 
