@@ -100,7 +100,7 @@
 
 	<label for="phone"><b>Primary Phone Number:</b></label>
 
-<input type="tel" placeholder="Phone"  name="phone" value="<?php echo $phone; ?>" required>
+<input type="tel" placeholder="123-4567-8901" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="phone" value="<?php echo $phone; ?>" required>
 
 	<label for="address"><b>Address:</label>
 <input type="text" placeholder="Enter an address" title="Three to fifteen lowercase letters, numbers, underscores or hyphens" name="address" value="<?php echo $address; ?>" required>
