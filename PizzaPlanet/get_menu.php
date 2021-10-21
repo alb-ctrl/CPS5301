@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <title>Menu</title>
-<link rel="stylesheet" type="text/css" href="../rsrc/styles/login_style.css">
+
 <link rel="stylesheet" href="../rsrc/styles/index_styles.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 
@@ -56,6 +56,8 @@
                 onclick="return updateCart(2,1);">Add to cart</a>
         </div>
     </div>
+
+<!-- server side images -->
 
     <?php
     session_start();
