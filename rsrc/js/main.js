@@ -43,6 +43,32 @@ function removeCart(menu_id,cart_index, cart_id) {
     return false;
 }  
 
+function increase_quantity(menu_id,cart_index, cart_id){
+
+    $.ajax({
+        url: "cart.php",
+        method: "POST",
+        data:{increase_quantity:menu_id, cart_index:cart_index},
+        beforeSend: function () {
+            var message = new Notification("RandomString");
+            
+            message.onclick = function(){alert("Succesfully increased to cart")}; 
+        },
+        success:
+            function (data) {
+                console.log(data);
+                //location.reload();
+                sub_total();
+            },
+        error: function (xhr, status, error) {
+            var errorMessage = xhr.status + ': ' + xhr.statusText
+            alert('Error - ' + errorMessage);
+        }
+    });
+    return false;
+
+}
+
 function sub_total(){
     var all = $(".amount").map(function() {
         return this.innerHTML.replace('$', '');;
