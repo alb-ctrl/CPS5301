@@ -50,7 +50,7 @@ if (isset($_POST['decrease_quantity'])) {
             if ($value['quantity'] == 1)
                 unset($_SESSION['cart'][$_POST['cart_index']]);
             else
-                $value['quantity']+=1;
+                $value['quantity']-=1;
             print_r($value);
         }
         
