@@ -25,6 +25,7 @@ function removeCart(menu_id,cart_index, cart_id) {
         data:{remove_item:menu_id, cart_index:cart_index},
         beforeSend: function () {
             var message = new Notification("RandomString");
+            
             message.onclick = function(){alert("Succesfully added to cart")}; 
         },
         success:
