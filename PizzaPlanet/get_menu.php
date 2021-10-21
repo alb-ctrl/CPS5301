@@ -95,10 +95,8 @@
         </div>
         </div>
     </div>
-    
     <?php
     }
-
     ?>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
