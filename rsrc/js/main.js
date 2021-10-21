@@ -69,6 +69,32 @@ function increase_quantity(menu_id,cart_index, cart_id){
 
 }
 
+function decrease_quantity(menu_id,cart_index, cart_id){
+
+    $.ajax({
+        url: "cart.php",
+        method: "POST",
+        data:{decrease_quantity:menu_id, cart_index:cart_index},
+        success:
+            function (data) {
+                console.log(data);
+                //$("#"+cart_id+" .count" ).html();
+                $("#"+cart_id+" .count" ).text(function(i, t) {
+                    return Number(t) - 1;
+                });
+                
+                location.reload();
+                //sub_total();
+            },
+        error: function (xhr, status, error) {
+            var errorMessage = xhr.status + ': ' + xhr.statusText
+            alert('Error - ' + errorMessage);
+        }
+    });
+    return false;
+
+}
+
 function sub_total(){
     var all = $(".amount").map(function() {
         return this.innerHTML.replace('$', '');;
