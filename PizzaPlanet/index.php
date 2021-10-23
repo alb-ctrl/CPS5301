@@ -48,7 +48,7 @@ else{
                     <i class="fas fa-user-astronaut fa-5x" 
             style="margin-left:2px;font-size:18px;"></i></a>
             <ul class="drop">
-                    <li><a href="#">Sign out</a></li>
+                    <li><a href="logout.php">Sign out</a></li>
                     <li><a href="#">My profile</a></li>
                 </ul>
         </li>
