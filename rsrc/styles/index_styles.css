@@ -25,6 +25,7 @@ nav ul.links li{
     display: inline-block;
     line-height: 90px;
     margin:0 5px;
+    position: relative;
 }
 
 nav ul.links li a{
