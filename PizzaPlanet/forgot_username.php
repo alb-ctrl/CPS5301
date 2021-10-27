@@ -35,25 +35,34 @@
 
     function sendEmail($username, $email)
     {
-        $body = "Your PizzaPlanet username is ".$username."<br>";
-        $output = shell_exec('curl -X POST \
-        \'https://api.nylas.com/send\' \
-        -H \'Authorization: Bearer n9W8GxAT6wkdF2CAYu5ZFOnM9QUXkM\' \
-        -H \'Content-Type: application/json\' \
-        -H \'cache-control: no-cache\' \
-        --data-raw \'{
-            "subject": "From Nylas",
+        $emailBody = "Your PizzaPlanet username is ".$username."<br>";
+
+        $body = '{
+            "subject": "From Pizza Planet",
             "to": [
-                {
-                    "email": '$email',
-                    "name": "Customer"
-                }],
+            {
+                "email": "'.$email.'",
+                "name": "padat30258 "
+            }
+            ],
             "from": [
-                {
-                    "email": "ragothaa@kean.edu",
-                    "name": "PizzaPlanet"
-                }],
-            "body": '$body'
-        }\'');
+            {
+                "email": "developing5301@gmail.com",
+                "name": "Pizza Planet"
+            }
+            ],
+            "body": "'.$emailBody.'"
+        }';
+        
+        
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_URL, 'https://api.nylas.com/send');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Authorization: Bearer n9W8GxAT6wkdF2CAYu5ZFOnM9QUXkM','cache-control: no-cache' ));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        // Fire!
+        //$result = htmlspecialchars_decode(curl_exec($ch));
+        $result = curl_exec($ch);
     }
 ?>
