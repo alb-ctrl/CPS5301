@@ -59,7 +59,7 @@ if (isset($_POST['decrease_quantity'])) {
 
 if (isset($_POST['pre_checkout'])){
     if (isset($_SESSION['username'])){
-        header('location: checkout.php', TRUE, 301);
+        header("HTTP/1.1 301 is Logged in");
         die();
     }
     echo "show d-block";
