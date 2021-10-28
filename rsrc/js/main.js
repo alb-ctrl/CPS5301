@@ -10,7 +10,7 @@ function updateCart(menu_id, quantity) {
                 var cartTotal = cart.attr('data-totalitems');
                 console.log("car total: "+cartTotal);
                 var newCartTotal = parseInt(cartTotal) + 1;
-                cart.addClass('shake').attr('data-totalitems', newCartTotal);
+                cart.attr('data-totalitems', newCartTotal);
                 console.log(data);
             },
         error: function (xhr, status, error) {
