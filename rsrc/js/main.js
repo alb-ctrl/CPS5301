@@ -115,3 +115,24 @@ function sub_total() {
     console.log(sum);
 }
 
+function cart_checkout(){
+
+    $.ajax({
+        url: "cart.php",
+        method: "POST",
+        data: { pre_checkout: 0 },
+        success:
+            function (data) {
+                console.log(data);
+                //$("#"+cart_id+" .count" ).html();
+                $("#guest_checkout").addClass(data);
+                //sub_total();
+            },
+        error: function (xhr, status, error) {
+            var errorMessage = xhr.status + ': ' + xhr.statusText
+            alert('Error - ' + errorMessage);
+        }
+    });
+    return false;
+
+}

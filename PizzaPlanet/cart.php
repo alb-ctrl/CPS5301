@@ -57,4 +57,13 @@ if (isset($_POST['decrease_quantity'])) {
     }
 }
 
+if (isset($_POST['pre_checkout'])){
+    if (isset($_SESSION['username'])){
+        header('location: checkout.php');
+        die();
+    }
+    echo "show d-block";
+
+}
+
 ?>

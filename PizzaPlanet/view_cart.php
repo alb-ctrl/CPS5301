@@ -38,7 +38,7 @@ require("functions.php");
                 </div>
                 <div id="total_amount_cart" class="total-amount">$6.18</div>
             </div>
-            <button class="button">Checkout</button>
+            <button  onclick="return cart_checkout();" id="cart_checkout" class="button">Checkout</button>
         </div>
     </div>
 
@@ -66,7 +66,7 @@ require("functions.php");
 
 </html>
 
-<div class="modal fade in" tabindex="-1" role="dialog">
+<div id="guest_checkout" class="modal fade " tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
