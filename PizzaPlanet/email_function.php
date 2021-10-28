@@ -18,10 +18,10 @@
                                 "<input type='submit' name='submit'>".
                             "</form><br>";
         }
-        else if($reason == 'confirm registration')//need to work on this
+        /*else if($reason == 'confirm registration')//need to work on this
         {
             $emailBody = "<a href='verify_registration.php'>Click this link to verify your registration with Pizza Planet</a><br>"
-        }
+        }*/
 
         $body = '{
             "subject": "From Pizza Planet",
@@ -51,6 +51,6 @@
         //$result = htmlspecialchars_decode(curl_exec($ch));
         $result = curl_exec($ch);
         
-        echo("<h3>An email has been sent to ".$email."</h3><br>");
+        echo("An email has been sent to ".$email."<br>Account recovery should be ready in an hour");
     }
 ?>
