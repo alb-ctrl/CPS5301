@@ -64,6 +64,6 @@
         // Fire!
         //$result = htmlspecialchars_decode(curl_exec($ch));
         $result = curl_exec($ch);
-        print_r($result);
+        //print_r($result);
     }
 ?>
