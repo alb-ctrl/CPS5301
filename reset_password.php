@@ -20,22 +20,18 @@
                     <h1 class="email">Reset Password</h1>
                     <h4>Please type in your new password below</h4>
                 </div>
-                <form action="" method="post" class="card mt-4">
+                <form action="PizzaPlanet/change_password.php" method="post" class="card mt-4">
                     <div class="card-body">
-                        <div class="form-group"><label>New Password</label> <input class="form-control"
-                                id="email-for-pass" type="password" name="password"
-                                placeholder="Enter Your New Password" required></div>
-                        <div class="form-group"><label>Retype New Password</label> <input class="form-control"
-                                id="email-for-pass" type="password" name="password_2" placeholder="Re-Enter Password"
-                                required></div>
+                        <div class="form-group"><label>New Password</label> 
+                            <input class="form-control" id="email-for-pass" type="password" name="password" placeholder="Enter Your New Password" required></div>
+                        <div class="form-group"><label>Retype New Password</label> 
+							<input class="form-control" id="email-for-pass" type="password" name="password_2" placeholder="Re-Enter Password" required></div>
+							<input type="hidden" name="email" value="<?php echo($_POST['email']) ?>" />
                     </div>
                     <div card-footer>
-                        <button class="btn btn-success" type="submit" name="submit" value="submit">Reset
-                            Password</button>
-                        <button onclick="window.location.href='index.html';" class="btn btn-danger" type="submit"
-                            name="submit" value="submit">Back To Login</button>
+                        <button class="btn btn-success" type="submit" name="submit" value="submit">Reset Password</button>
+                        <button onclick="window.location.href='index.html';" class="btn btn-danger" type="submit" name="submit" value="submit">Back To Login</button>
                     </div>
-
                 </form>
             </div>
         </div>
