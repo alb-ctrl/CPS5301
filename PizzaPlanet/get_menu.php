@@ -31,7 +31,7 @@
             <a href="login.php">Sign in  <span class="diff"><i class="fas fa-user-astronaut fa-5x"style="margin-left:2px;font-size:18px;"></i></span></a>
             </li>
             <li>
-            <a href="view_cart.php">Cart <i class="fas fa-shopping-cart" style="font-size: 18px" ></i></a>
+            <a href="view_cart.php">Cart <i id="cart_icon" data-totalitems="0" class="fas fa-shopping-cart" style="font-size: 18px" ></i></a>
 
             </li>
         </ul>
