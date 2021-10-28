@@ -5,6 +5,8 @@
     <title>Cart</title>
     <link rel="stylesheet" type="text/css" href="../rsrc/styles/cart_style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
@@ -65,7 +67,7 @@ require("functions.php");
 </html>
 
 <div class="modal fade show d-block" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Modal title</h5>
@@ -76,7 +78,7 @@ require("functions.php");
             <div class="modal-body">
             <button type="button" class="btn btn-primary btn-outline-dark btn-lg btn-block">Login</button>
             <br>
-            <button type="button" class="btn btn-secondary btn-outline-dark btn-lg btn-block">Login</button>
+            <button type="button" class="btn btn-secondary btn-outline-dark btn-lg btn-block">Checkout as a Guest</button>
 
             </div>
             <div class="modal-footer">
