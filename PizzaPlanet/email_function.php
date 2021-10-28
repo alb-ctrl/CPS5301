@@ -50,5 +50,7 @@
         // Fire!
         //$result = htmlspecialchars_decode(curl_exec($ch));
         $result = curl_exec($ch);
+        
+        echo("<h3>An email has been sent to ".$email."</h3><br>");
     }
 ?>
