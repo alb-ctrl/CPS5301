@@ -1,14 +1,15 @@
 <?php
 
-    function sendEmail($username, $email, $reason)
+    function sendEmail($un, $email, $reason)
     {
         $emailBody = '';
 
         if($reason == 'username')
         {
-            $emailBody = "Your PizzaPlanet username is ".$username."<br>";
+            $emailBody = "Your PizzaPlanet username is ".$un."<br>";
         }
-        else if($reason == 'password')//may need to edit path to reset_password.html
+        else if($reason == 'password')
+        //figure out how pass email/some value to reset_password.html so that we can verify the user for whom we change the password
         {
             $emailBody = "<a href='reset_password.html'>Click this link to reset your password</a><br>";
         }
