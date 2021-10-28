@@ -54,13 +54,34 @@ require("functions.php");
     <!-- Optional JavaScript -->
     <script type="text/javascript" src="../rsrc/js/main.js"></script>
     <script>
-        $( document ).ready(function() {
-    console.log( "ready!" );
-    sub_total();
+    $(document).ready(function() {
+        console.log("ready!");
+        sub_total();
 
-});
-    
+    });
     </script>
 </body>
 
 </html>
+
+<div class="modal fade show d-block" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            <button type="button" class="btn btn-primary btn-outline-dark btn-lg btn-block">Login</button>
+            <br>
+            <button type="button" class="btn btn-secondary btn-outline-dark btn-lg btn-block">Login</button>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
