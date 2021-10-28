@@ -75,7 +75,7 @@ function get_checkout_cart($item_id, $quanitiy){
         echo "didnt work";
 
     }
-    echo '<ul class="list-group mb-3">';
+
     while ($row = mysqli_fetch_array($results)) {
         ?>
 
@@ -89,11 +89,10 @@ function get_checkout_cart($item_id, $quanitiy){
 <?php
         
             }
-        echo '<li class="list-group-item d-flex justify-content-between">
-                <span>Total (USD)</span>
-                <strong>$20</strong>
-            </li>';
-        echo '</ul>';   
+        
+            
+        
+            
         /* Close the connection as soon as it's no longer needed */
         mysqli_close($db);
 
