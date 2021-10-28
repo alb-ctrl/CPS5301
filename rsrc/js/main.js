@@ -8,6 +8,7 @@ function updateCart(menu_id, quantity) {
             function (data) {
                 var cart = $('#cart_icon');
                 var cartTotal = cart.attr('data-totalitems');
+                console.log("car total: "+cartTotal);
                 var newCartTotal = parseInt(cartTotal) + 1;
                 cart.addClass('shake').attr('data-totalitems', newCartTotal);
                 console.log(data);
