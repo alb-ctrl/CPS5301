@@ -75,6 +75,7 @@ if (isset($_POST['reg_user'])) {
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $username;
   	$_SESSION['password'] = $password;
+    sendEmail($email);
   	header('location: index.php');
   }
 
@@ -125,5 +126,40 @@ if (isset($_POST['login_user'])) {
   mysqli_close($db);
   
 }
+
+function sendEmail($email)
+    {
+        $emailBody = 'Welcome '.$email.' accaount succesfully created ';
+
+        $body = '{
+            "subject": "From Pizza Planet",
+            "to": [
+            {
+                "email": "'.$email.'",
+                "name": "padat30258 "
+            }
+            ],
+            "from": [
+            {
+                "email": "developing5301@gmail.com",
+                "name": "Pizza Planet"
+            }
+            ],
+            "body": "'.$emailBody.'"
+        }';
+        
+        
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_URL, 'https://api.nylas.com/send');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Authorization: Bearer n9W8GxAT6wkdF2CAYu5ZFOnM9QUXkM','cache-control: no-cache' ));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        // Fire!
+        //$result = htmlspecialchars_decode(curl_exec($ch));
+        $result = curl_exec($ch);
+        
+        //echo("An email has been sent to ".$email."<br>Account recovery should be ready in an hour");
+    }
 
 ?>
