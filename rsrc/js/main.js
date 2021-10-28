@@ -121,11 +121,13 @@ function cart_checkout(){
         url: "cart.php",
         method: "POST",
         data: { pre_checkout: 0 },
-        success:
-            function (data) {
+        success: function(data, textStatus, xhr) {
                 console.log(data);
                 //$("#"+cart_id+" .count" ).html();
-                $("#guest_checkout").addClass(data);
+                if (xhr.status != 301)
+                    $("#guest_checkout").addClass(data);
+                else
+                    window.location = 'checkout.php';
                 //sub_total();
             },
         error: function (xhr, status, error) {
