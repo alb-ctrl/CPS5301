@@ -124,7 +124,7 @@ function cart_checkout(){
         success: function(data, textStatus, xhr) {
                 console.log(data);
                 //$("#"+cart_id+" .count" ).html();
-                if (xhr.status != 301)
+                if (xhr.status != 222)
                     $("#guest_checkout").addClass(data);
                 else
                     window.location = 'checkout.php';
