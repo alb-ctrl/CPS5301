@@ -89,6 +89,10 @@ function get_checkout_cart($item_id, $quanitiy){
 <?php
         
             }
+        echo '<li class="list-group-item d-flex justify-content-between">
+                <span>Total (USD)</span>
+                <strong>$20</strong>
+            </li>';
         echo '</ul>';   
         /* Close the connection as soon as it's no longer needed */
         mysqli_close($db);
