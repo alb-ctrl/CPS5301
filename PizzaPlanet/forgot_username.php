@@ -1,4 +1,6 @@
 <?php
+    include "email_function.php";
+
     $email = "";
     if(isset($_POST['email']))
     {
@@ -8,7 +10,7 @@
     {
         echo("Please check email again");
     }
-    sendEmail(getUsername($email), $email);
+    sendEmail(getUsername($email), $email, "username");
 
     function getUsername($email)
     {
@@ -31,39 +33,5 @@
         mysqli_close($con);
 
         return $username;
-    }
-
-    function sendEmail($username, $email)
-    {
-        $emailBody = "Your PizzaPlanet username is ".$username."<br>";
-
-        $body = '{
-            "subject": "From Pizza Planet",
-            "to": [
-            {
-                "email": "'.$email.'",
-                "name": "padat30258 "
-            }
-            ],
-            "from": [
-            {
-                "email": "developing5301@gmail.com",
-                "name": "Pizza Planet"
-            }
-            ],
-            "body": "'.$emailBody.'"
-        }';
-        
-        
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_URL, 'https://api.nylas.com/send');
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Authorization: Bearer n9W8GxAT6wkdF2CAYu5ZFOnM9QUXkM','cache-control: no-cache' ));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        // Fire!
-        //$result = htmlspecialchars_decode(curl_exec($ch));
-        $result = curl_exec($ch);
-        //print_r($result);
     }
 ?>
