@@ -11,7 +11,12 @@
         else if($reason == 'password')
         //figure out how pass email/some value to reset_password.html so that we can verify the user for whom we change the password
         {
-            $emailBody = "<a href='reset_password.html'>Click this link to reset your password</a><br>";
+            #$emailBody = "<a href='reset_password.html'>Click this link to reset your password</a><br>";
+            $emailBody = "Click the submit button to reset your password<br>".
+                            "<form action='reset_password.html' method='post'>".
+                                "<input type='hidden' name='email' value='".$email."'/>".
+                                "<input type='submit' name='submit'>".
+                            "</form><br>";
         }
         else if($reason == 'confirm registration')//need to work on this
         {
