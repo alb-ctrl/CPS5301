@@ -22,28 +22,6 @@ require("functions.php");
             <h5 class="Action">Remove all</h5>
         </div>
 
-
-
-        <div class="Cart-Items pad">
-            <div class="image-box">
-                <img src="images/grapes.png" style='height:"120px"' />
-            </div>
-            <div class="about">
-                <h1 class="title">Grapes Juice</h1>
-                <h3 class="subtitle">250ml</h3>
-                <img src="images/veg.png" style='height:"30px" ' />
-            </div>
-            <div class="counter">
-                <div class="btn">+</div>
-                <div class="count">1</div>
-                <div class="btn">-</div>
-            </div>
-            <div class="prices">
-                <div class="amount">$3.19</div>
-                <div class="save"><u>Save for later</u></div>
-                <div class="remove"><u>Remove</u></div>
-            </div>
-        </div>
         <?php
         foreach($_SESSION['cart'] as $value){
             get_cart($value['menu_id'], $value['quantity'], $value['cart_index']);
