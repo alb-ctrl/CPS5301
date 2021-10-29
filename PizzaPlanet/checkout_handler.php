@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     $results = mysqli_query($db, $query);
     $last_id = mysqli_insert_id($db);
+    echo "last id : $last_id";
     $_SESSION['order_id']=$last_id;
 
     foreach($_SESSION['cart'] as $value){
