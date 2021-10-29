@@ -45,13 +45,28 @@
 </head>
 
 <body class="bg-light">
-<!-- https://getbootstrap.com/docs/4.0/examples/checkout/? -->
-<?php 
+    <!-- https://getbootstrap.com/docs/4.0/examples/checkout/? -->
+    <?php 
 session_start(); 
 if (!isset($_SESSION['cart'])){
 // print empty basket 
 }
 require("functions.php");
+
+if (isset($_SESSION['username'])){
+    require ("/home/bitnami/dbconfig.php");
+    $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
+        die('Coul not connect MySQL: ' . mysqli_connect_error () );
+    // Set the encoding...
+    mysqli_set_charset($db, 'utf8');
+
+    //$query = "SELECT fname, lname, phone, address, email FROM pizzaplace.users where username = '".$_SESSION['username']."' ";
+    $query = "select u.fname, u.lname, u.phone, u.address, u.email, p.card_name, p.expiration_date, p.card_number from users u left join payment_info p on u.username=p.username where u.username='".$_SESSION['username']."' ";
+
+    $results = mysqli_query($db, $query);
+    $rows = mysqli_fetch_array($results);
+    
+}
 
 ?>
 
@@ -71,12 +86,17 @@ require("functions.php");
                     <span class="text-muted">Your cart</span>
                     <span class="badge badge-secondary badge-pill">3</span>
                 </h4>
-                <?php
+                <ul class="list-group mb-3">
+                    <?php
         foreach($_SESSION['cart'] as $value){
             get_checkout_cart($value['menu_id'], $value['quantity']);
         }
         ?>
-
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Total (USD)</span>
+                        <strong>$20</strong>
+                    </li>
+                </ul>
                 <form class="card p-2">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Promo code">
@@ -92,14 +112,15 @@ require("functions.php");
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="firstName">First name</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="" value="Test2" required>
+                            <input type="text" class="form-control" id="firstName" placeholder="" value="<?php if (isset($_SESSION['username'])) echo $rows['fname']; ?>"
+                                required>
                             <div class="invalid-feedback">
                                 Valid first name is required.
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="lastName">Last name</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                            <input type="text" class="form-control" id="lastName" placeholder="" value="<?php if (isset($_SESSION['username'])) echo $rows['lname']; ?>" required>
                             <div class="invalid-feedback">
                                 Valid last name is required.
                             </div>
@@ -108,7 +129,7 @@ require("functions.php");
 
                     <div class="mb-3">
                         <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                        <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                        <input type="email" class="form-control" id="email" placeholder="you@example.com" value="<?php if (isset($_SESSION['username'])) echo $rows['email']; ?>">
                         <div class="invalid-feedback">
                             Please enter a valid email address for shipping updates.
                         </div>
@@ -116,15 +137,15 @@ require("functions.php");
 
                     <div class="mb-3">
                         <label for="address">Address</label>
-                        <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                        <input type="text" class="form-control" id="address" placeholder="1234 Main St" value="<?php if (isset($_SESSION['username'])) echo $rows['address']; ?>" required>
                         <div class="invalid-feedback">
                             Please enter your shipping address.
                         </div>
                     </div>
 
                     <div class="row">
-                        
-                        
+
+
                         <div class="col-md-3 mb-3">
                             <label for="zip">Zip</label>
                             <input type="text" class="form-control" id="zip" placeholder="" required>
