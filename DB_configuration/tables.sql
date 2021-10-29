@@ -7,6 +7,7 @@ lname varchar(50),
 phone varchar(50),
 address varchar (250),
 email varchar(100),
+zipcode varchar(10),
 password char (40) not null,
 primary key (username)
 );
@@ -34,6 +35,7 @@ username varchar(50) not null,
 card_name varchar(150) not null,
 expiration_date varchar(10) not null,
 card_number varchar(25) not null,
+cvv int not null,
 FOREIGN KEY (username) REFERENCES users(username) 
 );
 
