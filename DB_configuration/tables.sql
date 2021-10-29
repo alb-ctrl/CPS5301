@@ -62,6 +62,7 @@ FOREIGN KEY (username) REFERENCES users(username)
 # D out for delivery
 # C for completed 
 
+
 CREATE TABLE IF NOT EXISTS order_items (
 order_id int not null,
 menu_id int,

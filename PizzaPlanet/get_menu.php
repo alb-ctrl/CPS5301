@@ -32,7 +32,6 @@
             </li>
             <li>
             <a href="view_cart.php">Cart <i id="cart_icon" data-totalitems="0" class="fas fa-shopping-cart" style="font-size: 18px" ></i></a>
-
             </li>
         </ul>
     </nav>
@@ -74,6 +73,11 @@
         echo "didnt work";
 
     }
+
+  
+    ?>
+    <div class="cont">
+    <?php
     while ($row = mysqli_fetch_array($results)) {
     ?>
     <!-- <div class="card" style="width: 18rem;">
@@ -98,8 +102,8 @@
     
     <?php
     }
-
     ?>
+    </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
