@@ -78,7 +78,7 @@ require("functions.php");
             <div class="modal-body">
             <button type="button" class="btn btn-primary btn-outline-dark btn-lg btn-block" onclick="window.location.href='login.php'">Login</button>
             <br>
-            <button type="button" class="btn btn-secondary btn-outline-dark btn-lg btn-block" onclick="window.location.href='#'">Checkout as a Guest</button>
+            <button type="button" class="btn btn-secondary btn-outline-dark btn-lg btn-block" onclick="window.location.href='checkout'">Checkout as a Guest</button>
 
             </div>
             <div class="modal-footer">
