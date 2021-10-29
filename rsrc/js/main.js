@@ -115,6 +115,20 @@ function sub_total() {
     console.log(sum);
 }
 
+function checkout_total() {
+    var all = $(".amount").map(function () {
+        return this.innerHTML.replace('$', '');;
+    }).get();
+    var sum = 0;
+    $.each(all, function () {
+        sum += parseFloat(this) || 0;
+    });
+    $("#number_items_cart").html(all.length + " items");
+    $("#total_amount_cart").html("$" + sum);
+    console.log(all);
+    console.log(sum);
+}
+
 function cart_checkout(){
 
     $.ajax({

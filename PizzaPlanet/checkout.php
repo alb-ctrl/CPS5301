@@ -84,7 +84,7 @@ if (isset($_SESSION['username'])){
             <div class="col-md-4 order-md-2 mb-4">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
                     <span class="text-muted">Your cart</span>
-                    <span class="badge badge-secondary badge-pill">3</span>
+                    <span id="number_items_cart" class="badge badge-secondary badge-pill">3</span>
                 </h4>
                 <ul class="list-group mb-3">
                     <?php
@@ -94,7 +94,7 @@ if (isset($_SESSION['username'])){
         ?>
                     <li class="list-group-item d-flex justify-content-between">
                         <span>Total (USD)</span>
-                        <strong>$20</strong>
+                        <strong id="total_amount_cart">$20</strong>
                     </li>
                 </ul>
                 <form class="card p-2">
@@ -186,7 +186,7 @@ if (isset($_SESSION['username'])){
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="cc-name">Name on card</label>
-                            <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                            <input type="text" class="form-control" id="cc-name" placeholder="<?php if (isset($_SESSION['username'])) echo $rows['card_name']; ?>" required>
                             <small class="text-muted">Full name as displayed on card</small>
                             <div class="invalid-feedback">
                                 Name on card is required
@@ -194,7 +194,7 @@ if (isset($_SESSION['username'])){
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="cc-number">Credit card number</label>
-                            <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                            <input type="text" class="form-control" id="cc-number" placeholder="<?php if (isset($_SESSION['username'])) echo $rows['card_number']; ?>" required>
                             <div class="invalid-feedback">
                                 Credit card number is required
                             </div>
@@ -203,7 +203,7 @@ if (isset($_SESSION['username'])){
                     <div class="row">
                         <div class="col-md-3 mb-3">
                             <label for="cc-expiration">Expiration</label>
-                            <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                            <input type="text" class="form-control" id="cc-expiration" placeholder="<?php if (isset($_SESSION['username'])) echo $rows['expiration_date']; ?>" required>
                             <div class="invalid-feedback">
                                 Expiration date required
                             </div>
@@ -249,6 +249,11 @@ if (isset($_SESSION['username'])){
         integrity="sha512-O6R6IBONpEcZVYJAmSC+20vdsM07uFuGjFf0n/Zthm8sOFW+lAq/OK1WOL8vk93GBDxtMIy6ocbj6lduyeLuqQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+    $(document).ready(function() {
+        console.log("ready!");
+        checkout_total();
+
+    });
     // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function() {
         'use strict';

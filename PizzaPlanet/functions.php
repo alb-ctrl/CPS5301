@@ -84,7 +84,7 @@ function get_checkout_cart($item_id, $quanitiy){
             <h6 class="my-0"><?php echo $row['name']; ?></h6>
             <small class="text-muted"><?php echo $row['description']; ?></small>
         </div>
-        <span class="text-muted">$<?php echo $row['cost']*$quanitiy; ?></span>
+        <span class="text-muted amount">$<?php echo $row['cost']*$quanitiy; ?></span>
     </li>
 <?php
         
