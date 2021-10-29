@@ -65,6 +65,8 @@ if (isset($_SESSION['username'])){
 
     $results = mysqli_query($db, $query);
     $rows = mysqli_fetch_array($results);
+    /* Close the connection as soon as it's no longer needed */
+    mysqli_close($db);
     
 }
 
@@ -110,6 +112,7 @@ if (isset($_SESSION['username'])){
                 <h4 class="mb-3">Delivery Address</h4>
                 <form class="needs-validation" novalidate>
                     <div class="row">
+                        <input type = "hidden" name="username" value = "<?php if (isset($_SESSION['username'])) echo $_SESSION['username']; ?>">
                         <div class="col-md-6 mb-3">
                             <label for="firstName">First name</label>
                             <input type="text" class="form-control" id="firstName" placeholder="" value="<?php if (isset($_SESSION['username'])) echo $rows['fname']; ?>"
@@ -129,7 +132,7 @@ if (isset($_SESSION['username'])){
 
                     <div class="mb-3">
                         <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                        <input type="email" class="form-control" id="email" placeholder="you@example.com" value="<?php if (isset($_SESSION['username'])) echo $rows['email']; ?>">
+                        <input type="email" name="email" class="form-control" id="email" placeholder="you@example.com" value="<?php if (isset($_SESSION['username'])) echo $rows['email']; ?>">
                         <div class="invalid-feedback">
                             Please enter a valid email address for shipping updates.
                         </div>
@@ -148,7 +151,7 @@ if (isset($_SESSION['username'])){
 
                         <div class="col-md-3 mb-3">
                             <label for="zip">Zip</label>
-                            <input type="text" class="form-control" id="zip" placeholder="" value="<?php if (isset($_SESSION['username'])) echo $rows['zipcode']; ?>" required>
+                            <input type="text" name="zip" class="form-control" id="zip" placeholder="" value="<?php if (isset($_SESSION['username'])) echo $rows['zipcode']; ?>" required>
                             <div class="invalid-feedback">
                                 Zip code required.
                             </div>
