@@ -7,6 +7,7 @@ lname varchar(50),
 phone varchar(50),
 address varchar (250),
 email varchar(100),
+zipcode varchar(10),
 password char (40) not null,
 primary key (username)
 );
@@ -34,6 +35,7 @@ username varchar(50) not null,
 card_name varchar(150) not null,
 expiration_date varchar(10) not null,
 card_number varchar(25) not null,
+cvv int not null,
 FOREIGN KEY (username) REFERENCES users(username) 
 );
 
@@ -52,14 +54,21 @@ CREATE TABLE IF NOT EXISTS order_history (
 order_id int not null auto_increment primary key,
 order_date timestamp DEFAULT CURRENT_TIMESTAMP,
 username varchar(50),
-menu_id int,
 status char(1) default 'O',
-FOREIGN KEY (username) REFERENCES users(username),
-FOREIGN KEY (menu_id) REFERENCES menu(menu_id) 
+FOREIGN KEY (username) REFERENCES users(username)
 );
 # O for ordered
 # P in progress
 # D out for delivery
 # C for completed 
+
+
+CREATE TABLE IF NOT EXISTS order_items (
+order_id int not null,
+menu_id int,
+quantity int,
+FOREIGN KEY (order_id) REFERENCES order_history(order_id),
+FOREIGN KEY (menu_id) REFERENCES menu(menu_id) 
+);
 insert into menu values(null,'big pizza','testint pizza','pizza',null,18.50);
 Select menu_id, name, description, tags, picture_path, cost from menu;

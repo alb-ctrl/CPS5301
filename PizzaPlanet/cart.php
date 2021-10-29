@@ -5,7 +5,7 @@ session_start();
 if (!isset($_SESSION['cart'])){
     $_SESSION['cart'] = array();
 }
-//check cart here
+
 
 if (isset($_POST['menu_id'])) {
     $item_id = $_POST['menu_id'];
@@ -59,5 +59,13 @@ if (isset($_POST['decrease_quantity'])) {
     }
 }
 
+if (isset($_POST['pre_checkout'])){
+    if (isset($_SESSION['username'])){
+        header("HTTP/1.1 222 is Logged in");
+        die();
+    }
+    echo "show d-block";
+
+}
 
 ?>
