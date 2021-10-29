@@ -18,12 +18,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
 
 
-
-    //$query = "SELECT fname, lname, phone, address, email FROM pizzaplace.users where username = '".$_SESSION['username']."' ";
-    $query = "select u.fname, u.lname, u.phone, u.address, u.email, u.zipcode, p.card_name, p.expiration_date, p.card_number, p.cvv from users u left join payment_info p on u.username=p.username where u.username='".$_SESSION['username']."' ";
-
+    if (!isset($_SESSION['username'])){
+        $query = "insert into order_history values (null, null,'guest', O";
+    }
+    else{
+        $query = "insert into order_history values (null, null,".$_SESSION['username'].", O";
+    }
     $results = mysqli_query($db, $query);
-    $rows = mysqli_fetch_array($results);
+    $last_id = mysqli_insert_id($db);
+    $_SESSION['order_id']=$last_id;
+
+    foreach($_SESSION['cart'] as $value){
+        $query = "insert into order_items values ($last_id,".$value['menu_id'].", ".$value['quantity']." ";
+        $results = mysqli_query($db, $query);
+    }
+    
+
+    
+    
     /* Close the connection as soon as it's no longer needed */
     mysqli_close($db);
 
