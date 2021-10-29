@@ -61,7 +61,7 @@ if (isset($_SESSION['username'])){
     mysqli_set_charset($db, 'utf8');
 
     //$query = "SELECT fname, lname, phone, address, email FROM pizzaplace.users where username = '".$_SESSION['username']."' ";
-    $query = "select u.fname, u.lname, u.phone, u.address, u.email, p.card_name, p.expiration_date, p.card_number from users u left join payment_info p on u.username=p.username where u.username='".$_SESSION['username']."' ";
+    $query = "select u.fname, u.lname, u.phone, u.address, u.email, u.zipcode, p.card_name, p.expiration_date, p.card_number, p.cvv from users u left join payment_info p on u.username=p.username where u.username='".$_SESSION['username']."' ";
 
     $results = mysqli_query($db, $query);
     $rows = mysqli_fetch_array($results);
@@ -148,7 +148,7 @@ if (isset($_SESSION['username'])){
 
                         <div class="col-md-3 mb-3">
                             <label for="zip">Zip</label>
-                            <input type="text" class="form-control" id="zip" placeholder="" required>
+                            <input type="text" class="form-control" id="zip" placeholder="" value="<?php if (isset($_SESSION['username'])) echo $rows['zipcode']; ?>" required>
                             <div class="invalid-feedback">
                                 Zip code required.
                             </div>
@@ -186,7 +186,7 @@ if (isset($_SESSION['username'])){
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="cc-name">Name on card</label>
-                            <input type="text" class="form-control" id="cc-name" placeholder="<?php if (isset($_SESSION['username'])) echo $rows['card_name']; ?>" required>
+                            <input type="text" class="form-control" id="cc-name" value="<?php if (isset($_SESSION['username'])) echo $rows['card_name']; ?>" required>
                             <small class="text-muted">Full name as displayed on card</small>
                             <div class="invalid-feedback">
                                 Name on card is required
@@ -194,7 +194,7 @@ if (isset($_SESSION['username'])){
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="cc-number">Credit card number</label>
-                            <input type="text" class="form-control" id="cc-number" placeholder="<?php if (isset($_SESSION['username'])) echo $rows['card_number']; ?>" required>
+                            <input type="text" class="form-control" id="cc-number" value="<?php if (isset($_SESSION['username'])) echo $rows['card_number']; ?>" required>
                             <div class="invalid-feedback">
                                 Credit card number is required
                             </div>
@@ -203,14 +203,14 @@ if (isset($_SESSION['username'])){
                     <div class="row">
                         <div class="col-md-3 mb-3">
                             <label for="cc-expiration">Expiration</label>
-                            <input type="text" class="form-control" id="cc-expiration" placeholder="<?php if (isset($_SESSION['username'])) echo $rows['expiration_date']; ?>" required>
+                            <input type="text" class="form-control" id="cc-expiration" value="<?php if (isset($_SESSION['username'])) echo $rows['expiration_date']; ?>" required>
                             <div class="invalid-feedback">
                                 Expiration date required
                             </div>
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="cc-expiration">CVV</label>
-                            <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                            <input type="text" class="form-control" id="cc-cvv" placeholder="" value="<?php if (isset($_SESSION['username'])) echo $rows['fname']; ?>" required>
                             <div class="invalid-feedback">
                                 Security code required
                             </div>
