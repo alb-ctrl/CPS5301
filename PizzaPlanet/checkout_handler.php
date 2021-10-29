@@ -19,11 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     if (!isset($_SESSION['username'])){
-        $query = "insert into order_history values (null, null,'guest', O";
+        $query = "insert into order_history values (null, null,'guest', O)";
         echo "user is not logged in";
     }
     else{
-        $query = "insert into order_history values (null, null,".$_SESSION['username'].", O";
+        $query = "insert into order_history values (null, null,".$_SESSION['username'].", O)";
         echo "user is logged in";
     }
     $results = mysqli_query($db, $query);
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['order_id']=$last_id;
 
     foreach($_SESSION['cart'] as $value){
-        $query = "insert into order_items values ($last_id,".$value['menu_id'].", ".$value['quantity']." ";
+        $query = "insert into order_items values ($last_id,".$value['menu_id'].", ".$value['quantity'].") ";
         $results = mysqli_query($db, $query);
     }
     echo "hello";
