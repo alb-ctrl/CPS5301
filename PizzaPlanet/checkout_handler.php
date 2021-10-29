@@ -19,11 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     if (!isset($_SESSION['username'])){
-        $query = "insert into order_history values (null, null,'guest', O)";
+        $query = "insert into order_history values (null, now(),'guest', 'O')";
         echo "user is not logged in";
     }
     else{
-        $query = "insert into order_history values (null, null,".$_SESSION['username'].", 'O')";
+        $query = "insert into order_history values (null, now(),'".$_SESSION['username']."', 'O')";
         echo "user is logged in";
     }
     $results = mysqli_query($db, $query);
