@@ -1,4 +1,4 @@
-
+<?php include('mysqli_connect.php');header('Access-Control-Allow-Origin: *'); header('Access-Control-Allow-Methods: *');  ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,17 +18,23 @@
 </head>
 <body>
 
-<div class="container">  
-  <form class="" action="mysqli_connect.php" method="post">
+
+  <form action="index.php" method="post" id="hide">
+  	<?php include('../errors.php'); ?>
     <h1><center>Admin</center></h1>
     <div class="imgcontainer"><i class="fas fa-user-astronaut fa-5x" style="color: red;"></i></div>
+    <div class="container">  
     <input type="text" placeholder="username" name="username"/>
     <input type="password" placeholder="password" name="password"/>
     <input type="submit"  name="login" value="login" />
-    <p class="message">Not registered? <a href="register.php">Create an account</a></p>
+    </div>  
+
+	<div class="container">
+    <spam class="Signup">Not registered? <a href="register.php">Create an account</a></spam>
+	</div>  
   </form>
   
-</div>
+
 </body>
 
 </html>
