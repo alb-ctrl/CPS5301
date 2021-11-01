@@ -65,8 +65,9 @@
 
 <div class="container">
     <button type="reset">Clear</button>
-    <span class="Signup">Forgot your hsername?<a href="../forgot_username.html">Forgot Username</a></span>
-    <span class="Signup">Not yet a member?<a href="register.php"> Signup</a></span>
+    <span class="Signup">Forgot your username? <a href="../forgot_username.html">Forgot Username</a></span>
+    <span class="Signup">Forgot your password? <a href="../reset_password.html">Forgot Password</a></span>
+    <span class="Signup">Not yet a member? <a href="register.php">Signup</a></span>
 </div>
 </form>
 
