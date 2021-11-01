@@ -3,46 +3,34 @@
     $pw2 = "";
     $email = "";
 
-    #passwords are from reset_password.html
-    #email is from the form (post in email_function.php) and can be posted again from reset_password to change_password.php
-    if(isset($_POST['password']) and isset($_POST['password_2']) and isset($_POST['email']))
+    if(isset($_POST['password1']) and isset($_POST['password2']) and isset($_POST['email']))
     {
-        $pw1 = $_POST['password'];
-        $pw2 = $_POST['password_2'];
+        $pw1 = $_POST['password1'];
+        $pw2 = $_POST['password2'];
         $email = $_POST['email'];
+
         $match = checkPasswordMatch($pw1, $pw2);
+        $email_in_db = emailInDB($email);
 
-        if($match)
+        if($match and $email_in_db)
         {
-            require ("/home/bitnami/dbconfig.php");
-            $con = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
-                die("Could not connect to MySQL DB: ".mysqli_connect_error());
-
-            $password = md5($pw1);
-
-            $query = "UPDATE users SET password = '$password' WHERE email = '$email'";
-            $result = mysqli_query($con, $query);
-
-            if($result)
-            {
-                if(mysqli_affected_rows($con) > 0)
-                {
-                    echo("Successfully updated password!<br>");
-                }
-                else
-                {
-                    echo("ERROR:<br><br>".mysqli_error($con));
-                }
-            }
-            else
-            {
-                echo("ERROR:<br><br>".mysqli_error($con));
-            }
-            mysqli_close($con);
+            updatePassword($email, $pw1);
+            include "email_function.php";
+            sendEmail("", $email, "password");
+        }
+        else if(!$match and $email_in_db)
+        {
+            echo("Email found in DB!<br>Passwords do not match. Please retype the same password.");
+        }
+        else if($match and !$email_in_db)
+        {
+            echo("Email not found in DB! Please ensure you're using the correct email."
+                    ."<br>Passwords match!");
         }
         else
         {
-            echo("Passwords do not match. Please retype the same password.");
+            echo("Email not found in DB! Please ensure you're using the correct email."
+                    ."<br>Passwords do not match. Please retype the same password.");
         }
     }
     else
@@ -57,5 +45,52 @@
             return false;
         }
         return true;
+    }
+
+    function emailInDB($email)
+    {
+        require ("/home/bitnami/dbconfig.php");
+        $con = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
+            die("Could not connect to MySQL DB: ".mysqli_connect_error());
+        
+        $query = "SELECT * FROM users WHERE email = '$email'";
+        $result = mysqli_query($con, $query);
+
+        if(mysqli_num_rows($result) > 0)
+        {
+            mysqli_close($con);
+            return true;
+        }
+        mysqli_close($con);
+        return false;
+    }
+
+    function updatePassword($email, $password)
+    {
+        require ("/home/bitnami/dbconfig.php");
+        $con = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
+            die("Could not connect to MySQL DB: ".mysqli_connect_error());
+
+        $password = md5($pw1);
+
+        $query = "UPDATE users SET password = '$password' WHERE email = '$email'";
+        $result = mysqli_query($con, $query);
+
+        if($result)
+        {
+            if(mysqli_affected_rows($con) > 0)
+            {
+                echo("Successfully updated password!<br>");
+            }
+            else
+            {
+                echo("ERROR:<br><br>".mysqli_error($con));
+            }
+        }
+        else
+        {
+            echo("ERROR:<br><br>".mysqli_error($con));
+        }
+        mysqli_close($con);
     }
 ?>
