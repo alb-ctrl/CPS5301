@@ -1,8 +1,8 @@
-function updateCart(menu_id, quantity) {
+function updateCart(menu_item_id, quantity) {
     $.ajax({
         url: "cart.php",
         method: "POST",
-        data: { menu_id: menu_id, quantity: quantity },
+        data: { menu_item_id: menu_item_id, quantity: quantity },
         //beforeSend: function () {$('#insert').val("Inserting"); },
         success:
             function (data) {
@@ -22,13 +22,13 @@ function updateCart(menu_id, quantity) {
 }
 
 
-function removeCart(menu_id, cart_index, cart_id) {
+function removeCart(menu_item_id, cart_index, cart_id) {
     console.log($(this).closest('div .Cart-Items').attr('id'));
     console.log(cart_index);
     $.ajax({
         url: "cart.php",
         method: "POST",
-        data: { remove_item: menu_id, cart_index: cart_index },
+        data: { remove_item: menu_item_id, cart_index: cart_index },
         beforeSend: function () {
             var message = new Notification("RandomString");
 
@@ -49,12 +49,12 @@ function removeCart(menu_id, cart_index, cart_id) {
     return false;
 }
 
-function increase_quantity(menu_id, cart_index, cart_id) {
+function increase_quantity(menu_item_id, cart_index, cart_id) {
 
     $.ajax({
         url: "cart.php",
         method: "POST",
-        data: { increase_quantity: menu_id, cart_index: cart_index },
+        data: { increase_quantity: menu_item_id, cart_index: cart_index },
         success:
             function (data) {
                 console.log(data);
@@ -75,12 +75,12 @@ function increase_quantity(menu_id, cart_index, cart_id) {
 
 }
 
-function decrease_quantity(menu_id, cart_index, cart_id) {
+function decrease_quantity(menu_item_id, cart_index, cart_id) {
 
     $.ajax({
         url: "cart.php",
         method: "POST",
-        data: { decrease_quantity: menu_id, cart_index: cart_index },
+        data: { decrease_quantity: menu_item_id, cart_index: cart_index },
         success:
             function (data) {
                 console.log(data);

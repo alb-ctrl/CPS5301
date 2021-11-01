@@ -10,7 +10,7 @@ function get_cart($item_id, $quanitiy, $cart_index){
     // Set the encoding...
     mysqli_set_charset($db, 'utf8');
 
-    $query = "SELECT menu_id, name, description, tags, picture_path, cost from menu where menu_id = $item_id ";
+    $query = "SELECT menu_item_id, menu_item_name, description, tags, picture_path, price from menu where menu_item_id = $item_id ";
 
     $results = mysqli_query($db, $query);
 
@@ -28,7 +28,7 @@ function get_cart($item_id, $quanitiy, $cart_index){
         <img src="<?php echo $row['picture_path']; ?>" style='height:120px' />
     </div>
     <div class="about">
-        <h1 class="title"><?php echo $row['name']; ?></h1>
+        <h1 class="title"><?php echo $row['menu_item_name']; ?></h1>
         <h3 class="subtitle"><?php echo $row['tags']; ?></h3>
         <!--  <img src="images/veg.png" style='height:"30px" ' /> -->
     </div>
@@ -40,7 +40,7 @@ function get_cart($item_id, $quanitiy, $cart_index){
             onclick='return decrease_quantity(<?php echo "$item_id, $cart_index, $cart_index$item_id"; ?>);'>-</div>
     </div>
     <div class="prices">
-        <div class="amount">$<?php echo $row['cost']*$quanitiy; ?></div>
+        <div class="amount">$<?php echo $row['price']*$quanitiy; ?></div>
         <!-- <div class="save"><u>Save for later</u></div> -->
         <div class="remove"><u
                 onclick='return removeCart(<?php echo "$item_id, $cart_index, $cart_index$item_id"; ?>);'>Remove</u>
@@ -66,7 +66,7 @@ function get_checkout_cart($item_id, $quanitiy){
     // Set the encoding...
     mysqli_set_charset($db, 'utf8');
 
-    $query = "SELECT menu_id, name, description, tags, picture_path, cost from menu where menu_id = $item_id ";
+    $query = "SELECT menu_item_id, menu_item_name, description, tags, picture_path, price from menu where menu_item_id = $item_id ";
 
     $results = mysqli_query($db, $query);
 
@@ -81,10 +81,10 @@ function get_checkout_cart($item_id, $quanitiy){
 
     <li class="list-group-item d-flex justify-content-between lh-condensed">
         <div>
-            <h6 class="my-0"><?php echo $row['name']; ?></h6>
+            <h6 class="my-0"><?php echo $row['menu_item_name']; ?></h6>
             <small class="text-muted"><?php echo $row['description']; ?></small>
         </div>
-        <span class="text-muted amount">$<?php echo $row['cost']*$quanitiy; ?></span>
+        <span class="text-muted amount">$<?php echo $row['price']*$quanitiy; ?></span>
     </li>
 <?php
         

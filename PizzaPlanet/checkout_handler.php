@@ -17,22 +17,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $zipcode = $_POST['zip'];
     
 
-
+    $checkoutUsername="";
     if (!isset($_SESSION['username'])){
-        $query = "insert into order_history values (null, now(),'guest', 'O')";
+        $checkoutUsername="guest";
         echo "user is not logged in";
     }
     else{
-        $query = "insert into order_history values (null, now(),'".$_SESSION['username']."', 'O')";
+        $checkoutUsername=$_SESSION['username'];
         echo "user is logged in";
     }
-    $results = mysqli_query($db, $query);
-    $last_id = mysqli_insert_id($db);
-    echo "last id : $last_id";
-    $_SESSION['order_id']=$last_id;
+
+    $_SESSION['order_id']= time(); 
 
     foreach($_SESSION['cart'] as $value){
-        $query = "insert into order_items values ($last_id,".$value['menu_id'].", ".$value['quantity'].") ";
+        $query = "insert into user_orders values (".$_SESSION['order_id'].", '$checkoutUsername', ".$value['menu_item_id'].", ".$value['quantity'].", 'O', now()) ";
         $results = mysqli_query($db, $query);
     }
     echo "hello";

@@ -88,7 +88,7 @@
                 <ul class="list-group mb-3">
                     <?php
                     foreach ($_SESSION['cart'] as $value) {
-                        get_checkout_cart($value['menu_id'], $value['quantity']);
+                        get_checkout_cart($value['menu_item_id'], $value['quantity']);
                     }
                     ?>
                     <li class="list-group-item d-flex justify-content-between">

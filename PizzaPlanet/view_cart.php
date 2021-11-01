@@ -26,7 +26,7 @@ require("functions.php");
 
         <?php
         foreach($_SESSION['cart'] as $value){
-            get_cart($value['menu_id'], $value['quantity'], $value['cart_index']);
+            get_cart($value['menu_item_id'], $value['quantity'], $value['cart_index']);
         }
         ?>
         <hr>

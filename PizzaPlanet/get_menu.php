@@ -65,7 +65,7 @@
     // Set the encoding...
     mysqli_set_charset($db, 'utf8');
 
-    $query = "Select menu_id, name, description, tags, picture_path, cost from menu";
+    $query = "Select menu_item_id, name, description, tags, picture_path, price from menu";
     $results = mysqli_query($db, $query);
 
     if (!$results) {
@@ -84,8 +84,8 @@
         <div class="card-body">
             <h5 class="card-title"><?php echo $row['name']; ?></h5>
             <p class="card-text"><?php echo $row['description']; ?></p>
-            <a href="#" id="<?php echo $row['menu_id']; ?>" class="btn btn-primary"
-                onclick="return updateCart(<?php echo $row['menu_id']; ?>,1);">Add to cart</a>
+            <a href="#" id="<?php echo $row['menu_item_id']; ?>" class="btn btn-primary"
+                onclick="return updateCart(<?php echo $row['menu_item_id']; ?>,1);">Add to cart</a>
         </div>
     </div> -->
     <div class="cont">
@@ -94,8 +94,8 @@
         <div class="card-body">
             <h5 class="card-title"><?php echo $row['name']; ?></h5>
             <p class="card-text"><?php echo $row['description']; ?></p>
-            <button><a href="#" id="<?php echo $row['menu_id']; ?>" class="btn btn-primary"
-                onclick="return updateCart(<?php echo $row['menu_id']; ?>,1);">Add to cart</a></button>
+            <button><a href="#" id="<?php echo $row['menu_item_id']; ?>" class="btn btn-primary"
+                onclick="return updateCart(<?php echo $row['menu_item_id']; ?>,1);">Add to cart</a></button>
         </div>
         </div>
     </div>
