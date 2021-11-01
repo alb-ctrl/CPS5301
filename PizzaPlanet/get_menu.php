@@ -65,7 +65,7 @@
     // Set the encoding...
     mysqli_set_charset($db, 'utf8');
 
-    $query = "Select menu_item_id, name, description, tags, picture_path, price from menu";
+    $query = "Select menu_item_id, menu_item_name, description, tags, picture_path, price from menu";
     $results = mysqli_query($db, $query);
 
     if (!$results) {
