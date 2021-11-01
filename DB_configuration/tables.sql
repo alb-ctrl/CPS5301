@@ -1,5 +1,3 @@
-
-
 create table IF NOT EXISTS  users (
 username varchar(50) not null,
 fname varchar(50),
@@ -11,6 +9,7 @@ zipcode varchar(10),
 password char (40) not null,
 primary key (username)
 );
+
 CREATE TABLE IF NOT EXISTS admin_code (
   id int NOT NULL AUTO_INCREMENT,
   code char(8) NOT NULL unique,
@@ -30,7 +29,6 @@ CREATE TABLE IF NOT EXISTS admin (
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 CREATE TABLE IF NOT EXISTS payment_info (
-
 username varchar(50) not null,
 card_name varchar(150) not null,
 expiration_date varchar(10) not null,
@@ -39,36 +37,33 @@ cvv int not null,
 FOREIGN KEY (username) REFERENCES users(username) 
 );
 
+
 CREATE TABLE IF NOT EXISTS menu (
-menu_id int not null auto_increment,
-name varchar(100),
+menu_item_id int not null auto_increment primary key,
+menu_item_name varchar(222) NOT NULL,
 description varchar(255),
 tags varchar(255),
 picture_path varchar(100),
-cost DECIMAL(10,2),
-primary key(menu_id)
+price DECIMAL(10,2)
 );
 
+CREATE TABLE IF NOT EXISTS user_orders (
+  user_order_id int(11) NOT NULL,
+  username varchar(50) NOT NULL,
+  menu_item_id int(11) NOT NULL,
+  quantity int(11) NOT NULL,
+  status char(1) DEFAULT 'O',
+  order_date timestamp NOT NULL DEFAULT current_timestamp(),
+  FOREIGN KEY (username) REFERENCES users(username),
+  FOREIGN KEY (menu_item_id) REFERENCES menu(menu_item_id),
+  PRIMARY KEY (user_order_id, menu_item_id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE IF NOT EXISTS order_history (
-order_id int not null auto_increment primary key,
-order_date timestamp DEFAULT CURRENT_TIMESTAMP,
-username varchar(50),
-status char(1) default 'O',
-FOREIGN KEY (username) REFERENCES users(username)
-);
+
 # O for ordered
 # P in progress
 # D out for delivery
-# C for completed 
+# C for completed
+# X canceled 
 
 
-CREATE TABLE IF NOT EXISTS order_items (
-order_id int not null,
-menu_id int,
-quantity int,
-FOREIGN KEY (order_id) REFERENCES order_history(order_id),
-FOREIGN KEY (menu_id) REFERENCES menu(menu_id) 
-);
-insert into menu values(null,'big pizza','testint pizza','pizza',null,18.50);
-Select menu_id, name, description, tags, picture_path, cost from menu;
