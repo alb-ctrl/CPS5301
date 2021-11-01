@@ -71,9 +71,9 @@
         $con = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
             die("Could not connect to MySQL DB: ".mysqli_connect_error());
 
-        $password = md5($pw1);
+        $pw = md5($password);
 
-        $query = "UPDATE users SET password = '$password' WHERE email = '$email'";
+        $query = "UPDATE users SET password = '$pw' WHERE email = '$email'";
         $result = mysqli_query($con, $query);
 
         if($result)
