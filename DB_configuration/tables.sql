@@ -7,6 +7,7 @@ address varchar (250),
 email varchar(100),
 zipcode varchar(10),
 password char (40) not null,
+temp_password char(40),
 primary key (username)
 );
 
