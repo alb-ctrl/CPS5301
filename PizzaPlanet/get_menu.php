@@ -23,8 +23,9 @@
             </label>
         <ul class = "links">
             <li><a href="index.php">Home</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="About_Us.html">About</a></li>
             <li><a href="#">Menu</a></li>
+            <li><a href="Contact_Us.html">Contact</a></li>
             <li>
 
 
