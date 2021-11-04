@@ -16,8 +16,9 @@
 
     //get temporary password
     $temp_pwd = getTempPwd($email);
-    //reset temporary password with a random password
-    resetTempPwd();
+    
+    //NEEDS WORK -- reset temporary password with a random password
+    //resetTempPwd();
 
     //message for email body
     $message = "Your temporary password for the account under ".$email." is now active.<br>".
@@ -49,7 +50,7 @@
         return $temp_pwd;
     }
 
-    //reset temp pw in db
+    /*//reset temp pw in db
     function resetTempPwd($email)
     {
         $new_temp_pwd = randomPassword();
@@ -97,5 +98,5 @@
         
         //turn the array into a string
         return implode($pass);
-    }
+    }*/
 ?>
