@@ -14,9 +14,11 @@
 
         if($match and $email_in_db)
         {
+            $message = "Password change successful!";
+            
             updatePassword($email, $pw1);
             include "email_function.php";
-            sendEmail("", $email, "password");
+            sendEmail($message, $email, "forgot_reset_password");
         }
         else if(!$match and $email_in_db)
         {
