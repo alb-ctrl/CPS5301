@@ -12,7 +12,6 @@ if (mysqli_num_rows($v_result) == 0) {
     }
 
 else if (mysqli_num_rows($v_result) > 0) {
-echo "success";
 sendEmail($v_email);
 }
 
