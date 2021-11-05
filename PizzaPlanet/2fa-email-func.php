@@ -2,7 +2,7 @@
 require ("/home/bitnami/dbconfig.php");
 
 $v_email = $_POST['v_email'];
-
+echo "$v_email";
 $v_sql = "SELECT * FROM users WHERE email='$v_email' LIMIT 1";
 $v_result = mysqli_query($db, $v_sql);
 $v_row = mysqli_fetch_array($v_result);
