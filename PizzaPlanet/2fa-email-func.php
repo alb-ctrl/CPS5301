@@ -13,14 +13,13 @@ if (mysqli_num_rows($v_result) == 0) {
 
 else if (mysqli_num_rows($v_result) > 0) {
 sendEmail($v_email);
-// here?
+
 }
 
 
 function sendEmail($v_email)
     {
-        $v_emailBody = 'Hello user: '.$v_email.' Please click link to enter your account
-        "<a href="http://3.82.35.248/CPS5301/PizzaPlanet/2FA.php"> click here </a> "';
+        $v_emailBody = 'Hello user: '.$v_email.' Please click link to enter your account "<a href="http://3.82.35.248/CPS5301/PizzaPlanet/2FA.php"> click here </a> "';
 
         $v_body = '{
             "subject": "From Pizza Planet",
