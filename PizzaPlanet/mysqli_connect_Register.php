@@ -91,7 +91,7 @@ if (isset($_POST['login_user'])) {
 
   require ("/home/bitnami/dbconfig.php");
   $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
-	  die('Coul not connect MySQL: ' . mysqli_connect_error () );
+	  die('Could not connect MySQL: ' . mysqli_connect_error () );
   // Set the encoding...
   mysqli_set_charset($db, 'utf8');
 
@@ -112,8 +112,6 @@ if (isset($_POST['login_user'])) {
   	$results = mysqli_query($db, $query);
   	if (mysqli_num_rows($results) == 1) {
         header('location: 2fa-email.php');
-
-      
   	}
     else {
   		array_push($errors, "Wrong username/password combination");
