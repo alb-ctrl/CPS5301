@@ -6,7 +6,7 @@ $v_email = $_POST['v_email'];
 $v_sql = "SELECT * FROM users WHERE email='$v_email' LIMIT 1";
 $v_result = mysqli_query($db, $v_sql);
 $v_row = mysqli_fetch_array($v_result);
-
+echo "success";
 if ($v_result) {
     if (strcmp($v_row['email'],$v_email) == 0) {
         echo "email is not associated with any registered account";
