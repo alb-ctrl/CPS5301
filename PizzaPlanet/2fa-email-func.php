@@ -13,6 +13,7 @@ if (mysqli_num_rows($v_result) == 0) {
 
 else if (mysqli_num_rows($v_result) > 0) {
 sendEmail($v_email);
+// here?
 }
 
 
@@ -25,7 +26,8 @@ function sendEmail($v_email)
             "subject": "From Pizza Planet",
             "to": [
             {
-                "email": "'.$v_email.'"
+                "email": "'.$v_email.'",
+                "name": "test"
             }
             ],
             "from": [
@@ -46,7 +48,7 @@ function sendEmail($v_email)
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         
         $v_result = curl_exec($ch);
-        
+        curl_close($ch);
         echo("Check your email to complete the verification process");
     }
 ?>
