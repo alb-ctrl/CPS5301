@@ -4,15 +4,16 @@ require ("/home/bitnami/dbconfig.php");
 $v_email = $_POST['v_email'];
 
 $v_sql = "SELECT * FROM users WHERE email='$v_email' LIMIT 1";
-$v_result = mysqli_query($db, $user_check_query);
-$v_row = mysqli_fetch_array($result);
+$v_result = mysqli_query($db, $v_sql);
+$v_row = mysqli_fetch_array($v_result);
 
 if ($v_result) {
-    if (strcmp($row['email'],$v_email) == 0) {
+    if (strcmp($v_row['email'],$v_email) == 0) {
         echo "email is not associated with any registered account";
     }
 
-    else if (strcmp($row['email'],$v_email) == 1) {
+    else if (strcmp($v_row['email'],$v_email) == 1) {
+    echo "success";
     sendEmail($v_email);
     }
 }
