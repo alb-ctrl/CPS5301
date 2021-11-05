@@ -11,7 +11,7 @@ if (mysqli_num_rows($v_result) == 0) {
     echo "email is not associated with any registered account";
     }
 
-else if (mysqli_num_rows($v_result) == 1) {
+else if (mysqli_num_rows($v_result) > 0) {
 echo "success";
 sendEmail($v_email);
 }
