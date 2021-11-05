@@ -12,7 +12,7 @@ if ($v_result) {
         echo "email is not associated with any registered account";
     }
 
-    else if (strcmp($v_row['email'],$v_email) == 1) {
+    else if (strcmp($v_row['email'],$v_email) > 0) {
     echo "success";
     sendEmail($v_email);
     }
