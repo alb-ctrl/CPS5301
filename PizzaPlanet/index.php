@@ -1,5 +1,14 @@
 
-<?php header('Access-Control-Allow-Origin: *'); session_start();?>
+<?php header('Access-Control-Allow-Origin: *'); session_start();
+
+if(isset($_SESSION["username"])){
+    $name = $_SESSION["username"];
+    echo "user: ", $name;
+} else {
+    echo "no user logged in";
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
