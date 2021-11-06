@@ -17,7 +17,7 @@
             $message = "Password change successful!";
             
             updatePassword($email, $pw1);//update password
-            //resetTempPwd($email);//change temp password
+            resetTempPwd($email);//change temp password
             
             include "email_function.php";
             sendEmail($message, $email, "forgot_reset_password");
@@ -98,11 +98,10 @@
         mysqli_close($con);
     }
 
-    /*
     //reset temp pw in db
     function resetTempPwd($email)
     {
-        $new_temp_pwd = randomPassword();
+        $new_temp_pwd = md5(randomPassword());
 
         require ("/home/bitnami/dbconfig.php");
         $con = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
@@ -148,5 +147,4 @@
         //turn the array into a string
         return implode($pass);
     }
-    */
 ?>
