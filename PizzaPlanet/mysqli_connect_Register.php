@@ -2,13 +2,13 @@
 
 
 // initializing variables
-$username = "";
-$fname = "";
-$lname = "";
-$email    = "";
-$plan     = "";
-$phone = "";
-$address = "";
+// $username = "";
+// $fname = "";
+// $lname = "";
+// $email    = "";
+// $plan     = "";
+// $phone = "";
+// $address = "";
 $errors = array(); 
 
 session_start();
