@@ -14,25 +14,37 @@
 
         if($match and $email_in_db)
         {
+            //update password
+            updatePassword($email, $pw1);
+            //change temp password
+            resetTempPwd($email);
+            
+            //send email
             $message = "Password change successful!";
-            
-            updatePassword($email, $pw1);//update password
-            resetTempPwd($email);//change temp password
-            
             include "email_function.php";
             sendEmail($message, $email, "forgot_reset_password");
+            
+            //redirect user to login
+            header( "refresh:5; url= index.php");
+            echo("You successfully changed password<br>You will be redirected to the pizza planet home page in 5 seconds...");
         }
         else if(!$match and $email_in_db)
         {
+            header( "refresh:5; url= ../reset_password.html");
+            echo("You will be redirected to the reset password page in 5 seconds...<br><br>");
             echo("Email found in DB!<br>Passwords do not match. Please retype the same password.");
         }
         else if($match and !$email_in_db)
         {
+            header( "refresh:5; url= ../reset_password.html");
+            echo("You will be redirected to the reset password page in 5 seconds...<br><br>");
             echo("Email not found in DB! Please ensure you're using the correct email."
                     ."<br>Passwords match!");
         }
         else
         {
+            header( "refresh:5; url= ../reset_password.html");
+            echo("You will be redirected to the reset password page in 5 seconds...<br><br>");
             echo("Email not found in DB! Please ensure you're using the correct email."
                     ."<br>Passwords do not match. Please retype the same password.");
         }
