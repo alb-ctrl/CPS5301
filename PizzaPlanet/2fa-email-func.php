@@ -19,7 +19,7 @@ sendEmail($v_email);
 
 function sendEmail($v_email)
     {
-        $v_emailBody = 'Hello user: '.$v_email.' Please click link to enter your account "<a href="http://3.82.35.248/CPS5301/PizzaPlanet/2FA.php"> click here </a> "';
+        $v_emailBody = 'Hello user: '.$v_email.' Please click link to enter your account http://3.82.35.248/CPS5301/PizzaPlanet/2FA.php ';
 
         $v_body = '{
             "subject": "From Pizza Planet",
