@@ -2,13 +2,13 @@
 
 
 // initializing variables
-// $username = "";
-// $fname = "";
-// $lname = "";
-// $email    = "";
-// $plan     = "";
-// $phone = "";
-// $address = "";
+$username = "";
+$fname = "";
+$lname = "";
+$email    = "";
+$plan     = "";
+$phone = "";
+$address = "";
 $errors = array(); 
 
 session_start();
@@ -111,6 +111,7 @@ if (isset($_POST['login_user'])) {
   	$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
   	$results = mysqli_query($db, $query);
   	if (mysqli_num_rows($results) == 1) {
+        include('2FA.php');
         header('location: 2fa-email.php');
   	}
     else {
