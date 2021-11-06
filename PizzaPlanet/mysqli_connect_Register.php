@@ -111,8 +111,11 @@ if (isset($_POST['login_user'])) {
   	$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
   	$results = mysqli_query($db, $query);
   	if (mysqli_num_rows($results) == 1) {
-        include('2FA.php');
         header('location: 2fa-email.php');
+        if(True){
+          header('location:2FA.php?var=$username');
+          header('location:2FA.php?var=$password');
+        }
   	}
     else {
   		array_push($errors, "Wrong username/password combination");
