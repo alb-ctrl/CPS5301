@@ -17,7 +17,7 @@
             $message = "Password change successful!";
             
             updatePassword($email, $pw1);//update password
-            resetTempPwd($email);//change temp password
+            //resetTempPwd($email);//change temp password
             
             include "email_function.php";
             sendEmail($message, $email, "forgot_reset_password");
@@ -98,6 +98,7 @@
         mysqli_close($con);
     }
 
+    /*
     //reset temp pw in db
     function resetTempPwd($email)
     {
@@ -147,4 +148,5 @@
         //turn the array into a string
         return implode($pass);
     }
+    */
 ?>
