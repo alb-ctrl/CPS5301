@@ -53,13 +53,16 @@
     //reset temp pw in db
     function resetTempPwd($email, $new_temp_pwd)
     {
+        //encrypt before inserting to DB
+        $new_temp_pwd = md5($new_temp_pwd);
+        
         require ("/home/bitnami/dbconfig.php");
         $con = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
             die("Could not connect to MySQL DB: ".mysqli_connect_error());
 
         $query = "UPDATE users SET temp_password = '$new_temp_pwd' WHERE email = '$email'";
         $result = mysqli_query($con, $query);
-    
+        
         if($result)
         {
             if(mysqli_affected_rows($con) > 0)
