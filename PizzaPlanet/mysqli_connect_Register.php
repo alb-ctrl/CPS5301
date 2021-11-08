@@ -116,6 +116,11 @@ if (isset($_POST['login_user']))
         //user to use temp pwd
         $query2 = "SELECT * FROM users WHERE username='$username' AND temp_password='$password'";
         
+        //getting email for 2fa
+        $email_sql = "SELECT email FROM users WHERE  username='$username'";
+        $email_res = mysqli_query($db,$email_sql);
+        $email_row = mysqli_fetch_row($email_res);
+
         //user remembers password
         $result1 = mysqli_query($db, $query1);
         //user forgot password
@@ -124,10 +129,8 @@ if (isset($_POST['login_user']))
         //use 2FA to verify login
         if (mysqli_num_rows($result1) == 1) 
         {
-          $_SESSION['username'] = $username;
-          $_SESSION['password'] = $password;
-          header('location: index.php');
-          // header('location: 2fa-email.php');
+          echo $email_row[0];
+          
         }
         //if user forgets password, let them log in and direct them to reset_password.html
         else if (mysqli_num_rows($result2) == 1) 
