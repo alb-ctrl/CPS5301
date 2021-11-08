@@ -17,37 +17,37 @@ $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
 // }
 
 
-function sendAEmail($v_email, $code)
-    {
-        $v_emailBody = 'Hello user: '.$v_email.' code: '.$code.'';
+// function sendAEmail($v_email, $code)
+//     {
+//         $v_emailBody = 'Hello user: '.$v_email.' code: '.$code.'';
 
-        $v_body = '{
-            "subject": "From Pizza Planet",
-            "to": [
-            {
-                "email": "'.$v_email.'",
-                "name": "test"
-            }
-            ],
-            "from": [
-            {
-                "email": "developing5301@gmail.com",
-                "name": "Pizza Planet"
-            }
-            ],
-            "body": "'.$v_emailBody.'"
-        }';
+//         $v_body = '{
+//             "subject": "From Pizza Planet",
+//             "to": [
+//             {
+//                 "email": "'.$v_email.'",
+//                 "name": "test"
+//             }
+//             ],
+//             "from": [
+//             {
+//                 "email": "developing5301@gmail.com",
+//                 "name": "Pizza Planet"
+//             }
+//             ],
+//             "body": "'.$v_emailBody.'"
+//         }';
         
         
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_URL, 'https://api.nylas.com/send');
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $v_body);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Authorization: Bearer n9W8GxAT6wkdF2CAYu5ZFOnM9QUXkM','cache-control: no-cache' ));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//         $ch = curl_init();
+//         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+//         curl_setopt($ch, CURLOPT_URL, 'https://api.nylas.com/send');
+//         curl_setopt($ch, CURLOPT_POSTFIELDS, $v_body);
+//         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Authorization: Bearer n9W8GxAT6wkdF2CAYu5ZFOnM9QUXkM','cache-control: no-cache' ));
+//         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         
-        $v_result = curl_exec($ch);
-        curl_close($ch);
-        echo("Check your email to complete the verification process");
-    }
+//         $v_result = curl_exec($ch);
+//         curl_close($ch);
+//         echo("Check your email to complete the verification process");
+//     }
 ?>
