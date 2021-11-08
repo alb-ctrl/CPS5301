@@ -126,6 +126,7 @@ if (isset($_POST['login_user']))
         {
           $_SESSION['username'] = $username;
           $_SESSION['password'] = $password;
+          header('location: index.php');
           // header('location: 2fa-email.php');
         }
         //if user forgets password, let them log in and direct them to reset_password.html
