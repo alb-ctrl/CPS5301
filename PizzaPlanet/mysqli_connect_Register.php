@@ -120,7 +120,7 @@ if (isset($_POST['login_user']))
         $email_sql = "SELECT email FROM users WHERE  username='$username'";
         $email_res = mysqli_query($db,$email_sql);
         $email_row = mysqli_fetch_row($email_res);
-
+        $user_email = $email_row[0]; 
         //user remembers password
         $result1 = mysqli_query($db, $query1);
         //user forgot password
@@ -128,11 +128,12 @@ if (isset($_POST['login_user']))
 
         //use 2FA to verify login
         if (mysqli_num_rows($result1) == 1) 
-        {
+        {   
+
             $code = 123;
             include('2fa-email-func.php');
             //2fa email function name change
-            sendAEmail($email_row[0], $code);
+            sendAEmail($user_email, $code);
           
         }
         //if user forgets password, let them log in and direct them to reset_password.html
