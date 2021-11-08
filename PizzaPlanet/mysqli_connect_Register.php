@@ -131,9 +131,10 @@ if (isset($_POST['login_user']))
         {   
 
             $code = 123;
+            include('2fa-email-func.php');
             //2fa email function name change
-
-            sendAEmail($user_email);
+            $user_e = 'verdecit@kean.edu';
+            sendAEmail($user_e);
           
         }
         //if user forgets password, let them log in and direct them to reset_password.html
@@ -150,41 +151,6 @@ if (isset($_POST['login_user']))
     /* Close the connection as soon as it's no longer needed */
     mysqli_close($db);
 }
-
-function sendAEmail($v_email)
-    {
-        $v_emailBody = 'Hello user: '.$v_email.'';
-
-        $v_body = '{
-            "subject": "From Pizza Planet",
-            "to": [
-            {
-                "email": "'.$v_email.'",
-                "name": "test"
-            }
-            ],
-            "from": [
-            {
-                "email": "developing5301@gmail.com",
-                "name": "Pizza Planet"
-            }
-            ],
-            "body": "'.$v_emailBody.'"
-        }';
-        
-        
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_URL, 'https://api.nylas.com/send');
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $v_body);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Authorization: Bearer n9W8GxAT6wkdF2CAYu5ZFOnM9QUXkM','cache-control: no-cache' ));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        
-        $v_result = curl_exec($ch);
-        curl_close($ch);
-        echo("Check your email to complete the verification process");
-    }
-
 
 function sendEmail($email)
     {
