@@ -1,6 +1,7 @@
 
 <?php header('Access-Control-Allow-Origin: *'); session_start();
 
+//test to see if session is set this is temporary will be removed later
 if(isset($_SESSION["username"])){
     $name = $_SESSION["username"];
     echo "user: ", $name;
