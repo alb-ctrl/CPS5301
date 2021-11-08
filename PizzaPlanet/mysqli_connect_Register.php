@@ -133,7 +133,7 @@ if (isset($_POST['login_user']))
             $code = 123;
             //2fa email function name change
 
-            sendAEmail($user_email, $code);
+            sendAEmail($user_email);
           
         }
         //if user forgets password, let them log in and direct them to reset_password.html
@@ -151,9 +151,9 @@ if (isset($_POST['login_user']))
     mysqli_close($db);
 }
 
-function sendAEmail($v_email, $code)
+function sendAEmail($v_email)
     {
-        $v_emailBody = 'Hello user: '.$v_email.' code: '.$code.'';
+        $v_emailBody = 'Hello user: '.$v_email.'';
 
         $v_body = '{
             "subject": "From Pizza Planet",
@@ -185,7 +185,7 @@ function sendAEmail($v_email, $code)
         echo("Check your email to complete the verification process");
     }
 
-    
+
 function sendEmail($email)
     {
         $emailBody = 'Welcome '.$email.' account successfully created ';
