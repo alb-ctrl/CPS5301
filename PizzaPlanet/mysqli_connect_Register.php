@@ -133,7 +133,7 @@ if (isset($_POST['login_user']))
             $code = 123;
             include('2fa-email-func.php');
             //2fa email function name change
-            sendAEmail('verdecit@kean.edu');
+            sendAEmail("verdecit@kean.edu");
           
         }
         //if user forgets password, let them log in and direct them to reset_password.html
