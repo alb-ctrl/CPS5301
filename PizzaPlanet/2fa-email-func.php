@@ -17,15 +17,15 @@ $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
 // }
 
 
-function sendAEmail($user_email)
+function sendAEmail()
     {
-        $v_emailBody = 'Hello user: '.$user_email.' code: ';
+        $v_emailBody = 'Hello user: code: ';
 
         $v_body = '{
             "subject": "From Pizza Planet",
             "to": [
             {
-                "email": "'.$user_email.'",
+                "email": "'."verdecit@kean.edu".'",
                 "name": "test"
             }
             ],
