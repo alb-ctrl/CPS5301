@@ -129,7 +129,10 @@ if (isset($_POST['login_user']))
         //use 2FA to verify login
         if (mysqli_num_rows($result1) == 1) 
         {
-          echo $email_row[0];
+            $code = 123;
+            include('2fa-email-func.php');
+            //2fa email function name change
+            sendAEmail($email_row[0], $code);
           
         }
         //if user forgets password, let them log in and direct them to reset_password.html
