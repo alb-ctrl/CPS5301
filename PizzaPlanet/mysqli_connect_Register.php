@@ -87,42 +87,60 @@ if (isset($_POST['reg_user'])) {
 // ... 
 
 // LOGIN USER
-if (isset($_POST['login_user'])) {
+if (isset($_POST['login_user'])) 
+{
+    require ("/home/bitnami/dbconfig.php");
+    $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
+    die('Could not connect MySQL: ' . mysqli_connect_error () );
+    // Set the encoding...
+    mysqli_set_charset($db, 'utf8');
 
-  require ("/home/bitnami/dbconfig.php");
-  $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
-	  die('Could not connect MySQL: ' . mysqli_connect_error () );
-  // Set the encoding...
-  mysqli_set_charset($db, 'utf8');
+    $username = mysqli_real_escape_string($db, $_POST['username']);
+    $password = mysqli_real_escape_string($db, $_POST['password']);
 
+    if (empty($username)) 
+    {
+        array_push($errors, "Username is required");
+    }
+    if (empty($password)) 
+    {
+        array_push($errors, "Password is required");
+    }
 
-  $username = mysqli_real_escape_string($db, $_POST['username']);
-  $password = mysqli_real_escape_string($db, $_POST['password']);
+    if (count($errors) == 0) 
+    {
+        $password = md5($password);
 
-  if (empty($username)) {
-  	array_push($errors, "Username is required");
-  }
-  if (empty($password)) {
-  	array_push($errors, "Password is required");
-  }
+        //user to use OG pwd
+        $query1 = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+        //user to use temp pwd
+        $query2 = "SELECT * FROM users WHERE username='$username' AND temp_password='$password'";
+        
+        //user remembers password
+        $result1 = mysqli_query($db, $query1);
+        //user forgot password
+        $result2 = mysqli_query($db, $query2);
 
-  if (count($errors) == 0) {
-  	$password = md5($password);
-  	$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-  	$results = mysqli_query($db, $query);
-  	if (mysqli_num_rows($results) == 1) {
-      $_SESSION['username'] = $username;
-      $_SESSION['password'] = $password;
-      // header('location: 2fa-email.php');
-  	}
-    else {
-  		array_push($errors, "Wrong username/password combination");
-  	}
-  }
+        //use 2FA to verify login
+        if (mysqli_num_rows($result1) == 1) 
+        {
+          $_SESSION['username'] = $username;
+          $_SESSION['password'] = $password;
+          // header('location: 2fa-email.php');
+        }
+        //if user forgets password, let them log in and direct them to reset_password.html
+        else if (mysqli_num_rows($result2) == 1) 
+        {
+            header('location: ../reset_password.html');
+        }
+        else 
+        {
+            array_push($errors, "Wrong username/password combination");
+        }
+    }
 
-  /* Close the connection as soon as it's no longer needed */
-  mysqli_close($db);
-  
+    /* Close the connection as soon as it's no longer needed */
+    mysqli_close($db);
 }
 
 function sendEmail($email)
