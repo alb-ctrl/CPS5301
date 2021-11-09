@@ -79,13 +79,51 @@ function get_checkout_cart($item_id, $quanitiy){
     while ($row = mysqli_fetch_array($results)) {
         ?>
 
-    <li class="list-group-item d-flex justify-content-between lh-condensed">
-        <div>
-            <h6 class="my-0"><?php echo $row['menu_item_name']; ?></h6>
-            <small class="text-muted"><?php echo $row['description']; ?></small>
-        </div>
-        <span class="text-muted amount">$<?php echo $row['price']*$quanitiy; ?></span>
-    </li>
+<li class="list-group-item d-flex justify-content-between lh-condensed">
+    <div>
+        <h6 class="my-0"><?php echo $row['menu_item_name']; ?></h6>
+        <small class="text-muted"><?php echo $row['description']; ?></small>
+    </div>
+    <span class="text-muted amount">$<?php echo $row['price']*$quanitiy; ?></span>
+</li>
+<?php
+        
+            }
+        
+            
+        
+            
+        /* Close the connection as soon as it's no longer needed */
+        mysqli_close($db);
+
+}
+
+function get_reciept($order_id){
+
+    require ("/home/bitnami/dbconfig.php");
+    $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
+        die('Coul not connect MySQL: ' . mysqli_connect_error () );
+    // Set the encoding...
+    mysqli_set_charset($db, 'utf8');
+
+    $query = "select m.menu_item_name,  m.price, o.quantity, o.status from pizzaplace.menu m, pizzaplace.user_orders o where m.menu_item_id=o.menu_item_id and o.user_order_id=$order_id  and o.status != 'X'";
+
+    $results = mysqli_query($db, $query);
+
+    if (!$results) {
+        //print error message 
+        echo "didnt work";
+
+    }
+
+    while ($row = mysqli_fetch_array($results)) {
+        ?>
+
+<div class="row">
+    <div class="col-9"> <span id="name"><?php echo $row['m.menu_item_name']; ?></span> </div>
+    <div class="col-3"> <span id="price">$<?php echo $row['m.price']; ?></span> </div>
+</div>
+
 <?php
         
             }
