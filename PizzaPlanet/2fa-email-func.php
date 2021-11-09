@@ -22,9 +22,7 @@ function sendAEmail($v_email)
         require '/home/bitnami/PHPmailerconfig.php';
         $mail->IsHTML(true);
         $mail->AddAddress($v_email, "test");
-        $mail->SetFrom("bitnamiaws@gmail.com", "set-from-name");
-        $mail->AddReplyTo("reply-to-email", "reply-to-name");
-        $mail->AddCC("cc-recipient-email", "cc-recipient-name");
+        $mail->SetFrom("bitnamiaws@gmail.com", "Pizza Planet");
         $mail->Subject = "Test is Test Email sent via Gmail SMTP Server using PHP Mailer";
         $content = "<b>This is a Test Email sent via Gmail SMTP Server using PHP mailer class.</b>";
 
