@@ -34,8 +34,6 @@ if(!isset($_SESSION["verify"])){
             <li>
 <?php
 if(empty($_SESSION['username'])){
-
-
 ?>
 
                 <a href="login.php">Sign in <i class="fas fa-user-astronaut fa-5x" 
@@ -45,9 +43,10 @@ if(empty($_SESSION['username'])){
 <?php
 }
 
-else{
+else if(!isset($_SESSION["verify"])){
+                session_destroy();
 ?>
-
+                
                 <a href="#?you are logged in">
                     <?php
                     echo$_SESSION['username'];
@@ -59,13 +58,9 @@ else{
                     <li><a href="#">My profile</a></li>
                 </ul>
         </li>
-
-
-
 <?php            
 }
 ?>
-
             <li>
             <a href="view_cart.php">Cart <i class="fas fa-shopping-cart" style="font-size: 18px" ></i></a>
 
