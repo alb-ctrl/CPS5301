@@ -11,7 +11,14 @@ if(isset($_SESSION["code"])){
         header('location: index.php');
     }
     else{
-    echo "Incorrect Code check email click <a href='2fa-email-func.php'>here</a> to try again ";
+        $count += 1;
+        if($count < 4){
+            echo "Incorrect Code check email for code click <a href='2fa-email-func.php'>here</a> to try again, Caution: you have 3 attempts";
+        }
+        else{
+            echo "No more attempts click <a href='2fa-email-func.php'>here</a> to return to login";
+            session_destroy();
+        }
 }
 }
 ?>
