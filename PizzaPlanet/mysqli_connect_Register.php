@@ -128,10 +128,9 @@ if (isset($_POST['login_user']))
 
         //use 2FA to verify login
         if (mysqli_num_rows($result1) == 1) 
-        {   
-
+        {   include('2fa-email-func.php');
+            //generate random code
             $code = secureCode();
-            include('2fa-email-func.php');
             //2fa email function name change
             sendAEmail($user_email, $username, $code);
           
