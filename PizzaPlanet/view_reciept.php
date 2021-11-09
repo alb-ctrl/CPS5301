@@ -30,41 +30,39 @@ if (isset($_GET['order_id']))
 
 
 
-        <div class="card">
-            <div class="title">Purchase Reciept</div>
-            <div class="info">
-                <div class="row">
-                    <div class="col-7"> <span id="heading">Date</span><br> <span id="details"><?php echo date('d-M-Y', $order_id/1000);?></span>
-                    </div>
-                    <div class="col-5 pull-right"> <span id="heading">Order No.</span><br> <span
-                            id="details"><?php echo $order_id;?></span> </div>
+    <div class="card">
+        <div class="title">Purchase Reciept</div>
+        <div class="info">
+            <div class="row">
+                <div class="col-7"> <span id="heading">Date</span><br> <span
+                        id="details"><?php echo date('d-M-Y', $order_id/1000);?></span>
                 </div>
-            </div>
-
-            
-            <?php require("functions.php"); get_reciept($order_id);?>
-
-            <div class="footer">
-                <div class="row">
-                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/YBWc55P.png"></div>
-                    <div class="col-10">Want any help? Please &nbsp;<a> contact us</a></div>
-                </div>
+                <div class="col-5 pull-right"> <span id="heading">Order No.</span><br> <span
+                        id="details"><?php echo $order_id;?></span> </div>
             </div>
         </div>
 
 
+        <?php require("functions.php"); get_reciept($order_id);?>
+
+        <div class="footer">
+            <footer class="my-5 pt-5 text-muted text-center text-small">
+                <p class="mb-1">&copy; 2017-2018 Company Name</p>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#">Privacy</a></li>
+                    <li class="list-inline-item"><a href="#">Terms</a></li>
+                    <li class="list-inline-item"><a href="#">Support</a></li>
+                </ul>
+            </footer>
+        </div>
+    </div>
 
 
-        <footer class="my-5 pt-5 text-muted text-center text-small">
-            <p class="mb-1">&copy; 2017-2018 Company Name</p>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Privacy</a></li>
-                <li class="list-inline-item"><a href="#">Terms</a></li>
-                <li class="list-inline-item"><a href="#">Support</a></li>
-            </ul>
-        </footer>
- 
-        
+
+
+
+
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -85,7 +83,7 @@ if (isset($_GET['order_id']))
 
     <!-- Optional JavaScript -->
 
-    
+
     <script>
     </script>
 </body>
