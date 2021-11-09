@@ -36,8 +36,6 @@ function sendAEmail($v_email,$username,$code)
             echo "Email sent successfully";
         }
     }
-    $user = $_SESSION['username'];
-    $sscode = $_SESSION['code'];
 ?>
 <form action="2FA.php" method="POST">
     Please check your email for your secure code

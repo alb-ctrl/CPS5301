@@ -4,15 +4,13 @@ require ("/home/bitnami/dbconfig.php");
 // sent to them and redirect them to the index page with their session variables set
 session_start();
 
-include('2fa-email-func.php');
+
 
 
 if(isset($_SESSION["code"])){
     $scode = $_POST["scode"];
     $c = $_SESSION["code"];
     if($c == $scode){
-        $_SESSION['username'] = $user;
-        $_SESSION['code'] = $sscode;
         $_SESSION["verify"] = "verify";
         header('location: index.php');
     }
