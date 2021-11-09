@@ -12,7 +12,6 @@ if(isset($_SESSION["code"])){
     }
     else{
     echo "Incorrect Code check email click <a href='2fa-email-func.php'>here</a> to try again ";
-    session_destroy();
 }
 }
 ?>
