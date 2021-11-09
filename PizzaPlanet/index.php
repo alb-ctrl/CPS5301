@@ -43,8 +43,7 @@ if(empty($_SESSION['username'])){
 <?php
 }
 
-else if(!isset($_SESSION["verify"])){
-                session_destroy();
+else{
 ?>
                 
                 <a href="#?you are logged in">

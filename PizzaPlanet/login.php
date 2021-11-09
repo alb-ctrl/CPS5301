@@ -1,5 +1,12 @@
 
-<?php include('mysqli_connect_Register.php');header('Access-Control-Allow-Origin: *'); header('Access-Control-Allow-Methods: *');  ?>
+<?php include('mysqli_connect_Register.php');header('Access-Control-Allow-Origin: *'); header('Access-Control-Allow-Methods: *');  
+session_start();
+if(!isset($_SESSION["verify"])){
+    session_destroy();
+    
+}
+
+?>
 
 <!DOCTYPE html>
 <html>
