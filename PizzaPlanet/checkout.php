@@ -107,7 +107,7 @@
             </div>
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">Delivery Address</h4>
-                <form id="checkout" class="needs-validation" novalidate>
+                <form id="checkout" class="needs-validation" novalidate action="checkout_handler.php" method="POST">
                     <div class="row">
                         <input type="hidden" name="username" value="<?php if (isset($_SESSION['username'])) echo $_SESSION['username']; ?>">
                         <div class="col-md-6 mb-3">
@@ -248,10 +248,10 @@
         $(document).ready(function() {
             console.log("ready!");
             checkout_total();
-            $("#checkout").submit(function(event) {
-                event.preventDefault();
-                final_checkout ();
-            });
+            //$("#checkout").submit(function(event) {
+            //    event.preventDefault();
+            //    final_checkout ();
+            //});
 
         });
         // Example starter JavaScript for disabling form submissions if there are invalid fields

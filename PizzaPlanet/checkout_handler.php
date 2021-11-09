@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $query = "insert into user_orders values (".$_SESSION['order_id'].", '$checkoutUsername', ".$value['menu_item_id'].", ".$value['quantity'].", 'O', now()) ";
         $results = mysqli_query($db, $query);
     }
-    echo "hello";
+    echo "<br>Your order number is <b>#".$_SESSION['order_id']."</b>";
 
     
     
