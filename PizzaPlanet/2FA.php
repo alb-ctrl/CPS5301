@@ -8,10 +8,11 @@ if(isset($_SESSION["code"])){
     $scode = $_POST["scode"];
     $c = $_SESSION["code"];
     if($c == $scode){
+        $_SESSION["verify"] = "verify";
         header('location: index.php');
     }
     else{
-        echo "Incorrect entry click <a href='2fa-email-func.php'>here</a> to return to login";
+        echo "Incorrect entry click <a href='index.php'>here</a> to return to login";
         session_destroy();
 }
 }
