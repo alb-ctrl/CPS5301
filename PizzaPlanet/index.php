@@ -5,7 +5,7 @@
 if(isset($_SESSION["username"])){
     $name = $_SESSION["username"];
     $c = $_SESSION['code'];
-    echo "user: ", $name, $c;
+    echo "user: ", $name, $c,' ',$_POST["scode"];
 } else {
     echo "no user logged in";
 }
