@@ -4,7 +4,8 @@
 //test to see if session is set this is temporary will be removed later
 if(isset($_SESSION["username"])){
     $name = $_SESSION["username"];
-    echo "user: ", $name;
+    $c = $_SESSION['code'];
+    echo "user: ", $name, $c;
 } else {
     echo "no user logged in";
 }
