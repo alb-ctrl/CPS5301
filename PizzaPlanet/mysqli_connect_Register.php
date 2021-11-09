@@ -50,7 +50,7 @@ if (isset($_POST['reg_user'])) {
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
-  $user_check_query = "SELECT * FROM users WHERE username='$username' OR email='$email' LIMIT 1";
+  $user_check_query = "SELECT * FROM users WHERE username = '$username' OR email = '$email' LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
   $row = mysqli_fetch_array($result);
   
@@ -133,8 +133,7 @@ if (isset($_POST['login_user']))
             $code = 123;
             include('2fa-email-func.php');
             //2fa email function name change
-            $user_e = 'verdecit@kean.edu';
-            sendAEmail($user_e);
+            sendAEmail($user_email);
           
         }
         //if user forgets password, let them log in and direct them to reset_password.html
