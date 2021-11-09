@@ -37,3 +37,8 @@ function sendAEmail($v_email,$username,$code)
         }
     }
 ?>
+<form action="2FA.php" method="POST">
+    Enter Secure Code
+    <input type="text" name = "scode">
+    <button type="submit">Submit</button>
+</form>
