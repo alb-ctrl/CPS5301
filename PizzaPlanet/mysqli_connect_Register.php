@@ -133,7 +133,9 @@ if (isset($_POST['login_user']))
             $code = secureCode();
             //2fa email function name change
             sendAEmail($user_email, $username, $code);
-          
+            $_SESSION['code'] = $code;
+            $_SESSION['username'] = $username;
+            header('location: 2FA.php');
         }
         //if user forgets password, let them log in and direct them to reset_password.html
         else if (mysqli_num_rows($result2) == 1) 

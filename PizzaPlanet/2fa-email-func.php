@@ -1,21 +1,5 @@
 <?php
 require ("/home/bitnami/dbconfig.php");
-$db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
-	die('Coul not connect MySQL: ' . mysqli_connect_error () );
-// $v_email = $_POST['v_email'];
-
-// $v_sql = "SELECT * FROM users WHERE email='$v_email' LIMIT 1";
-// $v_result = mysqli_query($db, $v_sql);
-
-// if (mysqli_num_rows($v_result) == 0) {
-//     echo "email is not associated with any registered account";
-//     }
-
-// else if (mysqli_num_rows($v_result) > 0) {
-// sendEmail($v_email);
-
-//}
-
 function secureCode() 
     {
         $alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
@@ -33,6 +17,7 @@ function secureCode()
         //turn the array into a string
         return implode($pass);
     }
+
 
 function sendAEmail($v_email,$username,$code)
     {
