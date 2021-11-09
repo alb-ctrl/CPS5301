@@ -4,9 +4,6 @@ require ("/home/bitnami/dbconfig.php");
 // sent to them and redirect them to the index page with their session variables set
 session_start();
 
-
-
-
 if(isset($_SESSION["code"])){
     $scode = $_POST["scode"];
     $c = $_SESSION["code"];
