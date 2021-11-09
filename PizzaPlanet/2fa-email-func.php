@@ -16,6 +16,23 @@ $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
 
 // }
 
+function secureCode() 
+    {
+        $alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+    
+        $pass = array();
+        //put the length -1 in cache
+        $alphaLength = strlen($alphabet) - 1;
+
+        for ($i = 0; $i < 4; $i++) 
+        {
+            $n = rand(0, $alphaLength);
+            $pass[] = $alphabet[$n];
+        }
+        
+        //turn the array into a string
+        return implode($pass);
+    }
 
 function sendAEmail($v_email,$username,$code)
     {
