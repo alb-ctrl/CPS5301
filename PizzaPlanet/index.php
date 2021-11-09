@@ -1,6 +1,6 @@
 
 <?php header('Access-Control-Allow-Origin: *'); session_start();
-
+header('Location: index.php');
 if(!isset($_SESSION["verify"])){
     session_destroy();
 }
