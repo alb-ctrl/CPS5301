@@ -20,10 +20,10 @@ if(isset($_SESSION["code"])){
         header('location: index.php');
     }
     else{
-    session_unset();
+    session_unset($_SESSION["username"]);
 }
 }
 else{
-    session_unset();
+    session_unset($_SESSION["username"]);
 }
 ?>
