@@ -177,4 +177,23 @@ function get_reciept($order_id){
     mysqli_close($db);
 
 }
+
+function myMail($to,$subject,$message){
+
+    require '/home/bitnami/PHPmailerconfig.php';
+        $mail->IsHTML(true);
+        $mail->AddAddress($to, "Dear Customer");
+        $mail->SetFrom("bitnamiaws@gmail.com", "Pizza Planet");
+        $mail->Subject = "$subject";
+        $content = $message;
+        $mail->MsgHTML($content);
+        if(!$mail->Send()) {
+            echo "Error while sending Email.";
+            var_dump($mail);
+        }
+        else {
+            //echo "Email sent successfully";
+        }
+
+}
 ?>
