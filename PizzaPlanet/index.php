@@ -8,6 +8,9 @@ if(isset($_SESSION["username"])){
 } else {
     echo "no user logged in";
 }
+if(!isset( $_SESSION['code'])){
+    session_unset();
+}
 ?>
 
 <!DOCTYPE html>
