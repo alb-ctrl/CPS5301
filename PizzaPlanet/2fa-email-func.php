@@ -14,7 +14,7 @@ $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
 // else if (mysqli_num_rows($v_result) > 0) {
 // sendEmail($v_email);
 
-// }
+//}
 
 function secureCode() 
     {
