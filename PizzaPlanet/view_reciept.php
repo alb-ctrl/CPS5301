@@ -23,11 +23,8 @@ session_start();
 </head>
 
 <body class="bg-light">
-    <!-- https://getbootstrap.com/docs/4.0/examples/checkout/? -->
+    <!-- https://bbbootstrap.com/snippets/bootstrap-tracking-order-purchase-reciept-progress-86201225 -->
 
-
-
-    <div class="container">
 
 
         <div class="card">
@@ -63,7 +60,8 @@ session_start();
                 <li class="list-inline-item"><a href="#">Support</a></li>
             </ul>
         </footer>
-    </div>
+ 
+        
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -83,7 +81,8 @@ session_start();
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- Optional JavaScript -->
-    <script type="text/javascript" src="../rsrc/js/main.js"></script>
+
+    
     <script>
     </script>
 </body>
