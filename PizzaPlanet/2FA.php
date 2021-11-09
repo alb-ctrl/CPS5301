@@ -11,6 +11,7 @@ require ("/home/bitnami/dbconfig.php");
 
 <?php
 echo $_SESSION["code"];
+echo "session above post below";
 echo $_POST["scode"];
 if(isset($_SESSION["code"])){
     $scode = $_POST["scode"];
