@@ -115,24 +115,66 @@ function get_reciept($order_id){
         echo "didnt work";
 
     }
+    $order_status="";
+    $total=0;
+
+    echo '<div class="pricing">';
 
     while ($row = mysqli_fetch_array($results)) {
+        $order_status = $row['status'];
+        $total += $row['price'] * $row['quantity'];
         ?>
 
 <div class="row">
-    <div class="col-9"> <span id="name"><?php echo $row['m.menu_item_name']; ?></span> </div>
-    <div class="col-3"> <span id="price">$<?php echo $row['m.price']; ?></span> </div>
+    <div class="col-9"> <span id="name"><?php echo $row['menu_item_name']; ?></span> </div>
+    <div class="col-3"> <span id="price">$<?php echo $row['price']; ?></span> </div>
 </div>
 
 <?php
         
-            }
-        
-            
-        
-            
-        /* Close the connection as soon as it's no longer needed */
-        mysqli_close($db);
+    }
+    echo "</div>";
+    echo '<div class="total">
+    <div class="row">
+        <div class="col-9"></div>
+        <div class="col-3"><big>$'.$total.'</big></div>
+    </div>
+    </div>';
+
+    echo '<div class="progress-track">
+    <ul id="progressbar">';
+
+    if ($order_status=='O'){
+        echo '<li class="step0 active " id="step1">Ordered</li>
+        <li class="step0  text-center" id="step2">In Progress</li>
+        <li class="step0  text-right" id="step3">Out for delivery</li>
+        <li class="step0 text-right" id="step4">Delivered</li>';
+    }
+    if ($order_status=='P'){
+        echo '<li class="step0 active " id="step1">Ordered</li>
+        <li class="step0 active text-center" id="step2">In Progress</li>
+        <li class="step0  text-right" id="step3">Out for delivery</li>
+        <li class="step0 text-right" id="step4">Delivered</li>';
+    }
+    if ($order_status=='D'){
+        echo '<li class="step0 active " id="step1">Ordered</li>
+        <li class="step0 active text-center" id="step2">In Progress</li>
+        <li class="step0 active text-right" id="step3">Out for delivery</li>
+        <li class="step0 text-right" id="step4">Delivered</li>';
+    }
+    if ($order_status=='C'){
+        echo '<li class="step0 active " id="step1">Ordered</li>
+        <li class="step0 active text-center" id="step2">In Progress</li>
+        <li class="step0 active text-right" id="step3">Out for delivery</li>
+        <li class="step0 active text-right" id="step4">Delivered</li>';
+    }
+    
+
+
+    echo '</ul></div>';
+
+    /* Close the connection as soon as it's no longer needed */
+    mysqli_close($db);
 
 }
 ?>
