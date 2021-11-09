@@ -32,7 +32,7 @@ if(isset($_POST['login'])) {
 }
 
 if(isset($_POST['register'] )) {
-  include ("../connection/connect.php");
+  require("/home/bitnami/dbconfig.php");
   if(empty($_POST['user']) ||
    	empty($_POST['email'])|| 
 		empty($_POST['pass']) ||  
