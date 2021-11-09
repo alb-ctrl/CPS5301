@@ -38,6 +38,8 @@ function sendAEmail($v_email,$username,$code)
     }
 ?>
 <form action="2FA.php" method="POST">
+    Please check your email for your secure code
+
     Enter Secure Code
     <input type="text" name = "scode">
     <button type="submit">Submit</button>

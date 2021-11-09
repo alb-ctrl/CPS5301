@@ -11,10 +11,8 @@ if(isset($_SESSION["code"])){
         header('location: index.php');
     }
     else{
+    echo "Incorrect Code check email and try again";
     session_destroy();
 }
-}
-else{
-    session_destroy();
 }
 ?>
