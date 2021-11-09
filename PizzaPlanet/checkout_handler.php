@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $results = mysqli_query($db, $query);
     }
     //echo "<br>Your order number is <b>#".$_SESSION['order_id']."</b>";
-    header('location: view_reciept.php');
+    header('location: view_reciept.php?order_id='.$_SESSION['order_id'].'');
 
     
     

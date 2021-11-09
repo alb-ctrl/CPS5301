@@ -1,5 +1,9 @@
 <?php
 session_start();
+$order_id;
+if (isset($_GET['order_id']))
+    $order_id = $_GET['order_id'];
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -31,15 +35,15 @@ session_start();
             <div class="title">Purchase Reciept</div>
             <div class="info">
                 <div class="row">
-                    <div class="col-7"> <span id="heading">Date</span><br> <span id="details"><?php echo date('d-M-Y', $_SESSION['order_id']/1000);?></span>
+                    <div class="col-7"> <span id="heading">Date</span><br> <span id="details"><?php echo date('d-M-Y', $order_id/1000);?></span>
                     </div>
                     <div class="col-5 pull-right"> <span id="heading">Order No.</span><br> <span
-                            id="details"><?php echo $_SESSION['order_id'];?></span> </div>
+                            id="details"><?php echo $order_id;?></span> </div>
                 </div>
             </div>
 
             
-            <?php require("functions.php"); get_reciept($_SESSION['order_id']);?>
+            <?php require("functions.php"); get_reciept($order_id);?>
 
             <div class="footer">
                 <div class="row">
