@@ -21,9 +21,12 @@ if(isset($_SESSION["code"])){
     }
     else{
     session_unset($_SESSION["username"]);
+    session_unset($_SESSION["code"]);
+    
 }
 }
 else{
     session_unset($_SESSION["username"]);
+    session_unset($_SESSION["code"]);
 }
 ?>
