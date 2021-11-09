@@ -17,15 +17,14 @@ $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
 // }
 
 
-function sendAEmail($v_email)
+function sendAEmail($v_email,$username)
     {
         require '/home/bitnami/PHPmailerconfig.php';
         $mail->IsHTML(true);
-        $mail->AddAddress($v_email, "test");
+        $mail->AddAddress($v_email, $username);
         $mail->SetFrom("bitnamiaws@gmail.com", "Pizza Planet");
         $mail->Subject = "Test is Test Email sent via Gmail SMTP Server using PHP Mailer";
         $content = "<b>This is a Test Email sent via Gmail SMTP Server using PHP mailer class.</b>";
-
         $mail->MsgHTML($content);
         if(!$mail->Send()) {
             echo "Error while sending Email.";
