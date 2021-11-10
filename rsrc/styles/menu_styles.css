@@ -9,7 +9,7 @@
     display: block;
     padding-left: 20px;
     width: 95%;
-    height: 35vh;
+    height: 30vh;
     padding-bottom: 10px;
     margin-left: auto;
     margin-right: auto;
@@ -25,7 +25,6 @@ h5{
 }
 
 button {
-    margin-top: -10px;
     border-radius: 5px;
     background: rgb(255, 0, 0);
     width: 80%;
