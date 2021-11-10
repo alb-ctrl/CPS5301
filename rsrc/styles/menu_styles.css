@@ -34,7 +34,7 @@ button {
     padding: 3px 13px;
     border: solid 1px;
     border-style: hidden;
-    align-content: center;
+    left: 50%;
 }
 
 button:hover{
