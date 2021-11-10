@@ -1,5 +1,5 @@
 *{
-    text-decoration: none;
+    text-decoration: none !important;
 }
 button {
     padding: 14px 20px;
