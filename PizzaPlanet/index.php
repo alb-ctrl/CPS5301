@@ -28,9 +28,9 @@ if(!isset($_SESSION["verify"])){
             </label>
         <ul class = "links">
             <li><a href="index.php">Home</a></li>
-            <li><a href="About_Us.html">About</a></li>
+            <li><a href="About_Us.php">About</a></li>
             <li><a href="get_menu.php">Menu</a></li>
-            <li><a href="Contact_Us.html">Contact</a></li>
+            <li><a href="Contact_Us.php">Contact</a></li>
             <li>
 <?php
 if(empty($_SESSION['username'])){

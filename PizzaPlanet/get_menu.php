@@ -23,14 +23,38 @@
             </label>
         <ul class = "links">
             <li><a href="index.php">Home</a></li>
-            <li><a href="About_Us.html">About</a></li>
+            <li><a href="About_Us.php">About</a></li>
             <li><a href="#">Menu</a></li>
-            <li><a href="Contact_Us.html">Contact</a></li>
+            <li><a href="Contact_Us.php">Contact</a></li>
             <li>
+<?php
+if(empty($_SESSION['username'])){
+?>
 
-
-            <a href="login.php">Sign in  <span class="diff"><i class="fas fa-user-astronaut fa-5x"style="margin-left:2px;font-size:18px;"></i></span></a>
+                <a href="login.php">Sign in <i class="fas fa-user-astronaut fa-5x" 
+            style="margin-left:2px;font-size:18px;"></i></a>
             </li>
+
+<?php
+}
+
+else{
+?>
+                
+                <a href="#?you are logged in">
+                    <?php
+                    echo$_SESSION['username'];
+                    ?>
+                    <i class="fas fa-user-astronaut fa-5x" 
+            style="margin-left:2px;font-size:18px;"></i></a>
+            <ul class="drop">
+                    <li><a href="logout.php">Sign out</a></li>
+                    <li><a href="#">My profile</a></li>
+                </ul>
+        </li>
+<?php            
+}
+?>
             <li>
             <a href="view_cart.php">Cart <i id="cart_icon" data-totalitems="0" class="fas fa-shopping-cart" style="font-size: 18px" ></i></a>
             </li>
