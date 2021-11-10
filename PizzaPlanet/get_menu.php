@@ -71,7 +71,7 @@ else{
             <img class="card-img-top" src="../rsrc/imgs/menu/pizza_Cheese.png.jpeg" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">Cheese Pizza</h5>
-            <button><a href="#" id="1" class="btn btn-primary"
+            <button><a href="#" id="1"
                 onclick="return updateCart(1,1);">Add to cart</a></button>
         </div>
         </div>
@@ -79,7 +79,7 @@ else{
             <img class="card-img-top" src="../rsrc/imgs/menu/pizza_Supreme.png.jpeg" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">Veggie pizza</h5>
-                <button><a href="#" id="2" class="btn btn-primary"
+                <button><a href="#" id="2"
                     onclick="return updateCart(2,1);">Add to cart</a></button>
             </div>
         </div>
