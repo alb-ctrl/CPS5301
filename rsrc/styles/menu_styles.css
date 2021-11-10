@@ -34,7 +34,7 @@ button {
     padding: 3px 13px;
     border: solid 1px;
     border-style: hidden;
-    left: 50%;
+    
 }
 
 button:hover{
@@ -43,6 +43,7 @@ button:hover{
 
 button a{
     color: white;
+    left: 50%;
 }
 
 div.cont{
