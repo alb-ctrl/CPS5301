@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <title>Menu</title>
@@ -31,7 +37,7 @@
 if(empty($_SESSION['username'])){
 ?>
 
-                <a href="login.php">Sign in b<i class="fas fa-user-astronaut fa-5x" 
+                <a href="login.php">Sign in<i class="fas fa-user-astronaut fa-5x" 
             style="margin-left:2px;font-size:18px;"></i></a>
             </li>
 
