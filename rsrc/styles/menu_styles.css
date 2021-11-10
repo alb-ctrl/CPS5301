@@ -8,7 +8,7 @@ div.item{
     border-color: rgb(201, 201, 201);
     display: block;
     padding-left: 20px;
-    width: 95%;
+    width: 75%;
     height: 30vh;
     padding-bottom: 10px;
     margin-left: auto;
@@ -34,6 +34,8 @@ button {
     padding: 3px 13px;
     border: solid 1px;
     border-style: hidden;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 button:hover{
