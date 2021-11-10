@@ -8,7 +8,7 @@
     border-color: rgb(201, 201, 201);
     display: block;
     padding-left: 20px;
-    width: 100%;
+    width: 95%;
     height: 35vh;
     padding-bottom: 10px;
 }
@@ -23,6 +23,7 @@ h5{
 }
 
 button {
+    margin-bottom: 10px;
     border-radius: 5px;
     background: rgb(255, 0, 0);
     width: 80%;
