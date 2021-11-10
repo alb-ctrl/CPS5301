@@ -8,8 +8,12 @@ button {
     cursor: pointer;
     width: 100%;
     border-radius: 5px;
-    background: rgb(255, 0, 0);
+    background: rgb(255, 0, 0) !important;
     color: white;
     
     font-size: 15px;
     }
+
+button :hover{
+    background: rgb(255, 44, 44);
+}
