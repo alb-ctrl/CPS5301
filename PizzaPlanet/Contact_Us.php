@@ -74,7 +74,7 @@ else{
         <div class="p-5 text-center bg-light">
             <h1 class="mb-3">Contact Us</h1>
             <h4 class="mb-3">Message us using the form below for any inqueries or comments</h4>
-            <a class="btn btn-primary" href="" role="button">Message Us</a>
+            <a class="butt" href="" role="button">Message Us</a>
             <!--This button could be used to anchor to form-->
         </div>
     </header>
@@ -102,7 +102,7 @@ else{
                         <label for="exampleFormControlTextarea1">Type Message Here</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Send Us A Message</button>
+                    <button type="submit" class="butt">Send Us A Message</button>
                 </form>
             </div>
             <div class="col-sm">
