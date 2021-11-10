@@ -15,6 +15,7 @@ session_start();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"  crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../rsrc/styles/index_styles.css">
+    <style>*{text-decoration: none;}</style>
 </head>
 
 <body>
