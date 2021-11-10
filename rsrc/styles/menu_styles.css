@@ -6,7 +6,7 @@
 .item{
     border: solid 1px;
     border-color: rgb(201, 201, 201);
-    
+    display: inline-block;
     padding-left: 20px;
     width:50vh;
     padding-bottom: 10px;
@@ -36,7 +36,6 @@ button a{
 }
 
 div.cont{
-    display: inline-block;
     width: 40%;
     margin-left: auto;
     margin-right: auto;
