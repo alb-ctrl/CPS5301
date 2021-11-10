@@ -78,7 +78,7 @@ else{
             <div class="p-5 text-center bg-light">
                 <h1 class="mb-3">About Us</h1>
                 <h4 class="mb-3">We have some of the best Pizzas fit to your liking! Order Now To Get Your Pizza</h4>
-                <a class="btn btn-primary" href="" role="button">Order Now</a>
+                <a class="butt" href="" role="button">Order Now</a>
                 <!--This button is supposed to anchor to form-->
             </div>
         </header>
