@@ -16,6 +16,7 @@ div.item{
 }
 
 img.pizza{
+    width: 30px;
     margin-top: -10px;
     padding: 0;
 }
