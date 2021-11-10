@@ -156,7 +156,7 @@ function sendEmail($email)
     {
       require '/home/bitnami/PHPmailerconfig.php';
       $mail->IsHTML(true);
-      $mail->AddAddress($v_email, $username);
+      $mail->AddAddress($email, "Dear User");
       $mail->SetFrom("bitnamiaws@gmail.com", "Pizza Planet");
       $mail->Subject = "2FA";
       $content = 'Welcome '.$email.' account successfully created ';
