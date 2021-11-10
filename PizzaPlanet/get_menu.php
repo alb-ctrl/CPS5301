@@ -106,7 +106,7 @@ else{
     }
 
     ?>
-    <div class="cont">
+    
     <?php
     while ($row = mysqli_fetch_array($results)) {
     ?>
@@ -133,7 +133,7 @@ else{
     <?php
     }
     ?>
-    </div>
+    
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
