@@ -9,9 +9,18 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="../rsrc/styles/index_styles.css">
 </head>
-
 <body>
-<nav>
+
+    <?php 
+session_start(); 
+if (!isset($_SESSION['cart'])){
+// print empty basket 
+}
+require("functions.php");
+
+?>
+    <div class="CartContainer">
+    <nav>
         <input id="check" type="checkbox">
         <label for="check" class="checkbtn">
 
@@ -37,15 +46,6 @@
             </li>
         </ul>
     </nav>
-    <?php 
-session_start(); 
-if (!isset($_SESSION['cart'])){
-// print empty basket 
-}
-require("functions.php");
-
-?>
-    <div class="CartContainer">
         <div class="Header">
             <h3 class="Heading">Shopping Cart</h3>
             <h5 class="Action">Remove all</h5>
