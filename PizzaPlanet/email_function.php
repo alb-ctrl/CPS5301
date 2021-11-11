@@ -14,7 +14,7 @@
         $mail->IsHTML(true);
         $mail->AddAddress($email, $value);
         $mail->SetFrom("bitnamiaws@gmail.com", "Pizza Planet");
-        $mail->Subject = "Password Reset";
+        $mail->Subject = "Account Recovery";
         $content = $emailBody;
         $mail->MsgHTML($content);
         if(!$mail->Send()) {
