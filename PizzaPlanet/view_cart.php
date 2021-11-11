@@ -19,7 +19,7 @@ if (!isset($_SESSION['cart'])){
 require("functions.php");
 
 ?>
-    <div class="CartContainer">
+    
     <nav>
         <input id="check" type="checkbox">
         <label for="check" class="checkbtn">
@@ -45,7 +45,7 @@ require("functions.php");
 
             </li>
         </ul>
-    </nav>
+    </nav><div class="CartContainer">
         <div class="Header">
             <h3 class="Heading">Shopping Cart</h3>
             <h5 class="Action">Remove all</h5>
