@@ -43,6 +43,8 @@
             if(mysqli_affected_rows($con) > 0)
             {
                 echo("Successfully updated password!<br>");
+                header( "refresh:3; url= login.php");
+                echo "\n\nYou will be redirected to login in a few seconds";
             }
             else
             {
