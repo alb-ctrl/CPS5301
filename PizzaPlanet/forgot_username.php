@@ -11,7 +11,7 @@
         echo("Please check email again");
     }
     sendEmail(getUsername($email), $email, "username");
-
+    header( "refresh:3; url= login.php");
     function getUsername($email)
     {
         $username = "";
@@ -34,4 +34,5 @@
 
         return $username;
     }
+
 ?>
