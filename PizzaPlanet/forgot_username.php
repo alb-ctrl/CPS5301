@@ -12,7 +12,7 @@
     }
     sendEmail(getUsername($email), $email, "username");
     header( "refresh:3; url= login.php");
-    echo "You will be redirected to login in a few seconds";
+    echo "\nYou will be redirected to login in a few seconds";
     function getUsername($email)
     {
         $username = "";
