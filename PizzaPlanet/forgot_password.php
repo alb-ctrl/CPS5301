@@ -24,31 +24,6 @@
     //call send email method
     sendEmail($message, $email, "forgot_reset_password");
 
-    /*
-    //get temp pw from db
-    function getTempPwd($email)
-    {
-        $temp_pwd = "";
-
-        require ("/home/bitnami/dbconfig.php");
-        $con = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
-            die("Could not connect to MySQL DB: ".mysqli_connect_error());
-
-        $query = "SELECT temp_password FROM users WHERE email = '$email'";
-        $result = mysqli_query($con, $query);
-
-        if(mysqli_num_rows($result) > 0)
-        {
-            while($row = mysqli_fetch_array($result))
-            {
-                $temp_pwd = $row['temp_password'];
-            }
-        }
-        mysqli_close($con);
-
-        return $temp_pwd;
-    }
-    */
 
     //reset temp pw in db
     function resetTempPwd($email, $new_temp_pwd)
