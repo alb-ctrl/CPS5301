@@ -3,18 +3,26 @@
     padding: 0;
 }
 
-.item{
+div.item{
     border: solid 1px;
     border-color: rgb(201, 201, 201);
-    display: inline-block;
+    display: block;
     padding-left: 20px;
-    margin-left: 10px;
-    width:60vh;
+    width: 75%;
+    height: 30vh;
     padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img.pizza{
+    width: 170px;
+    margin-top: 10px;
+    padding: 0;
 }
 
 h5{
-    padding: 10px;
+    padding: 0px;
     font-size: 16px;
 }
 
@@ -26,6 +34,7 @@ button {
     padding: 3px 13px;
     border: solid 1px;
     border-style: hidden;
+    
 }
 
 button:hover{
@@ -34,9 +43,11 @@ button:hover{
 
 button a{
     color: white;
+    left: 50%;
 }
 
 div.cont{
-    margin-left: 10%;
+    margin-left: auto;
+    margin-right: auto;
     padding-top: 30px;
 }

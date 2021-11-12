@@ -3,7 +3,7 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-
+    require("functions.php");
     require ("/home/bitnami/dbconfig.php");
     $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
         die('Coul not connect MySQL: ' . mysqli_connect_error () );
@@ -17,25 +17,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $zipcode = $_POST['zip'];
     
 
-
+    $checkoutUsername="";
     if (!isset($_SESSION['username'])){
-        $query = "insert into order_history values (null, now(),'guest', 'O')";
-        echo "user is not logged in";
+        $checkoutUsername="guest";
+        //echo "user is not logged in";
     }
     else{
-        $query = "insert into order_history values (null, now(),'".$_SESSION['username']."', 'O')";
-        echo "user is logged in";
+        $checkoutUsername=$_SESSION['username'];
+        //echo "user is logged in";
     }
-    $results = mysqli_query($db, $query);
-    $last_id = mysqli_insert_id($db);
-    echo "last id : $last_id";
-    $_SESSION['order_id']=$last_id;
+
+    $_SESSION['order_id']= time(); 
 
     foreach($_SESSION['cart'] as $value){
-        $query = "insert into order_items values ($last_id,".$value['menu_id'].", ".$value['quantity'].") ";
+        $query = "insert into user_orders values (".$_SESSION['order_id'].", '$checkoutUsername', ".$value['menu_item_id'].", ".$value['quantity'].", 'O', now()) ";
         $results = mysqli_query($db, $query);
     }
-    echo "hello";
+    //echo "<br>Your order number is <b>#".$_SESSION['order_id']."</b>";
+    $emailmessage = "Order Succesfully complete, to view your order please click <a href='http://3.82.35.248/CPS5301/PizzaPlanet/view_reciept.php?order_id=".$_SESSION['order_id']."'>here</a> ";
+    myMail($email,"Order complete", $emailmessage );
+    header('location: view_reciept.php?order_id='.$_SESSION['order_id'].'');
 
     
     
@@ -43,4 +44,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     mysqli_close($db);
 
 }
+else{
+    header('location: index.php');
+    die();
+}
+    
+
+
 ?>

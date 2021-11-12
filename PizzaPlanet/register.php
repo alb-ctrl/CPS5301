@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login</title>
+<title>Regsiter</title>
 <link rel="stylesheet" type="text/css" href="../rsrc/styles/login_style.css">
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">

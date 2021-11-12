@@ -1,3 +1,4 @@
+<?php include('mysqli_connect.php') ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,10 +19,11 @@
 <body>
 
 <div class="container">  
-  <form class="" action="mysqli_connect.php" method="post">
+  <form action="register.php" method="post">
+  <?php include('../errors.php'); ?>
   <h1><center>Admin</center></h1>
   
-    <input type="text" placeholder="username" name="cuser"/>
+    <input type="text" placeholder="username" name="user"/>
     <input type="text" placeholder="email address"  name="email"/>
    <input type="password" placeholder="password"  name="pass"/>
     <input type="password" placeholder="Confirm password"  name="cpass"/>

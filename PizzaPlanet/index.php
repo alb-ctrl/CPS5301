@@ -1,6 +1,11 @@
 
-<?php header('Access-Control-Allow-Origin: *'); session_start();?>
+<?php header('Access-Control-Allow-Origin: *'); session_start();
 
+if(!isset($_SESSION["verify"])){
+    session_destroy();
+    
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"  crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"  crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="../rsrc/styles/index_styles.css">
 </head>
@@ -22,13 +28,12 @@
             </label>
         <ul class = "links">
             <li><a href="index.php">Home</a></li>
-            <li><a href="About_Us.html">About</a></li>
+            <li><a href="About_Us.php">About</a></li>
             <li><a href="get_menu.php">Menu</a></li>
+            <li><a href="Contact_Us.php">Contact</a></li>
             <li>
 <?php
 if(empty($_SESSION['username'])){
-
-
 ?>
 
                 <a href="login.php">Sign in <i class="fas fa-user-astronaut fa-5x" 
@@ -40,7 +45,6 @@ if(empty($_SESSION['username'])){
 
 else{
 ?>
-
                 <a href="#?you are logged in">
                     <?php
                     echo$_SESSION['username'];
@@ -52,13 +56,9 @@ else{
                     <li><a href="#">My profile</a></li>
                 </ul>
         </li>
-
-
-
 <?php            
 }
 ?>
-
             <li>
             <a href="view_cart.php">Cart <i class="fas fa-shopping-cart" style="font-size: 18px" ></i></a>
 

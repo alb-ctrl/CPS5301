@@ -1,5 +1,8 @@
 
-<?php include('mysqli_connect_Register.php');header('Access-Control-Allow-Origin: *'); header('Access-Control-Allow-Methods: *');  ?>
+<?php include('mysqli_connect_Register.php');header('Access-Control-Allow-Origin: *'); header('Access-Control-Allow-Methods: *');  
+session_start();
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -31,8 +34,9 @@
             </label>
         <ul class = "links">
             <li><a href="index.php">Home</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="About_Us.php">About</a></li>
             <li><a href="get_menu.php">Menu</a></li>
+            <li><a href="Contact_Us.php">Contact</a></li>
             <li>
 
 
@@ -65,8 +69,9 @@
 
 <div class="container">
     <button type="reset">Clear</button>
-    <span class="Signup">Forgot your hsername?<a href="../forgot_username.html">Forgot Username</a></span>
-    <span class="Signup">Not yet a member?<a href="register.php"> Signup</a></span>
+    <span class="Signup">Forgot your username? <a href="../forgot_username.html">Forgot Username</a></span>
+    <span class="Signup">Forgot your password? <a href="../forgot_password.html">Forgot Password</a></span>
+    <span class="Signup">Not yet a member? <a href="register.php">Signup</a></span>
 </div>
 </form>
 
