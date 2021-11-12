@@ -45,7 +45,6 @@ if(empty($_SESSION['username'])){
 
 else{
 ?>
-                
                 <a href="#?you are logged in">
                     <?php
                     echo$_SESSION['username'];

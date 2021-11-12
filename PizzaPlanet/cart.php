@@ -6,7 +6,6 @@ if (!isset($_SESSION['cart'])){
     $_SESSION['cart'] = array();
 }
 
-
 if (isset($_POST['menu_item_id'])) {
     $item_id = $_POST['menu_item_id'];
     echo "Menu id: $item_id";
