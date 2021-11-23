@@ -80,7 +80,7 @@ if (!mysqli_num_rows($query) > 0) {
 
 
 		<td><div class="col-md-3 col-lg-8 m-b-10">
-		<center><img src="menu_img/menu/' . $rows['picture_path'] . '" class="img-responsive  radius" style="max-height:100px;max-width:150px;" /></center>
+		<center><img src="../rsrc/imgs/menu/' . $rows['picture_path'] . '" class="img-responsive  radius" style="max-height:100px;max-width:150px;" /></center>
 		</div></td>
 
 
