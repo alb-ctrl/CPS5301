@@ -120,7 +120,7 @@ else{
     </div> -->
     <div class="cont">
         <div class="item">
-        <img class="pizza" src="<?php echo $row['picture_path']; ?>" alt="Card image cap">
+        <img class="pizza" src="./rsrc/imgs/menu/<?php echo $row['picture_path']; ?>" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title"><?php echo $row['name']; ?></h5>
             <p class="card-text"><?php echo $row['description']; ?></p>
