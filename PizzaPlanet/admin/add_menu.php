@@ -38,9 +38,10 @@ if(isset($_POST['submit']))   //if upload btn is pressed
 		$extension = strtolower(end($extension));  
 		$picture_path = uniqid().'.'.$extension;
 
-		$store = "/../rsrc/imgs/menu/".basename($picture_path);                      // the path to store the upload image
+		$store = "../rsrc/imgs/menu/".basename($picture_path);                      // the path to store the upload image
 
-	
+
+		
 		if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' ){        
 			if($fsize>=1000000){
 
