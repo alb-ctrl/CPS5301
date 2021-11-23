@@ -7,8 +7,6 @@ $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) or
 // Set the encoding...
 mysqli_set_charset($db, 'utf8');
 
-
-
 include 'navbar.php';
 error_reporting(0);
 session_start();
@@ -17,7 +15,6 @@ session_start();
 if (empty($_SESSION["adm_id"])) {
     header('location:index.php');
 } else {
-    ?>
 
 
 
