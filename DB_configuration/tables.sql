@@ -45,8 +45,11 @@ menu_item_name varchar(222) NOT NULL,
 description varchar(255),
 tags varchar(255),
 picture_path varchar(100),
-price DECIMAL(10,2)
+price DECIMAL(10,2),
+hiden varchar(100)
 );
+# NA for any normal menu item 
+# HI for create your own pizza 
 
 CREATE TABLE IF NOT EXISTS user_orders (
   user_order_id int(11) NOT NULL,

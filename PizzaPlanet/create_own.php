@@ -66,18 +66,8 @@ else{
             </li>
         </ul>
     </nav>
-    <div class="cont">
-        
-        
-        <div class="item">
-        <img class="pizza" src="../rsrc/imgs/menu/pizza_Cheese.png.jpeg" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Pizza</h5>
-            <p class="card-text">Build Your Own Pizza</p>
-            <button><a href="#" id="0" class="btn btn-primary">Add to cart</a></button>
-        </div>
-        </div>
-    </div>
+
+
         
 
 <!-- server side images -->
@@ -90,7 +80,7 @@ else{
     // Set the encoding...
     mysqli_set_charset($db, 'utf8');
 
-    $query = "Select menu_item_id, menu_item_name, description, tags, picture_path, price from menu where hiden ='NA' ";
+    $query = "Select menu_item_id, menu_item_name, tags,  price from menu where hiden ='HI' ";
     $results = mysqli_query($db, $query);
 
     if (!$results) {
@@ -101,35 +91,6 @@ else{
 
     ?>
 
-
-    
-    <?php
-    while ($row = mysqli_fetch_array($results)) {
-    ?>
-    <!-- <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title"><?php echo $row['name']; ?></h5>
-            <p class="card-text"><?php echo $row['description']; ?></p>
-            <a href="#" id="<?php echo $row['menu_item_id']; ?>" class="btn btn-primary"
-                onclick="return updateCart(<?php echo $row['menu_item_id']; ?>,1);">Add to cart</a>
-        </div>
-    </div> -->
-    <div class="cont">
-        <div class="item">
-        <img class="pizza" src="../rsrc/imgs/menu/<?php echo $row['picture_path']; ?>" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title"><?php echo $row['name']; ?></h5>
-            <p class="card-text"><?php echo $row['description']; ?></p>
-            <button><a href="#" id="<?php echo $row['menu_item_id']; ?>" class="btn btn-primary"
-                onclick="return updateCart(<?php echo $row['menu_item_id']; ?>,1);">Add to cart</a></button>
-        </div>
-        </div>
-    </div>
-    
-    <?php
-    }
-    ?>
-    
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
