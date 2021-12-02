@@ -19,10 +19,18 @@ session_start();
 
 
 
-    $query = "Select price from menu where menu_item_id = $crust ";
+    $query = "Select price from menu where menu_item_id = $crust and menu_item_id = $size and menu_item_id = $sauce ";
     $results = mysqli_query($db, $query);
-    $row = mysqli_fetch_array($results);
-    $cost += $row['price'];
+    while($row = mysqli_fetch_array($results)){
+        $cost += $row['price'];
+    }
+
+    for ($i=0; $i<count($meat); $i++){
+        echo "HI";
+    }
+    
+
+    
 
     echo "<br>$cost";
 
