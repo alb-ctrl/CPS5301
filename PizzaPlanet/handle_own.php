@@ -13,11 +13,18 @@ session_start();
     $size = $_POST['size'];
     $sauce = $_POST['sauce'];
     $meat = $_POST['meat'];
+    $cost = 12;
 
     echo "$crust - $size - $sauce - $meat";
 
-    $query = "Select menu_item_id, menu_item_name, tags,  price from menu where hiden ='HI' and tags = 'sauce' ";
+
+
+    $query = "Select price from menu where menu_item_id = $crust ";
     $results = mysqli_query($db, $query);
+    $row = mysqli_fetch_array($results);
+    $cost += $row['price'];
+
+    echo "<br>$price";
 
 
     /* Close the connection as soon as it's no longer needed */
