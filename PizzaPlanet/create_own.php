@@ -97,7 +97,7 @@ else{
         echo '<div class="form-check">
         <input class="form-check-input" type="radio" name="crust" id="flexRadioDefault1" onclick="return updateCart(<?php echo $row[\'menu_item_id\']; ?>,1);">
         <label class="form-check-label" for="flexRadioDefault1">
-          $row["menu_item_name"]';
+         '. $row["menu_item_name"];
           echo '
         </label>
       </div>';
