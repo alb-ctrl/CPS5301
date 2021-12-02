@@ -14,11 +14,12 @@ session_start();
     $sauce = $_POST['sauce'];
     $meat = $_POST['meat'];
     $cost = 12;
-
-    echo "$crust - $size - $sauce - $meat";
-
+    $description= "$crust,$size,$sauce";
 
 
+
+
+    // get indormation/price from each menu id 
     $query = "Select price from menu where menu_item_id = $crust and menu_item_id = $size and menu_item_id = $sauce ";
     $results = mysqli_query($db, $query);
     while($row = mysqli_fetch_array($results)){
@@ -26,7 +27,7 @@ session_start();
     }
 
     for ($i=0; $i<count($meat); $i++){
-        echo "$meat[$i]";
+        $description .=",$meat[$i]";
         $query = "Select price from menu where menu_item_id = $meat[$i]";
         $results = mysqli_query($db, $query);
         while($row = mysqli_fetch_array($results)){
@@ -35,9 +36,17 @@ session_start();
     }
     
 
-    
+    // insert new menu item and make it hidden as Hiden Order
+    $query = "insert into menu (description, price, hiden) values ('$description', $cost, 'HO');";
+    $results = mysqli_query($db, $query);
+    $last_id = mysqli_insert_id($db);
 
-    echo "<br>$cost";
+    $quantity = 1;
+    $index = count($_SESSION['cart']);
+    $_SESSION['cart'][$index+1] = array('cart_index' => $index+1, 'menu_item_id' => $last_id, 'quantity' => $quantity);
+
+
+    header('location: get_menu.php');
 
 
     /* Close the connection as soon as it's no longer needed */
