@@ -94,12 +94,66 @@ else{
         while ($row = mysqli_fetch_array($results)) {
 
         echo '<div class="form-check">
-        <input class="form-check-input" type="radio" name="crust" id="flexRadioDefault1" onclick="return updateCart('.$row['menu_item_id'].',1);">
+        <input class="form-check-input" type="radio" value="'.$row["menu_item_id"].'" name="crust" id="flexRadioDefault1">
         <label class="form-check-label" for="flexRadioDefault1">
          '. $row["menu_item_name"];
           echo '
         </label>
       </div>';
+        }
+
+    }
+
+    $query = "Select menu_item_id, menu_item_name, tags,  price from menu where hiden ='HI' and tags = 'size' ";
+    $results = mysqli_query($db, $query);
+
+    if ($results) {
+        //print error message 
+        while ($row = mysqli_fetch_array($results)) {
+
+        echo '<div class="form-check">
+        <input class="form-check-input" type="radio" value="'.$row["menu_item_id"].'" name="size" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+         '. $row["menu_item_name"];
+          echo '
+        </label>
+      </div>';
+        }
+
+    }
+
+    $query = "Select menu_item_id, menu_item_name, tags,  price from menu where hiden ='HI' and tags = 'sauce' ";
+    $results = mysqli_query($db, $query);
+
+    if ($results) {
+        //print error message 
+        while ($row = mysqli_fetch_array($results)) {
+
+        echo '<div class="form-check">
+        <input class="form-check-input" type="radio" value="'.$row["menu_item_id"].'" name="sauce" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+         '. $row["menu_item_name"];
+          echo '
+        </label>
+      </div>';
+        }
+
+    }
+
+    $query = "Select menu_item_id, menu_item_name, tags,  price from menu where hiden ='HI' and tags = 'meat' ";
+    $results = mysqli_query($db, $query);
+
+    if ($results) {
+        //print error message 
+        while ($row = mysqli_fetch_array($results)) {
+
+            echo '<div class="form-check">
+            <input class="form-check-input" type="checkbox" name="meat[]" value="'.$row["menu_item_id"].'" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+             '. $row["menu_item_name"];
+             echo '
+            </label>
+          </div>';
         }
 
     }
