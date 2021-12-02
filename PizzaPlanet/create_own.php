@@ -68,8 +68,7 @@ else{
 }
 ?>
             <li>
-                <a href="view_cart.php">Cart <i id="cart_icon" data-totalitems="0" class="fas fa-shopping-cart"
-                        style="font-size: 18px"></i></a>
+                <a href="view_cart.php">Cart <i id="cart_icon" data-totalitems="0" class="fas fa-shopping-cart" style="font-size: 18px"></i></a>
             </li>
         </ul>
     </nav>
@@ -95,7 +94,7 @@ else{
         while ($row = mysqli_fetch_array($results)) {
 
         echo '<div class="form-check">
-        <input class="form-check-input" type="radio" name="crust" id="flexRadioDefault1" onclick="return updateCart(<?php echo $row[\'menu_item_id\']; ?>,1);">
+        <input class="form-check-input" type="radio" name="crust" id="flexRadioDefault1" onclick="return updateCart('.'$row[\'menu_item_id\']; '.',1);">
         <label class="form-check-label" for="flexRadioDefault1">
          '. $row["menu_item_name"];
           echo '
