@@ -96,6 +96,10 @@
                         <strong id="total_amount_cart">$20</strong>
                     </li>
                 </ul>
+                <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="save-info">
+                        <label class="custom-control-label" for="save-info">Save this information for next time</label>
+                    </div>
                 <form class="card p-2">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Promo code">

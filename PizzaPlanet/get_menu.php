@@ -106,6 +106,17 @@ else{
     }
 
     ?>
+
+    <div class="cont">
+        <div class="item">
+        <img class="pizza" src="../rsrc/imgs/menu/" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Pizza</h5>
+            <p class="card-text">Build Your Own Pizza</p>
+            <button><a href="#" id="1" class="btn btn-primary">Add to cart</a></button>
+        </div>
+        </div>
+    </div>
     
     <?php
     while ($row = mysqli_fetch_array($results)) {
