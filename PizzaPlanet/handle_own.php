@@ -24,7 +24,7 @@ session_start();
     $row = mysqli_fetch_array($results);
     $cost += $row['price'];
 
-    echo "<br>$price";
+    echo "<br>$cost";
 
 
     /* Close the connection as soon as it's no longer needed */
