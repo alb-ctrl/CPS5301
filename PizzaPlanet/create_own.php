@@ -163,6 +163,8 @@ else{
 
     }
 
+    echo "<input type='submit' value='Done'>";
+
     echo "</form>";
 
     ?>
