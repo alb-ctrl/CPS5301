@@ -26,7 +26,12 @@ session_start();
     }
 
     for ($i=0; $i<count($meat); $i++){
-        echo "HI";
+        echo "$meat[$i]";
+        $query = "Select price from menu where menu_item_id = $meat[$i]";
+        $results = mysqli_query($db, $query);
+        while($row = mysqli_fetch_array($results)){
+            $cost += $row['price'];
+        }
     }
     
 
