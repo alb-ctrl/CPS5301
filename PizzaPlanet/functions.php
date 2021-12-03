@@ -10,7 +10,7 @@ function get_cart($item_id, $quanitiy, $cart_index){
     // Set the encoding...
     mysqli_set_charset($db, 'utf8');
 
-    $query = "SELECT menu_item_id, menu_item_name, description, tags, picture_path, price from menu where menu_item_id = $item_id and hiden = 'NA' ";
+    $query = "SELECT menu_item_id, menu_item_name, description, tags, picture_path, price from menu where menu_item_id = $item_id  ";
 
     $results = mysqli_query($db, $query);
 
