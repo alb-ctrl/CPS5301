@@ -109,13 +109,12 @@ if (isset($_POST['promo_code'])){
         $row = mysqli_fetch_array($results);
         $index = count($_SESSION['cart']['promo']);
         $_SESSION['cart']['promo'][$index+1] = array('code_id' => $row['code_id'], 'price' => $row['price']);
-        echo '<li class="list-group-item d-flex justify-content-between bg-light">
+        echo '
         <div class="text-success">
           <h6 class="my-0">Promo code</h6>
           <small>'.$code_id.'</small>
         </div>
-        <span class="text-success">$'.$row['price'].'</span>
-      </li>';
+        <span class="text-success">$'.$row['price'].'</span>';
     }
     
     mysqli_close($db);

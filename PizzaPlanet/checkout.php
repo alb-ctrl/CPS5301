@@ -91,6 +91,7 @@
                         get_checkout_cart($value['menu_item_id'], $value['quantity']);
                     }
                     ?>
+                    <li class="list-group-item d-flex justify-content-between bg-light" id ="redeemCode-section"></li>
                     <li class="list-group-item d-flex justify-content-between">
                         <span>Total (USD)</span>
                         <strong id="total_amount_cart">$20</strong>
