@@ -116,6 +116,8 @@ function sub_total() {
 }
 
 function checkout_total() {
+    // amount is a class that only purpose is to get the cost
+    // it doesnt posses any css
     var all = $(".amount").map(function () {
         return this.innerHTML.replace('$', '');;
     }).get();

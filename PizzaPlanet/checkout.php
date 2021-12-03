@@ -274,6 +274,7 @@
             $("#redeem-form").submit(function(event) {
                 event.preventDefault();
                 redeemCode();
+                checkout_total();
                 
                 
             });
