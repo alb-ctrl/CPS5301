@@ -99,7 +99,7 @@
                 <?php
                 if(!empty($_SESSION['username'])){
                 echo '<div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="save-order" onclick="return saveOrder();">
+                        <input type="checkbox" class="custom-control-input" id="save-order">
                         <label class="custom-control-label" for="save-info">Save this order for next time</label>
                 </div>';
                 }
@@ -171,6 +171,14 @@
                         <input type="checkbox" class="custom-control-input" id="save-info">
                         <label class="custom-control-label" for="save-info">Save this information for next time</label>
                     </div> -->
+                    <?php
+                    if(!empty($_SESSION['username'])){
+                        echo '<div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="save-order" onclick="return saveOrder();">
+                                <label class="custom-control-label" for="save-info">Save this information for next time</label>
+                        </div>';
+                        }
+                    ?>
                     <hr class="mb-4">
 
                     <h4 class="mb-3">Payment</h4>
@@ -256,10 +264,10 @@
         $(document).ready(function() {
             console.log("ready!");
             checkout_total();
-            //$("#checkout").submit(function(event) {
+            $("#checkout").submit(function(event) {
             //    event.preventDefault();
-            //    final_checkout ();
-            //});
+                saveOrder();
+            });
 
         });
         // Example starter JavaScript for disabling form submissions if there are invalid fields

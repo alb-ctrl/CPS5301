@@ -83,7 +83,7 @@ function get_checkout_cart($item_id, $quanitiy){
 <li class="list-group-item d-flex justify-content-between lh-condensed">
     <div>
         <h6 class="my-0"><?php echo $row['menu_item_name']; ?></h6>
-        <small class="text-muted"><?php echo $row['description']; ?></small>
+        <small class="text-muted"><?php if (count($row['description']) > 6) echo $row['description']; ?></small>
     </div>
     <span class="text-muted amount">$<?php echo $row['price']*$quanitiy; ?></span>
 </li>

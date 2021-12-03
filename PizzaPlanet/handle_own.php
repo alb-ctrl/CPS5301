@@ -36,7 +36,7 @@ session_start();
     
 
     // insert new menu item and make it hidden as Hiden Order
-    $query = "insert into menu (description, price, picture_path, hiden) values ('$description', $cost, 'custom-made-pizza.jpg', 'HO');";
+    $query = "insert into menu (description, menu_item_name, price, picture_path, hiden) values ('$description', 'Custome Pizza' , $cost, 'custom-made-pizza.jpg', 'HO');";
     $results = mysqli_query($db, $query);
     $last_id = mysqli_insert_id($db);
 

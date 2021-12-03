@@ -78,11 +78,20 @@ if (isset($_POST['pre_checkout'])){
 }
 
 if (isset($_POST['saveOrder'])){
-    if (isset($_SESSION['username'])){
-        header("HTTP/1.1 222 is Logged in");
-        die();
+    require ("/home/bitnami/dbconfig.php");
+    $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
+        die('Coul not connect MySQL: ' . mysqli_connect_error () );
+    // Set the encoding...
+    mysqli_set_charset($db, 'utf8');
+
+    foreach($_SESSION['cart'] as $value){
+        $menu_id = $value['menu_item_id'];
+        $user = $_SESSION['username'];
+
+        $query = "insert into favorites_orders values ($menu_id, $user)";
+        $results = mysqli_query($db, $query);
     }
-    echo "show d-block";
+    mysqli_close($db);
 
 }
 
