@@ -197,7 +197,7 @@ function saveOrder(){
 }
 
 function redeemCode(){
-
+// hi
     $.ajax({
         url: "cart.php",
         method: "POST",
