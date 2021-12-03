@@ -136,7 +136,8 @@ if (isset($_POST['login_user']))
             $_SESSION['code'] = $code;
             $_SESSION['username'] = $username;
             if(filter_var($user_email, FILTER_VALIDATE_EMAIL)){
-              $mailDomain = substr(strrchr($email, "@"), 1);
+              $mailDomain = explode(".",$email);
+              $mailDomain = $mailDomain[count($mailDomain)-1];
               $_SESSION['mailDomain'] = $mailDomain;
 
             }

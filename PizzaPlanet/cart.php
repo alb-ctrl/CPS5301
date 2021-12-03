@@ -134,4 +134,49 @@ if (isset($_POST['promo_code'])){
 
 }
 
+if (isset($_POST['studentCode'])){
+
+    foreach($_SESSION['promo'] as $value){
+        echo '<li class="list-group-item d-flex justify-content-between bg-light">
+        <div class="text-success">
+          <h6 class="my-0 ">Promo code</h6>
+          <small>'.$value['code_id'].'</small>
+        </div>
+        <span class="text-success amount">$'.$value['price'].'</span>
+      </li>';
+        
+    }
+    
+    if (isset($_SESSION['mailDomain'])){
+
+        if ($_SESSION['mailDomain'] == 'edu'){
+            $index = count($_SESSION['promo']);
+            $promo_count=0;
+
+        foreach($_SESSION['promo'] as $value){
+            if ($value['code_id'] == 'kean_student'){
+                $promo_count++;
+            }
+            
+        }
+
+        if ($promo_count ==0){
+            $_SESSION['promo'][$index+1] = array('code_id' => 'kean_student', 'price' => 5);
+            echo '<li class="list-group-item d-flex justify-content-between bg-light">
+        <div class="text-success">
+          <h6 class="my-0 ">Promo code</h6>
+          <small>'.$code_id.'</small>
+        </div>
+        <span class="text-success amount">$'.$row['price'].'</span>
+      </li>';
+        }
+    }
+    }
+
+    // print all promo codes 
+    // in theory all promo codes are unique since que cant insert duplicated ones
+    
+
+}
+
 ?>

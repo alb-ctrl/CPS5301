@@ -202,6 +202,7 @@ function redeemCode(){
     $.ajax({
         url: "cart.php",
         method: "POST",
+        async: false,
         data:$('#redeem-form').serialize(),
         success: function(data, textStatus, xhr) {
                 console.log(data);
@@ -217,4 +218,25 @@ function redeemCode(){
     });
     return false;
 
+}
+
+function studentCode(){
+    $.ajax({
+        url: "cart.php",
+        method: "POST",
+        async: false,
+        data:{studentCode: "idk"},
+        success: function(data, textStatus, xhr) {
+                console.log(data);
+                $("#total_amount_cart_li").before(data);
+                //$("#"+cart_id+" .count" ).html();
+                
+                //sub_total();
+            },
+        error: function (xhr, status, error) {
+            var errorMessage = xhr.status + ': ' + xhr.statusText
+            alert('Error - ' + errorMessage);
+        }
+    });
+    return false;
 }
