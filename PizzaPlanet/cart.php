@@ -23,6 +23,16 @@ if (isset($_POST['menu_item_id'])) {
 if (isset($_POST['remove_item'])) {
     unset($_SESSION['cart'][$_POST['cart_index']]);
     echo "success";
+    if (isset($_SESSION['special_item']) && $_SESSION['special_item'] == $_POST['remove_item']){
+        require ("/home/bitnami/dbconfig.php");
+        $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
+            die('Coul not connect MySQL: ' . mysqli_connect_error () );
+        // Set the encoding...
+        mysqli_set_charset($db, 'utf8');
+        $query = "delete from menu where menu_item_id = " . $_POST['remove_item'];
+        $results = mysqli_query($db, $query);
+        mysqli_close($db);
+    }
     /*
     foreach($_SESSION['cart'] as $value){
         if ($value['menu_item_id'] == $_POST['remove_item'] && $value['cart_index'] == $_POST['cart_index']){
@@ -59,6 +69,15 @@ if (isset($_POST['decrease_quantity'])) {
 }
 
 if (isset($_POST['pre_checkout'])){
+    if (isset($_SESSION['username'])){
+        header("HTTP/1.1 222 is Logged in");
+        die();
+    }
+    echo "show d-block";
+
+}
+
+if (isset($_POST['saveOrder'])){
     if (isset($_SESSION['username'])){
         header("HTTP/1.1 222 is Logged in");
         die();

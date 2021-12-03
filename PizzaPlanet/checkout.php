@@ -99,7 +99,7 @@
                 <?php
                 if(!empty($_SESSION['username'])){
                 echo '<div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="save-info">
+                        <input type="checkbox" class="custom-control-input" id="save-order" onclick="return saveOrder();">
                         <label class="custom-control-label" for="save-info">Save this order for next time</label>
                 </div>';
                 }

@@ -3,7 +3,6 @@ session_start();
 
 //if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    require("functions.php");
     require ("/home/bitnami/dbconfig.php");
     $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
         die('Coul not connect MySQL: ' . mysqli_connect_error () );
@@ -37,13 +36,14 @@ session_start();
     
 
     // insert new menu item and make it hidden as Hiden Order
-    $query = "insert into menu (description, price, hiden) values ('$description', $cost, 'HO');";
+    $query = "insert into menu (description, price, picture_path, hiden) values ('$description', $cost, 'custom-made-pizza.jpg', 'HO');";
     $results = mysqli_query($db, $query);
     $last_id = mysqli_insert_id($db);
 
     $quantity = 1;
     $index = count($_SESSION['cart']);
     $_SESSION['cart'][$index+1] = array('cart_index' => $index+1, 'menu_item_id' => $last_id, 'quantity' => $quantity);
+    $_SESSION['special_item'] =  $last_id;
 
 
     header('location: get_menu.php');

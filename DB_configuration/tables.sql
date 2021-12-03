@@ -49,7 +49,8 @@ price DECIMAL(10,2),
 hiden varchar(100)
 );
 # NA for any normal menu item 
-# HI for create your own pizza 
+# HI for create your own pizza
+# HO for Hidden Orders
 
 CREATE TABLE IF NOT EXISTS user_orders (
   user_order_id int(11) NOT NULL,
@@ -71,3 +72,9 @@ CREATE TABLE IF NOT EXISTS user_orders (
 # X canceled 
 
 
+CREATE TABLE IF NOT EXISTS favorites_orders (
+menu_item_id int not null auto_increment primary key,
+username varchar(50) NOT NULL,
+FOREIGN KEY (username) REFERENCES users(username),
+FOREIGN KEY (menu_item_id) REFERENCES menu(menu_item_id)
+);

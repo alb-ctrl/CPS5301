@@ -172,3 +172,25 @@ function final_checkout (){
     });
     return false;
 }
+
+
+function saveOrder(){
+
+    $.ajax({
+        url: "cart.php",
+        method: "POST",
+        data:{saveOrder:"yes"}, 
+        success: function(data, textStatus, xhr) {
+                console.log(data);
+                //$("#"+cart_id+" .count" ).html();
+                
+                //sub_total();
+            },
+        error: function (xhr, status, error) {
+            var errorMessage = xhr.status + ': ' + xhr.statusText
+            alert('Error - ' + errorMessage);
+        }
+    });
+    return false;
+
+}
