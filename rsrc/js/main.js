@@ -203,7 +203,7 @@ function redeemCode(){
         data:$('#redeem-form').serialize(),
         success: function(data, textStatus, xhr) {
                 console.log(data);
-                $("#redeemCode-section").append(data);
+                $("#total_amount_cart_li").before(data);
                 //$("#"+cart_id+" .count" ).html();
                 
                 //sub_total();

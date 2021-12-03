@@ -67,7 +67,7 @@ function get_checkout_cart($item_id, $quanitiy){
     // Set the encoding...
     mysqli_set_charset($db, 'utf8');
 
-    $query = "SELECT menu_item_id, menu_item_name, description, tags, picture_path, price from menu where menu_item_id = $item_id ";
+    $query = "SELECT menu_item_id, menu_item_name, description, tags, picture_path, price from menu where menu_item_id = $item_id  ";
 
     $results = mysqli_query($db, $query);
 
