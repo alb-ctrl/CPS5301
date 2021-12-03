@@ -265,6 +265,7 @@
     <script>
         $(document).ready(function() {
             console.log("ready!");
+            studentCode();
             checkout_total();
             $("#checkout").submit(function(event) {
             //    event.preventDefault();
