@@ -125,6 +125,7 @@ function checkout_total() {
     });
     $("#number_items_cart").html(all.length + " items");
     $("#total_amount_cart").html("$" + sum);
+    $("#hidden_cost").val(sum);
     console.log(all);
     console.log(sum);
 }
@@ -180,6 +181,27 @@ function saveOrder(){
         url: "cart.php",
         method: "POST",
         data:{saveOrder:"yes"}, 
+        success: function(data, textStatus, xhr) {
+                console.log(data);
+                //$("#"+cart_id+" .count" ).html();
+                
+                //sub_total();
+            },
+        error: function (xhr, status, error) {
+            var errorMessage = xhr.status + ': ' + xhr.statusText
+            alert('Error - ' + errorMessage);
+        }
+    });
+    return false;
+
+}
+
+function redeemCode(){
+
+    $.ajax({
+        url: "cart.php",
+        method: "POST",
+        data:$('#redeem-form').serialize(),
         success: function(data, textStatus, xhr) {
                 console.log(data);
                 //$("#"+cart_id+" .count" ).html();

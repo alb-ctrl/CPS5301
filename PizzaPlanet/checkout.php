@@ -104,9 +104,9 @@
                 </div>';
                 }
                 ?>
-                <form class="card p-2">
+                <form class="card p-2" id = "redeem-form">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Promo code">
+                        <input type="text" class="form-control" name="promo_code" placeholder="Promo code">
                         <div class="input-group-append">
                             <button type="submit" class="btn btn-secondary">Redeem</button>
                         </div>
@@ -116,6 +116,7 @@
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">Delivery Address</h4>
                 <form id="checkout" class="needs-validation" novalidate action="checkout_handler.php" method="POST">
+                    <input type = "hidden" value="" id="hidden_cost" name = "hidden_cost">
                     <div class="row">
                         <input type="hidden" name="username" value="<?php if (isset($_SESSION['username'])) echo $_SESSION['username']; ?>">
                         <div class="col-md-6 mb-3">
@@ -174,7 +175,7 @@
                     <?php
                     if(!empty($_SESSION['username'])){
                         echo '<div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="save-order" onclick="return saveOrder();">
+                                <input type="checkbox" class="custom-control-input" id="save-order">
                                 <label class="custom-control-label" for="save-info">Save this information for next time</label>
                         </div>';
                         }
@@ -266,7 +267,14 @@
             checkout_total();
             $("#checkout").submit(function(event) {
             //    event.preventDefault();
-                saveOrder();
+                if ($("#save-order").is(":checked"))
+                    saveOrder();
+            });
+            $("#redeem-form").submit(function(event) {
+                event.preventDefault();
+                redeemCode();
+                
+                
             });
 
         });

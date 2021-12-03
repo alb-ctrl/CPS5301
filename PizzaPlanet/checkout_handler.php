@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $address = $_POST['address'];
     $zipcode = $_POST['zip'];
-    
+    $hiden_cost = $_POST['hidden_cost'];
 
     $checkoutUsername="";
     if (!isset($_SESSION['username'])){
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $results = mysqli_query($db, $query);
     }
     //echo "<br>Your order number is <b>#".$_SESSION['order_id']."</b>";
-    $emailmessage = "Order Succesfully complete, to view your order please click <a href='http://3.82.35.248/CPS5301/PizzaPlanet/view_reciept.php?order_id=".$_SESSION['order_id']."'>here</a> ";
+    $emailmessage = "Order Succesfully complete, to view your order please click <a href='http://3.82.35.248/CPS5301/PizzaPlanet/view_reciept.php?order_id=".$_SESSION['order_id']."&hiden_cost=$hiden_cost'>here</a> ";
     myMail($email,"Order complete", $emailmessage );
     header('location: view_reciept.php?order_id='.$_SESSION['order_id'].'');
 

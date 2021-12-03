@@ -95,4 +95,31 @@ if (isset($_POST['saveOrder'])){
 
 }
 
+if (isset($_POST['promo_code'])){
+    require ("/home/bitnami/dbconfig.php");
+    $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
+        die('Coul not connect MySQL: ' . mysqli_connect_error () );
+    // Set the encoding...
+    mysqli_set_charset($db, 'utf8');
+
+    $code_id = $_POST['promo_code'];
+    $query = "select code_id, price from promo_code where code_id= '$code_id' ";
+    $results = mysqli_query($db, $query);
+    if (mysqli_num_rows($results) > 0){
+        $row = mysqli_fetch_array($results);
+        $index = count($_SESSION['cart']['promo']);
+        $_SESSION['cart']['promo'][$index+1] = array('code_id' => $row['code_id'], 'price' => $row['price']);
+        echo '<li class="list-group-item d-flex justify-content-between bg-light">
+        <div class="text-success">
+          <h6 class="my-0">Promo code</h6>
+          <small>'.$code_id.'</small>
+        </div>
+        <span class="text-success">$'.$row['price'].'</span>
+      </li>';
+    }
+    
+    mysqli_close($db);
+
+}
+
 ?>

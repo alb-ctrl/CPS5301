@@ -78,3 +78,8 @@ username varchar(50) NOT NULL,
 FOREIGN KEY (username) REFERENCES users(username),
 FOREIGN KEY (menu_item_id) REFERENCES menu(menu_item_id)
 );
+
+CREATE TABLE IF NOT EXISTS promo_code (
+code_id varchar(50) NOT NULL primary key,
+price DECIMAL(10,2)
+);
