@@ -121,10 +121,10 @@ if (isset($_POST['promo_code'])){
             $_SESSION['promo'][$index+1] = array('code_id' => $row['code_id'], 'price' => $row['price']);
         echo '<li class="list-group-item d-flex justify-content-between bg-light">
         <div class="text-success">
-          <h6 class="my-0 amount">Promo code</h6>
+          <h6 class="my-0 ">Promo code</h6>
           <small>'.$code_id.'</small>
         </div>
-        <span class="text-success">$'.$row['price'].'</span>
+        <span class="text-success amount">$'.$row['price'].'</span>
       </li>';
         }
         
