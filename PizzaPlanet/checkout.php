@@ -101,7 +101,7 @@
                 if(!empty($_SESSION['username'])){
                 echo '<div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="save-order">
-                        <label class="custom-control-label" for="save-info">Save this order for next time</label>
+                        <label class="custom-control-label" for="save-order">Save this order for next time</label>
                 </div>';
                 }
                 ?>
@@ -176,7 +176,7 @@
                     <?php
                     if(!empty($_SESSION['username'])){
                         echo '<div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="save-order">
+                                <input type="checkbox" class="custom-control-input" id="save-info">
                                 <label class="custom-control-label" for="save-info">Save this information for next time</label>
                         </div>';
                         }
@@ -198,7 +198,12 @@
                             <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
                             <label class="custom-control-label" for="paypal">Paypal</label>
                         </div>
+                        <div class="custom-control custom-radio">
+                            <input id="cash" name="paymentMethod" type="radio" class="custom-control-input" required>
+                            <label class="custom-control-label" for="debit">Cash</label>
+                        </div>
                     </div>
+                    <g id = "card_info">
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="cc-name">Name on card</label>
@@ -232,6 +237,7 @@
                             </div>
                         </div>
                     </div>
+                    </g>
                     <hr class="mb-4">
                     <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
                 </form>
@@ -267,6 +273,8 @@
             console.log("ready!");
             studentCode();
             checkout_total();
+            if ($("#cash").is(":checked"))
+                    $("#card_info").hide();
             $("#checkout").submit(function(event) {
             //    event.preventDefault();
                 if ($("#save-order").is(":checked"))

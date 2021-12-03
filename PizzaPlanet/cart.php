@@ -167,7 +167,7 @@ if (isset($_POST['studentCode'])){
           <h6 class="my-0 ">Promo code</h6>
           <small>'.$code_id.'</small>
         </div>
-        <span class="text-success amount">$'.$row['price'].'</span>
+        <span class="text-success amount">$5</span>
       </li>';
         }
     }
