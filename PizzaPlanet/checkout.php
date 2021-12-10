@@ -206,7 +206,7 @@
                     <g id = "card_info">
                     <?php
                         $goElse = 1;
-                        if (isset($_SESSION['username'])){
+                        if (!empty($_SESSION['username'])){
                             $user = $_SESSION['username'];
                             $query = "select card_name, card_number from payment_info where username = '$user' ";
                             $results = mysqli_query($db, $query);
