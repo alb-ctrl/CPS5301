@@ -206,12 +206,12 @@
                     <g id = "card_info">
                     <?php
                         $goElse = 1;
-                        if (!empty($_SESSION['username'])){
+                        if (isset($_SESSION['username'])){
                             $user = $_SESSION['username'];
                             $query = "select card_name, card_number from payment_info where username = '$user' ";
                             $results = mysqli_query($db, $query);
                             $rowNum = mysqli_num_rows($results);
-                            echo $rowNum;
+                            echo $query;
                             if ($rowNum > 0){
                                 $goElse = 0;
                                 while ( $row = mysqli_fetch_array($results) ){
