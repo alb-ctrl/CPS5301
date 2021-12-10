@@ -198,6 +198,27 @@ function saveOrder(){
 
 }
 
+function saveInfo(name, card, experiation, cvv){
+
+    $.ajax({
+        url: "cart.php",
+        method: "POST",
+        data:{saveInfo:"yes", name:name, card:card, experiation:experiation, cvv:cvv}, 
+        success: function(data, textStatus, xhr) {
+                console.log(data);
+                //$("#"+cart_id+" .count" ).html();
+                
+                //sub_total();
+            },
+        error: function (xhr, status, error) {
+            var errorMessage = xhr.status + ': ' + xhr.statusText
+            alert('Error - ' + errorMessage);
+        }
+    });
+    return false;
+
+}
+
 function redeemCode(){
     $.ajax({
         url: "cart.php",

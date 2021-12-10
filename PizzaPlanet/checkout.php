@@ -60,7 +60,7 @@
         mysqli_set_charset($db, 'utf8');
 
         //$query = "SELECT fname, lname, phone, address, email FROM pizzaplace.users where username = '".$_SESSION['username']."' ";
-        $query = "select u.fname, u.lname, u.phone, u.address, u.email, u.zipcode, p.card_name, p.expiration_date, p.card_number, p.cvv from users u left join payment_info p on u.username=p.username where u.username='" . $_SESSION['username'] . "' ";
+        $query = "select u.fname, u.lname, u.phone, u.address, u.email, u.zipcode from users u  where u.username='" . $_SESSION['username'] . "' ";
 
         $results = mysqli_query($db, $query);
         $rows = mysqli_fetch_array($results);
@@ -200,14 +200,43 @@
                         </div>
                         <div class="custom-control custom-radio">
                             <input id="cash" name="paymentMethod" type="radio" class="custom-control-input" required>
-                            <label class="custom-control-label" for="debit">Cash</label>
+                            <label class="custom-control-label" for="cash">Cash</label>
                         </div>
                     </div>
                     <g id = "card_info">
+                    <?php
+                        $goElse = 0;
+                        if (isset($_SESSION['username'])){
+                            $user = $_SESSION['username'];
+                            $query = "select card_name, card_number from payment_info where username = '$user'";
+                            $results = mysqli_query($db, $query);
+                            $rowNum = mysqli_num_rows($results);
+                            if ($rowNum > 0){
+                                while ( $row = mysqli_fetch_array($results) ){
+                                    echo '<div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                    '.$row['card_name'].'<b> '.substr($row['card_number'], -4).'</b>
+                                    </label>
+                                    </div>';
+                                }
+
+                            }
+                            else {
+                                $goElse = 1;
+                            }
+
+                    ?>
+                    
+                    <?php
+                        }
+                        if ($goElse == 1) {
+                            ?>
+
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="cc-name">Name on card</label>
-                            <input type="text" class="form-control" id="cc-name" value="<?php if (isset($_SESSION['username'])) echo $rows['card_name']; ?>" required>
+                            <input type="text" class="form-control" id="cc-name" required>
                             <small class="text-muted">Full name as displayed on card</small>
                             <div class="invalid-feedback">
                                 Name on card is required
@@ -215,7 +244,7 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="cc-number">Credit card number</label>
-                            <input type="text" class="form-control" id="cc-number" value="<?php if (isset($_SESSION['username'])) echo $rows['card_number']; ?>" required>
+                            <input type="text" class="form-control" id="cc-number"  required>
                             <div class="invalid-feedback">
                                 Credit card number is required
                             </div>
@@ -224,19 +253,24 @@
                     <div class="row">
                         <div class="col-md-3 mb-3">
                             <label for="cc-expiration">Expiration</label>
-                            <input type="text" class="form-control" id="cc-expiration" value="<?php if (isset($_SESSION['username'])) echo $rows['expiration_date']; ?>" required>
+                            <input type="text" class="form-control" id="cc-expiration" required>
                             <div class="invalid-feedback">
                                 Expiration date required
                             </div>
                         </div>
                         <div class="col-md-3 mb-3">
-                            <label for="cc-expiration">CVV</label>
-                            <input type="text" class="form-control" id="cc-cvv" placeholder="" value="<?php if (isset($_SESSION['username'])) echo $rows['cvv']; ?>" required>
+                            <label for="cc-cvv">CVV</label>
+                            <input type="text" class="form-control" id="cc-cvv" placeholder=""  required>
                             <div class="invalid-feedback">
                                 Security code required
                             </div>
                         </div>
                     </div>
+
+                    <?php
+                        }
+
+                    ?>
                     </g>
                     <hr class="mb-4">
                     <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
@@ -279,6 +313,8 @@
             //    event.preventDefault();
                 if ($("#save-order").is(":checked"))
                     saveOrder();
+                if ($("#save-info").is(":checked"))
+                    saveInfo($("#cc-name").val(),$("#cc-number").val(),$("#cc-expiration").val(),$("#cc-cc-cvv").val());
             });
             $("#redeem-form").submit(function(event) {
                 event.preventDefault();

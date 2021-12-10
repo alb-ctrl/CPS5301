@@ -95,6 +95,40 @@ if (isset($_POST['saveOrder'])){
 
 }
 
+if (isset($_POST['saveInfo'])){
+    require ("/home/bitnami/dbconfig.php");
+    $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
+        die('Coul not connect MySQL: ' . mysqli_connect_error () );
+    // Set the encoding...
+    mysqli_set_charset($db, 'utf8');
+
+
+        $user = $_SESSION['username'];
+        $name = $_POST['name'];
+        $card = $_POST['card'];
+        $experiation = $_POST['experiation'];
+        $cvv= $_POST['cvv'];
+
+        $query = "select card_number from payment_info where username = '$user'";
+        $results = mysqli_query($db, $query);
+        if (mysqli_num_rows($results) > 0){
+            $row = mysqli_fetch_array($results);
+            if ($row['card_number'] == $card)
+                return;
+            else {
+                $query = "insert into payment_info values ('$user', '$name', '$experiation', '$card', $cvv ";
+                $results = mysqli_query($db, $query);
+            }
+        }
+        else {
+            $query = "insert into payment_info values ('$user', '$name', '$experiation', '$card', $cvv ";
+            $results = mysqli_query($db, $query);
+        }
+    
+    mysqli_close($db);
+
+}
+
 if (isset($_POST['promo_code'])){
     require ("/home/bitnami/dbconfig.php");
     $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
