@@ -89,7 +89,6 @@ if (isset($_POST['saveOrder'])){
         $user = $_SESSION['username'];
 
         $query = "insert into favorites_orders values ($menu_id, '$user')";
-        echo $query;
         $results = mysqli_query($db, $query);
         if ($results){
             echo "Save order works";
@@ -115,7 +114,6 @@ if (isset($_POST['saveInfo'])){
 
         $query = "select card_number from payment_info where username = '$user'";
         $results = mysqli_query($db, $query);
-        echo $query;
         if (mysqli_num_rows($results) > 0){
             $row = mysqli_fetch_array($results);
             if ($row['card_number'] == $card)
@@ -127,7 +125,6 @@ if (isset($_POST['saveInfo'])){
         }
         else {
             $query = "insert into payment_info values ('$user', '$name', '$experiation', '$card', $cvv) ";
-            echo $query;
             $results = mysqli_query($db, $query);
             if ($results){
                 echo "Save Card info workd";
@@ -210,7 +207,7 @@ if (isset($_POST['studentCode'])){
           <h6 class="my-0 ">Promo code</h6>
           <small>'.$code_id.'</small>
         </div>
-        <span class="text-success amount">$-5</span>
+        <span class="text-success amount">$-4</span>
       </li>';
         }
     }

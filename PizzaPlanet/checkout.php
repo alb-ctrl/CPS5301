@@ -208,9 +208,10 @@
                         $goElse = 1;
                         if (isset($_SESSION['username'])){
                             $user = $_SESSION['username'];
-                            $query = "select card_name, card_number from payment_info where username = '$user'";
+                            $query = "select card_name, card_number from payment_info where username = '$user' ";
                             $results = mysqli_query($db, $query);
                             $rowNum = mysqli_num_rows($results);
+                            echo $rowNum;
                             if ($rowNum > 0){
                                 $goElse = 0;
                                 while ( $row = mysqli_fetch_array($results) ){
@@ -226,10 +227,6 @@
                             else {
                                 $goElse = 1;
                             }
-
-                    ?>
-                    
-                    <?php
                         }
                         if ($goElse == 1) {
                             ?>
