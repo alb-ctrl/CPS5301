@@ -186,10 +186,18 @@
                     <h4 class="mb-3">Payment</h4>
 
                     <div class="d-block my-3">
+                    
                         <div class="custom-control custom-radio">
                             <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
                             <label class="custom-control-label" for="credit">Credit card</label>
                         </div>
+                        <?php if (isset($_SESSION['username'])) {
+                        echo '<div class="custom-control custom-radio">
+                        <input id="saved_card" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                        <label class="custom-control-label" for="saved_card">saved card</label>
+                        </div>';
+                        
+                        } ?>
                         <div class="custom-control custom-radio">
                             <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
                             <label class="custom-control-label" for="paypal">Paypal</label>
@@ -199,9 +207,8 @@
                             <label class="custom-control-label" for="cash">Cash</label>
                         </div>
                     </div>
-                    <g id = "card_info">
                     <?php
-                        $goElse = 1;
+
                         if (isset($_SESSION['username'])){
                             $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) or
                             die('Coul not connect MySQL: ' . mysqli_connect_error());
@@ -213,25 +220,23 @@
                             $rowNum = mysqli_num_rows($results);
                             echo $query;
                             if ($rowNum > 0){
-                                $goElse = 0;
+                                echo "<g id='saved_card_info' style='display: none;'> ";
                                 while ( $row = mysqli_fetch_array($results) ){
                                     echo '<div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" disabled>
                                     <label class="form-check-label" for="flexRadioDefault1">
                                     '.$row['card_name'].'<b> '.substr($row['card_number'], -4).'</b>
                                     </label>
                                     </div>';
                                 }
+                                echo "</g>";
 
-                            }
-                            else {
-                                $goElse = 1;
                             }
                             mysqli_close($db);
                             
                         }
-                        if ($goElse == 1) {
                             ?>
+                    <g id = "card_info">
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
@@ -267,10 +272,7 @@
                         </div>
                     </div>
 
-                    <?php
-                        }
 
-                    ?>
                     </g>
                     <hr class="mb-4">
                     <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
@@ -321,6 +323,16 @@
                 $("#card_info").show();
                 
             });
+            $("#saved_card").click(function(event) {
+                console.log("did it hide now`?");
+                $("#card_info :input").prop("disabled", true);
+                $("#card_info").hide();
+
+                $("#saved_card_info :input").prop("disabled", false);
+                $("#saved_card_info").show();
+                
+            });
+
             $("#checkout").submit(function(event) {
                 event.preventDefault();
                 if ($("#save-order").is(":checked"))
