@@ -75,7 +75,7 @@ else{
         <br>
 
         <?php
-        if(empty($_SESSION['username'])){
+        if(isset($_SESSION['username'])){
         ?>
 
 <div id = "ftrbl">
