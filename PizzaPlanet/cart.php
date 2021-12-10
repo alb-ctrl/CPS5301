@@ -89,6 +89,7 @@ if (isset($_POST['saveOrder'])){
         $user = $_SESSION['username'];
 
         $query = "insert into favorites_orders values ($menu_id, $user)";
+        echo $query;
         $results = mysqli_query($db, $query);
         if ($results){
             echo "Save order works";
@@ -114,6 +115,7 @@ if (isset($_POST['saveInfo'])){
 
         $query = "select card_number from payment_info where username = '$user'";
         $results = mysqli_query($db, $query);
+        echo $query;
         if (mysqli_num_rows($results) > 0){
             $row = mysqli_fetch_array($results);
             if ($row['card_number'] == $card)
