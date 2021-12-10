@@ -90,6 +90,9 @@ if (isset($_POST['saveOrder'])){
 
         $query = "insert into favorites_orders values ($menu_id, $user)";
         $results = mysqli_query($db, $query);
+        if ($results){
+            echo "Save order works";
+        }
     }
     mysqli_close($db);
 
@@ -123,6 +126,9 @@ if (isset($_POST['saveInfo'])){
         else {
             $query = "insert into payment_info values ('$user', '$name', '$experiation', '$card', $cvv ";
             $results = mysqli_query($db, $query);
+            if ($results){
+                echo "Save Card info workd";
+            }
         }
     
     mysqli_close($db);
