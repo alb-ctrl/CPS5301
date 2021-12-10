@@ -191,10 +191,6 @@
                             <label class="custom-control-label" for="credit">Credit card</label>
                         </div>
                         <div class="custom-control custom-radio">
-                            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                            <label class="custom-control-label" for="debit">Debit card</label>
-                        </div>
-                        <div class="custom-control custom-radio">
                             <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
                             <label class="custom-control-label" for="paypal">Paypal</label>
                         </div>
@@ -311,13 +307,18 @@
             console.log("ready!");
             studentCode();
             checkout_total();
-            if ($("#cash").is(":checked")){
-                $("#card_info").hide();
-                console.log("did it hide?");
-            }
+
+            
             $("#cash").click(function(event) {
                 console.log("did it hide now`?");
+                $("#card_info :input").prop("disabled", true);
                 $("#card_info").hide();
+                
+            });
+            $("#credit").click(function(event) {
+                console.log("did it hide now`?");
+                $("#card_info :input").prop("disabled", false);
+                $("#card_info").show();
                 
             });
             $("#checkout").submit(function(event) {
