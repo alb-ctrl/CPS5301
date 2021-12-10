@@ -88,7 +88,7 @@ if (isset($_POST['saveOrder'])){
         $menu_id = $value['menu_item_id'];
         $user = $_SESSION['username'];
 
-        $query = "insert into favorites_orders values ($menu_id, $user)";
+        $query = "insert into favorites_orders values ($menu_id, '$user')";
         echo $query;
         $results = mysqli_query($db, $query);
         if ($results){
@@ -127,6 +127,7 @@ if (isset($_POST['saveInfo'])){
         }
         else {
             $query = "insert into payment_info values ('$user', '$name', '$experiation', '$card', $cvv ";
+            echo $query;
             $results = mysqli_query($db, $query);
             if ($results){
                 echo "Save Card info workd";
