@@ -205,13 +205,14 @@
                     </div>
                     <g id = "card_info">
                     <?php
-                        $goElse = 0;
+                        $goElse = 1;
                         if (isset($_SESSION['username'])){
                             $user = $_SESSION['username'];
                             $query = "select card_name, card_number from payment_info where username = '$user'";
                             $results = mysqli_query($db, $query);
                             $rowNum = mysqli_num_rows($results);
                             if ($rowNum > 0){
+                                $goElse = 0;
                                 while ( $row = mysqli_fetch_array($results) ){
                                     echo '<div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
@@ -307,8 +308,11 @@
             console.log("ready!");
             studentCode();
             checkout_total();
-            if ($("#cash").is(":checked"))
-                    $("#card_info").hide();
+            if ($("#cash").is(":checked")){
+                $("#card_info").hide();
+                console.log("did it hide?");
+            }
+                    
             $("#checkout").submit(function(event) {
             //    event.preventDefault();
                 if ($("#save-order").is(":checked"))
