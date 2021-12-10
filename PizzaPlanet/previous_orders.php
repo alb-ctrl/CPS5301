@@ -66,19 +66,8 @@ else{
             </li>
         </ul>
     </nav>
-    <div class="cont">
-        
-        
-        <div class="item">
-        <img class="pizza" src="../rsrc/imgs/menu/pizza_Cheese.png.jpeg" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Pizza</h5>
-            <p class="card-text">Build Your Own Pizza</p>
-            <button><a href="create_own.php" id="0" class="btn btn-primary">Add to cart</a></button>
-        </div>
-        </div>
-    </div>
-        
+
+        <h3>Preious Orders</h3>
 
 <!-- server side images -->
 
@@ -98,6 +87,10 @@ else{
         //print error message 
         echo "didnt work";
 
+    }
+    if (mysqli_num_rows($results) == 0){
+        echo "<p> Order something first</p>";
+        die();
     }
 
     ?>
