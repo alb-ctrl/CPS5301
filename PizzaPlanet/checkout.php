@@ -74,9 +74,7 @@
         <div class="py-5 text-center">
             <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
             <h2>Checkout form</h2>
-            <p class="lead">Below is an example form built entirely with Bootstrap's form controls. Each required form
-                group has a validation state that can be triggered by attempting to submit the form without completing
-                it.</p>
+            <p class="lead">Checkout</p>
         </div>
 
         <div class="row">
@@ -193,7 +191,7 @@
                         </div>
                         <?php if (isset($_SESSION['username'])) {
                         echo '<div class="custom-control custom-radio">
-                        <input id="saved_card" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                        <input id="saved_card" name="paymentMethod" type="radio" class="custom-control-input"  required>
                         <label class="custom-control-label" for="saved_card">saved card</label>
                         </div>';
                         
@@ -218,7 +216,6 @@
                             $query = "select card_name, card_number from payment_info where username = '$user' ";
                             $results = mysqli_query($db, $query);
                             $rowNum = mysqli_num_rows($results);
-                            echo $query;
                             if ($rowNum > 0){
                                 echo "<g id='saved_card_info' style='display: none;'> ";
                                 while ( $row = mysqli_fetch_array($results) ){
@@ -315,6 +312,9 @@
                 console.log("did it hide now`?");
                 $("#card_info :input").prop("disabled", true);
                 $("#card_info").hide();
+
+                $("#saved_card_info :input").prop("disabled", true);
+                $("#saved_card_info").hide();
                 
             });
             $("#credit").click(function(event) {
