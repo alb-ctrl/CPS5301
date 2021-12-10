@@ -318,7 +318,7 @@
                 if ($("#save-order").is(":checked"))
                     saveOrder();
                 if ($("#save-info").is(":checked"))
-                    saveInfo($("#cc-name").val(),$("#cc-number").val(),$("#cc-expiration").val(),$("#cc-cc-cvv").val());
+                    saveInfo($("#cc-name").val(),$("#cc-number").val(),$("#cc-expiration").val(),$("#cc-cvv").val());
             });
             $("#redeem-form").submit(function(event) {
                 event.preventDefault();

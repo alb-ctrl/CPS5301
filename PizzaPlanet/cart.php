@@ -121,12 +121,12 @@ if (isset($_POST['saveInfo'])){
             if ($row['card_number'] == $card)
                 return;
             else {
-                $query = "insert into payment_info values ('$user', '$name', '$experiation', '$card', $cvv ";
+                $query = "insert into payment_info values ('$user', '$name', '$experiation', '$card', $cvv) ";
                 $results = mysqli_query($db, $query);
             }
         }
         else {
-            $query = "insert into payment_info values ('$user', '$name', '$experiation', '$card', $cvv ";
+            $query = "insert into payment_info values ('$user', '$name', '$experiation', '$card', $cvv) ";
             echo $query;
             $results = mysqli_query($db, $query);
             if ($results){
