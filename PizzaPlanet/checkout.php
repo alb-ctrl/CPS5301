@@ -317,6 +317,7 @@
             }
             $("#cash").click(function(event) {
                 console.log("did it hide now`?");
+                $("#card_info").hide();
                 
             });
             $("#checkout").submit(function(event) {
