@@ -182,6 +182,7 @@ function saveOrder(){
     $.ajax({
         url: "cart.php",
         method: "POST",
+        async: false,
         data:{saveOrder:"yes"}, 
         success: function(data, textStatus, xhr) {
                 console.log(data);
@@ -191,7 +192,7 @@ function saveOrder(){
             },
         error: function (xhr, status, error) {
             var errorMessage = xhr.status + ': ' + xhr.statusText
-            alert('Error - ' + errorMessage);
+            alert('Error SO - ' + errorMessage);
         }
     });
     return false;
@@ -203,6 +204,7 @@ function saveInfo(name, card, experiation, cvv){
     $.ajax({
         url: "cart.php",
         method: "POST",
+        async: false,
         data:{saveInfo:"yes", name:name, card:card, experiation:experiation, cvv:cvv}, 
         success: function(data, textStatus, xhr) {
                 console.log(data);
@@ -212,7 +214,7 @@ function saveInfo(name, card, experiation, cvv){
             },
         error: function (xhr, status, error) {
             var errorMessage = xhr.status + ': ' + xhr.statusText
-            alert('Error - ' + errorMessage);
+            alert('Error SI - ' + errorMessage);
         }
     });
     return false;
