@@ -207,6 +207,10 @@
                     <?php
                         $goElse = 1;
                         if (isset($_SESSION['username'])){
+                            $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) or
+                            die('Coul not connect MySQL: ' . mysqli_connect_error());
+                            // Set the encoding...
+                            mysqli_set_charset($db, 'utf8');
                             $user = $_SESSION['username'];
                             $query = "select card_name, card_number from payment_info where username = '$user' ";
                             $results = mysqli_query($db, $query);
@@ -227,6 +231,8 @@
                             else {
                                 $goElse = 1;
                             }
+                            mysqli_close($db);
+                            
                         }
                         if ($goElse == 1) {
                             ?>
@@ -309,7 +315,10 @@
                 $("#card_info").hide();
                 console.log("did it hide?");
             }
-                    
+            $("#cash").click(function(event) {
+                console.log("did it hide now`?");
+                
+            });
             $("#checkout").submit(function(event) {
                 event.preventDefault();
                 if ($("#save-order").is(":checked"))
