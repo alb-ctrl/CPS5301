@@ -27,7 +27,7 @@ function get_time($time){
         return "AND year(order_date)=year(now())";
     }
     elseif($time == "past_year"){
-        return "AND year(order_date)=2020";
+        return "AND year(order_date)=2021";
     }else{
     return '';
     }
