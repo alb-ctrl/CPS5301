@@ -27,7 +27,7 @@ function get_time($time){
         return "AND year(order_date)=year(now())";
     }
     elseif($time == "past_year"){
-        return "AND order_date>date_sub(date(now()), interval 2 year)";
+        return "AND year(order_date)=year(now()-1)";
     }else{
     return '';
     }
