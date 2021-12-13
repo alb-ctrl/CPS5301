@@ -101,7 +101,7 @@ else{
         <div>
             <ul>
                 <li>Username&emsp;&emsp;&emsp;First Name&emsp;&emsp;&emsp;Last name</li>
-                <li><?php echo $user_name; ?>&emsp;&emsp;&emsp;<?php echo $first_name; ?>&emsp;&emsp;&emsp;<?php echo $last_name; ?></li>    
+                <li><?php echo "$user_name d"; ?>&emsp;&emsp;&emsp;<?php echo $first_name; ?>&emsp;&emsp;&emsp;<?php echo $last_name; ?></li>    
                 <li>Phone Number&emsp;&emsp;&emsp;Email</li>
                 <li><?php echo $phone_num; ?>&emsp;&emsp;&emsp;<?php echo $user_email; ?></li>
                 <li>Address</li>
