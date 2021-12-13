@@ -334,7 +334,7 @@
             });
 
             $("#checkout").submit(function(event) {
-                event.preventDefault();
+                //event.preventDefault();
                 if ($("#save-order").is(":checked"))
                     saveOrder();
                 if ($("#save-info").is(":checked"))

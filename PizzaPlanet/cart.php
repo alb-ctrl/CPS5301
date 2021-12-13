@@ -43,6 +43,11 @@ if (isset($_POST['remove_item'])) {
     */
 }
 
+if (isset($_POST['remove_all'])) {
+    unset($_SESSION['cart']);
+    echo "success";
+}
+
 if (isset($_POST['increase_quantity'])) {
     foreach($_SESSION['cart'] as &$value){
         if ($value['cart_index'] == $_POST['cart_index']){

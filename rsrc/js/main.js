@@ -49,6 +49,27 @@ function removeCart(menu_item_id, cart_index, cart_id) {
     return false;
 }
 
+function removeAll(){
+
+    $.ajax({
+        url: "cart.php",
+        method: "POST",
+        data: { remove_all: "yes" },
+        //beforeSend: function () { var message = new Notification("RandomString"); message.onclick = function () { alert("Succesfully added to cart") };},
+        success:
+            function (data) {
+                console.log(data);
+                location.reload();
+            },
+        error: function (xhr, status, error) {
+            var errorMessage = xhr.status + ': ' + xhr.statusText
+            alert('Error - ' + errorMessage);
+        }
+    });
+    return false;
+
+}
+
 function increase_quantity(menu_item_id, cart_index, cart_id) {
 
     $.ajax({

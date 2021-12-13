@@ -14,8 +14,9 @@ if (isset($_POST['cancelOrder'])){
     //five minutes in seconds
 $fiveMinutes = 60 * 5;
 //check if current time is after 5 minutes the initial time
-if ( ($orderId+$fiveMinutes) <= $timeB) {
-    $query = "update table user_orders set status = 'X' where user_order_id = $orderId  ";
+if ( ($orderId+$fiveMinutes) >= $timeB) {
+    $query = "update  user_orders set status = 'X' where user_order_id = $orderId  ";
+    echo $orderId+$fiveMinutes . " => $timeB";
         $results = mysqli_query($db, $query);
         if ($results){
             echo "Order Succesfully canceled";
@@ -25,16 +26,6 @@ if ( ($orderId+$fiveMinutes) <= $timeB) {
     echo "Too late, Cant Cacel order. Please contact us for further assistance";
   }
 
-    foreach($_SESSION['cart'] as $value){
-        $menu_id = $value['menu_item_id'];
-        $user = $_SESSION['username'];
-
-        $query = "insert into favorites_orders values ($menu_id, '$user')";
-        $results = mysqli_query($db, $query);
-        if ($results){
-            echo "Save order works";
-        }
-    }
     mysqli_close($db);
 
 }
