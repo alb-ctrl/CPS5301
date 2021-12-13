@@ -82,13 +82,13 @@ if (isset($_GET['order_id']))
         // A $( document ).ready() block.
         $(document).ready(function() {
             $("#cancel-button").on("click", function() {
-                console.log($("#order_id").val());
+                console.log($("#order_id").text());
                 $.ajax({
                     url: "cancel.php",
                     method: "POST",
                     data: {
                         cancelOrder: "yes",
-                        orderId:$("#order_id").val()
+                        orderId:$("#order_id").text()
                     },
                     beforeSend: function(xhr, opts) {
                         var answer=confirm('Do you want to cancel your order?');
