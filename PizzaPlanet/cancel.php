@@ -8,7 +8,7 @@ if (isset($_POST['cancelOrder'])){
         die('Coul not connect MySQL: ' . mysqli_connect_error () );
     // Set the encoding...
     mysqli_set_charset($db, 'utf8');
-    $orderId = (int)$_POST['orderId'];
+    $orderId = $_POST['orderId'];
     
     $timeB = time();
     //five minutes in seconds
