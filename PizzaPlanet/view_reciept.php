@@ -82,6 +82,7 @@ if (isset($_GET['order_id']))
         // A $( document ).ready() block.
         $(document).ready(function() {
             $("#cancel-button").on("click", function() {
+                console.log($("#order_id").val());
                 $.ajax({
                     url: "cancel.php",
                     method: "POST",
