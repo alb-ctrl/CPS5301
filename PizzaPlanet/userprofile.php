@@ -1,3 +1,10 @@
+<?php header('Access-Control-Allow-Origin: *'); session_start();
+
+if(!isset($_SESSION["verify"])){
+    session_destroy();
+    
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
