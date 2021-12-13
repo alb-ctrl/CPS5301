@@ -16,7 +16,7 @@ $fiveMinutes = 60 * 5;
 //check if current time is after 5 minutes the initial time
 if ( ($orderId+$fiveMinutes) <= $timeB) {
     $query = "update  user_orders set status = 'X' where user_order_id = $orderId  ";
-    echo $query;
+    echo $orderId+$fiveMinutes . " => $timeB";
         $results = mysqli_query($db, $query);
         if ($results){
             echo "Order Succesfully canceled";
