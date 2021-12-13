@@ -8,14 +8,14 @@ if (isset($_POST['cancelOrder'])){
         die('Coul not connect MySQL: ' . mysqli_connect_error () );
     // Set the encoding...
     mysqli_set_charset($db, 'utf8');
-    $orderId = $_POST['orderId'];
+    $orderId = (int)$_POST['orderId'];
     
     $timeB = time();
     //five minutes in seconds
 $fiveMinutes = 60 * 5;
 //check if current time is after 5 minutes the initial time
 if ( ($orderId+$fiveMinutes) <= $timeB) {
-    $query = "update table user_orders set status = 'X' where user_order_id = $orderId  ";
+    $query = "update  user_orders set status = 'X' where user_order_id = $orderId  ";
     echo $query;
         $results = mysqli_query($db, $query);
         if ($results){
