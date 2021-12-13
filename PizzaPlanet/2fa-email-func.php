@@ -1,52 +1,46 @@
 <?php
 require ("/home/bitnami/dbconfig.php");
-$db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
-	die('Coul not connect MySQL: ' . mysqli_connect_error () );
-$v_email = $_POST['v_email'];
+function secureCode() 
+    {
+        $alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+    
+        $pass = array();
+        //put the length -1 in cache
+        $alphaLength = strlen($alphabet) - 1;
 
-$v_sql = "SELECT * FROM users WHERE email='$v_email' LIMIT 1";
-$v_result = mysqli_query($db, $v_sql);
-
-if (mysqli_num_rows($v_result) == 0) {
-    echo "email is not associated with any registered account";
+        for ($i = 0; $i < 4; $i++) 
+        {
+            $n = rand(0, $alphaLength);
+            $pass[] = $alphabet[$n];
+        }
+        
+        //turn the array into a string
+        return implode($pass);
     }
 
-else if (mysqli_num_rows($v_result) > 0) {
-sendEmail($v_email);
-}
 
-
-function sendEmail($v_email)
+function sendAEmail($v_email,$username,$code)
     {
-        $v_emailBody = 'Hello user: '.$v_email.' Please click link to enter your account
-        "<a href="http://3.82.35.248/CPS5301/PizzaPlanet/2FA.php"> click here </a> "';
-
-        $v_body = '{
-            "subject": "From Pizza Planet",
-            "to": [
-            {
-                "email": "'.$v_email.'"
-            }
-            ],
-            "from": [
-            {
-                "email": "developing5301@gmail.com",
-                "name": "Pizza Planet"
-            }
-            ],
-            "body": "'.$v_emailBody.'"
-        }';
-        
-        
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_URL, 'https://api.nylas.com/send');
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $v_body);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Authorization: Bearer n9W8GxAT6wkdF2CAYu5ZFOnM9QUXkM','cache-control: no-cache' ));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        
-        $v_result = curl_exec($ch);
-        
-        echo("Check your email to complete the verification process");
+        require '/home/bitnami/PHPmailerconfig.php';
+        $mail->IsHTML(true);
+        $mail->AddAddress($v_email, $username);
+        $mail->SetFrom("bitnamiaws@gmail.com", "Pizza Planet");
+        $mail->Subject = "2FA";
+        $content = "Hello user ".$username." here is your secure code: ".$code."";
+        $mail->MsgHTML($content);
+        if(!$mail->Send()) {
+            echo "Error while sending Email.";
+            var_dump($mail);
+        }
+        else {
+            echo "Email sent successfully";
+        }
     }
 ?>
+<form action="2FA.php" method="POST">
+    Please check your email for your secure code
+    <br>
+    Enter Secure Code
+    <input type="text" name = "scode">
+    <button type="submit">Submit</button>
+</form>

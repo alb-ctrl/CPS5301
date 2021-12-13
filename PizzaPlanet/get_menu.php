@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <title>Menu</title>
@@ -23,35 +29,53 @@
             </label>
         <ul class = "links">
             <li><a href="index.php">Home</a></li>
-            <li><a href="About_Us.html">About</a></li>
+            <li><a href="About_Us.php">About</a></li>
             <li><a href="#">Menu</a></li>
-            <li><a href="Contact_Us.html">Contact</a></li>
+            <li><a href="Contact_Us.php">Contact</a></li>
             <li>
+<?php
+if(empty($_SESSION['username'])){
+?>
 
-
-            <a href="login.php">Sign in  <span class="diff"><i class="fas fa-user-astronaut fa-5x"style="margin-left:2px;font-size:18px;"></i></span></a>
+                <a href="login.php">Sign in <i class="fas fa-user-astronaut fa-5x" 
+            style="margin-left:2px;font-size:18px;"></i></a>
             </li>
+
+<?php
+}
+
+else{
+?>
+                
+                <a href="#?you are logged in">
+                    <?php
+                    echo$_SESSION['username'];
+                    ?>
+                    <i class="fas fa-user-astronaut fa-5x" 
+            style="margin-left:2px;font-size:18px;"></i></a>
+            <ul class="drop">
+                    <li><a href="logout.php">Sign out</a></li>
+                    <li><a href="#">My profile</a></li>
+                </ul>
+        </li>
+<?php            
+}
+?>
             <li>
             <a href="view_cart.php">Cart <i id="cart_icon" data-totalitems="0" class="fas fa-shopping-cart" style="font-size: 18px" ></i></a>
             </li>
         </ul>
     </nav>
     <div class="cont">
+        
+        
         <div class="item">
-            <img class="card-img-top" src="../rsrc/imgs/menu/pizza_Cheese.png.jpeg" alt="Card image cap">
+        <img class="pizza" src="../rsrc/imgs/menu/pizza_Cheese.png.jpeg" alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title">Cheese Pizza</h5>
-            <button><a href="#" id="1" class="btn btn-primary"
-                onclick="return updateCart(1,1);">Add to cart</a></button>
+            <h5 class="card-title">Pizza</h5>
+            <p class="card-text">Build Your Own Pizza</p>
+            <button><a href="create_own.php" id="0" class="btn btn-primary">Add to cart</a></button>
         </div>
-        </div>
-        <div class="item">
-            <img class="card-img-top" src="../rsrc/imgs/menu/pizza_Supreme.png.jpeg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Veggie pizza</h5>
-                <button><a href="#" id="2" class="btn btn-primary"
-                    onclick="return updateCart(2,1);">Add to cart</a></button>
-            </div>
         </div>
     </div>
         
@@ -66,7 +90,7 @@
     // Set the encoding...
     mysqli_set_charset($db, 'utf8');
 
-    $query = "Select menu_item_id, menu_item_name, description, tags, picture_path, price from menu";
+    $query = "Select menu_item_id, menu_item_name, description, tags, picture_path, price from menu where hiden ='NA' ";
     $results = mysqli_query($db, $query);
 
     if (!$results) {
@@ -75,9 +99,10 @@
 
     }
 
-  
     ?>
-    <div class="cont">
+
+
+    
     <?php
     while ($row = mysqli_fetch_array($results)) {
     ?>
@@ -91,7 +116,7 @@
     </div> -->
     <div class="cont">
         <div class="item">
-        <img class="card-img-top" src="<?php echo $row['picture_path']; ?>" alt="Card image cap">
+        <img class="pizza" src="../rsrc/imgs/menu/<?php echo $row['picture_path']; ?>" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title"><?php echo $row['name']; ?></h5>
             <p class="card-text"><?php echo $row['description']; ?></p>
@@ -104,7 +129,7 @@
     <?php
     }
     ?>
-    </div>
+    
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"

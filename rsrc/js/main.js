@@ -116,6 +116,8 @@ function sub_total() {
 }
 
 function checkout_total() {
+    // amount is a class that only purpose is to get the cost
+    // it doesnt posses any css
     var all = $(".amount").map(function () {
         return this.innerHTML.replace('$', '');;
     }).get();
@@ -125,6 +127,7 @@ function checkout_total() {
     });
     $("#number_items_cart").html(all.length + " items");
     $("#total_amount_cart").html("$" + sum);
+    $("#hidden_cost").val(sum);
     console.log(all);
     console.log(sum);
 }
@@ -161,6 +164,94 @@ function final_checkout (){
         data:$('#checkout').serialize(), 
         success: function(data, textStatus, xhr) {
                 console.log(data);
+                //$("#"+cart_id+" .count" ).html();
+                
+                //sub_total();
+            },
+        error: function (xhr, status, error) {
+            var errorMessage = xhr.status + ': ' + xhr.statusText
+            alert('Error - ' + errorMessage);
+        }
+    });
+    return false;
+}
+
+// hi from redeemCode
+function saveOrder(){
+
+    $.ajax({
+        url: "cart.php",
+        method: "POST",
+        async: false,
+        data:{saveOrder:"yes"}, 
+        success: function(data, textStatus, xhr) {
+                console.log(data);
+                //$("#"+cart_id+" .count" ).html();
+                
+                //sub_total();
+            },
+        error: function (xhr, status, error) {
+            var errorMessage = xhr.status + ': ' + xhr.statusText
+            alert('Error SO - ' + errorMessage);
+        }
+    });
+    return false;
+
+}
+
+function saveInfo(name, card, experiation, cvv){
+
+    $.ajax({
+        url: "cart.php",
+        method: "POST",
+        async: false,
+        data:{saveInfo:"yes", name:name, card:card, experiation:experiation, cvv:cvv}, 
+        success: function(data, textStatus, xhr) {
+                console.log(data);
+                //$("#"+cart_id+" .count" ).html();
+                
+                //sub_total();
+            },
+        error: function (xhr, status, error) {
+            var errorMessage = xhr.status + ': ' + xhr.statusText
+            alert('Error SI - ' + errorMessage);
+        }
+    });
+    return false;
+
+}
+
+function redeemCode(){
+    $.ajax({
+        url: "cart.php",
+        method: "POST",
+        async: false,
+        data:$('#redeem-form').serialize(),
+        success: function(data, textStatus, xhr) {
+                console.log(data);
+                $("#total_amount_cart_li").before(data);
+                //$("#"+cart_id+" .count" ).html();
+                
+                //sub_total();
+            },
+        error: function (xhr, status, error) {
+            var errorMessage = xhr.status + ': ' + xhr.statusText
+            alert('Error - ' + errorMessage);
+        }
+    });
+    return false;
+
+}
+
+function studentCode(){
+    $.ajax({
+        url: "cart.php",
+        method: "POST",
+        async: false,
+        data:{studentCode: "idk"},
+        success: function(data, textStatus, xhr) {
+                console.log(data);
+                $("#total_amount_cart_li").before(data);
                 //$("#"+cart_id+" .count" ).html();
                 
                 //sub_total();

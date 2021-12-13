@@ -1,5 +1,8 @@
 
-<?php include('mysqli_connect_Register.php');header('Access-Control-Allow-Origin: *'); header('Access-Control-Allow-Methods: *');  ?>
+<?php include('mysqli_connect_Register.php');header('Access-Control-Allow-Origin: *'); header('Access-Control-Allow-Methods: *');  
+session_start();
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -31,8 +34,9 @@
             </label>
         <ul class = "links">
             <li><a href="index.php">Home</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="About_Us.php">About</a></li>
             <li><a href="get_menu.php">Menu</a></li>
+            <li><a href="Contact_Us.php">Contact</a></li>
             <li>
 
 
