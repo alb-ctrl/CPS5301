@@ -89,7 +89,6 @@ else{
         </ul>
     </nav>
     <div id = "container">
-        
         <div id = "userform">
             <p>My Profile</p>
             <form action="update_user.php" method="POST">
@@ -128,7 +127,7 @@ else{
                 <li><?php echo $addy?></li>
             </ul>
         </div>
-        </div>
+    </div>
     </div>
     <div><div id="l"><hr></div></div>
     <div class="footer">
