@@ -66,7 +66,12 @@ else{
             </li>
         </ul>
     </nav>
-    <div style="margin-right: 10px;">
+    <div > 
+        <style>
+        div{
+        margin-left: 10px
+    }
+        </style>
         <br>
         <h3>Previous Orders</h3>
 
