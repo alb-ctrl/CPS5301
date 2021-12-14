@@ -47,7 +47,12 @@ if (isset($_POST['submit'])){
 
         $new = md5($newpass);
 
-        $sql = "UPDATE users SET username='$user_name', fname='$first_name', lname='$last_name', phone='$phone_num', address='$addy', email='$email', password='$new' WHERE email = '$old_email'";
+        $sql = "UPDATE users SET username='$user_name', fname='$first_name', 
+        lname='$last_name', phone='$phone_num', address='$addy', email='$email', 
+        password='$new' WHERE email = '$old_email'";
+
+        mysqli_query($db,$sql);
+
         unset($_COOKIE['email']); 
         setcookie('email', '', time() - 3600, "/");
         header("Location: userprofile.php?=Update-successful");
