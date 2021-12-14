@@ -93,12 +93,12 @@ else{
             <p>My Profile</p><br>
             <form action="update_user.php" method="POST">
                 <ul>
-                    <li>Username: &nbsp;<input type="text" name="user" value="<?php echo $user_name; ?>"></li><br>
-                    <li>First Name: &nbsp;<input type="text" name="fname" value="<?php echo $first_name; ?>"></li><br>
-                    <li>Last Name: &nbsp;<input type="text" name="lname" value="<?php echo $last_name; ?>"></li><br>
-                    <li>Phone number: &nbsp;<input type="text" name="num" value="<?php echo $phone_num; ?>"></li><br>
-                    <li>Address: &nbsp;<input type="text" name="add" value="<?php echo $addy; ?>"></li><br>
-                    <li>Email: &nbsp;<input type="text" name="email" value="<?php echo $user_email; ?>"></li><br>
+                    <li>Username: &nbsp;<input type="hidden" name="user" value="<?php echo $user_name; ?>"></li><br>
+                    <li>First Name: &nbsp;<input type="hidden" name="fname" value="<?php echo $first_name; ?>"></li><br>
+                    <li>Last Name: &nbsp;<input type="hidden" name="lname" value="<?php echo $last_name; ?>"></li><br>
+                    <li>Phone number: &nbsp;<input type="hidden" name="num" value="<?php echo $phone_num; ?>"></li><br>
+                    <li>Address: &nbsp;<input type="hidden" name="add" value="<?php echo $addy; ?>"></li><br>
+                    <li>Email: &nbsp;<input type="hidden" name="email" value="<?php echo $user_email; ?>"></li><br>
                     <button type="submit" name="submitreg">Update</button><br>
                     <p><?php if (isset($_COOKIE['up'])){echo $_COOKIE['up']; unset($_COOKIE['up']); setcookie('up', '', time() - 3600, "/");} ?>
                     </p>
@@ -119,7 +119,7 @@ else{
         </div>
         <div id = "userinfo">
             <ul>   
-                <li>My Info:</li><br>
+                <li>My Info</li><br>
                 <li>Username:  <?php echo $user_name; ?></li><br>
                 <li>Name: <?php echo $first_name; echo $last_name;?></li><br>    
                 <li>Phone Number: <?php echo $phone_num; ?></li><br>
