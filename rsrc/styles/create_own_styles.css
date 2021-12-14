@@ -7,8 +7,8 @@ div#custom{
     font-size: 20px;
     margin-top: 40px;
     margin-bottom: 90px;
-    margin-right: 100px;
-    margin-left: 90px;
+    margin-right: auto;
+    margin-left: auto;
     min-height: 30vh;
     width: 40%;
     float: left;    
