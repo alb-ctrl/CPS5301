@@ -28,6 +28,7 @@ div#userinfo{
 }
 
 div#container{
+    margin-bottom: 40px;
     display: block;
     padding: 20px;
 }
