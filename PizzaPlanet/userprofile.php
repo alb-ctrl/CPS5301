@@ -118,7 +118,7 @@ else{
                 <li>Phone Number&emsp;&emsp;&emsp;Email</li>
                 <li><?php echo $phone_num; ?>&emsp;&emsp;&emsp;<?php echo $user_email; ?></li>
                 <li>Address</li>
-                <li><?php echo $addy . $user_password; ?></li>
+                <li><?php echo $addy?></li>
             </ul>
         </div>
         </div>
