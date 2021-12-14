@@ -113,7 +113,7 @@ else{
         $query = "Select menu_item_id, menu_item_name, tags,  price from menu where hiden ='HI' and tags = 'size' ";
         $results = mysqli_query($db, $query);
 
-        echo "<h5>Choose Pizza sice</h5>";
+        echo "<br><h5>Choose Pizza size</h5>";
         if ($results) {
             //print error message 
             while ($row = mysqli_fetch_array($results)) {
@@ -132,7 +132,7 @@ else{
         $query = "Select menu_item_id, menu_item_name, tags,  price from menu where hiden ='HI' and tags = 'sauce' ";
         $results = mysqli_query($db, $query);
 
-        echo "<h5>Choose Sauce</h5>";
+        echo "<br><h5>Choose Sauce</h5>";
         if ($results) {
             //print error message 
             while ($row = mysqli_fetch_array($results)) {
@@ -151,7 +151,7 @@ else{
         $query = "Select menu_item_id, menu_item_name, tags,  price from menu where hiden ='HI' and tags = 'meat' ";
         $results = mysqli_query($db, $query);
 
-        echo "<h5>Choose Meat</h5>";
+        echo "<br><h5>Choose Meat</h5>";
         if ($results) {
             //print error message 
             while ($row = mysqli_fetch_array($results)) {
@@ -167,7 +167,7 @@ else{
 
         }
 
-        echo "<button type='submit' value='Done' style='color:white'>Done</button>";
+        echo "<br><button type='submit' value='Done' style='color:white'>Done</button>";
 
         echo "</form>";
 
