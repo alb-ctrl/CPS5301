@@ -1,7 +1,10 @@
 <?php header('Access-Control-Allow-Origin: *'); session_start();
 
 require ("/home/bitnami/dbconfig.php");
-
+$db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
+        die('Coul not connect MySQL: ' . mysqli_connect_error () );
+    // Set the encoding...
+    mysqli_set_charset($db, 'utf8');
 if(!isset($_SESSION["verify"])){
     session_destroy();
     
@@ -101,11 +104,11 @@ else{
         <div>
             <ul>
                 <li>Username&emsp;&emsp;&emsp;First Name&emsp;&emsp;&emsp;Last name</li>
-                <li><?php echo "$user_name d"; ?>&emsp;&emsp;&emsp;<?php echo $first_name; ?>&emsp;&emsp;&emsp;<?php echo $last_name; ?></li>    
+                <li><?php echo "$user_name"; ?>&emsp;&emsp;&emsp;<?php echo "$first_name"; ?>&emsp;&emsp;&emsp;<?php echo "$last_name"; ?></li>    
                 <li>Phone Number&emsp;&emsp;&emsp;Email</li>
-                <li><?php echo $phone_num; ?>&emsp;&emsp;&emsp;<?php echo $user_email; ?></li>
+                <li><?php echo "$phone_num"; ?>&emsp;&emsp;&emsp;<?php echo "$user_email"; ?></li>
                 <li>Address</li>
-                <li><?php echo $addy; ?></li>
+                <li><?php echo "$addy"; ?></li>
             </ul>
         </div>
         </div>
