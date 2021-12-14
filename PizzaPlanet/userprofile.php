@@ -120,11 +120,11 @@ else{
         <div id = "userinfo">
             <ul>   
                 <li>My Info</li><br>
-                <li>Username:  <?php echo $user_name; ?></li><br>
-                <li>Name: <?php echo $first_name; echo $last_name;?></li><br>    
-                <li>Phone Number: <?php echo $phone_num; ?></li><br>
-                <li>Email: <?php echo $user_email; ?></li><br>
-                <li>Address: <?php echo $addy?></li><br>
+                <li>Username:  &nbsp;<?php echo $user_name; ?></li><br>
+                <li>Name: &nbsp;<?php echo $first_name; echo $last_name;?></li><br>    
+                <li>Phone Number: &nbsp;<?php echo $phone_num; ?></li><br>
+                <li>Email: &nbsp;<?php echo $user_email; ?></li><br>
+                <li>Address: &nbsp;<?php echo $addy?></li><br>
             </ul>
         </div>
     </div>

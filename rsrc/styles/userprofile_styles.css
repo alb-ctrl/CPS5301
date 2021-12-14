@@ -47,6 +47,10 @@ button {
     font-size: 20px;
     }
 
+    button:hover {
+        background: #da0000;
+        }
+        
     input{
         height: 30px;
         width: 200px;
