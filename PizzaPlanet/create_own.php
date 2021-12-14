@@ -93,7 +93,7 @@ else{
         <h4>Customize your pizza</h4><br>
         <?php
         echo "<form action='handle_own.php' method='POST'>";
-        echo "<h5>Choose crust</h5>";
+        echo "<h4>Choose crust</h4>";
         if ($results) {
             //print error message 
             while ($row = mysqli_fetch_array($results)) {
@@ -112,7 +112,7 @@ else{
         $query = "Select menu_item_id, menu_item_name, tags,  price from menu where hiden ='HI' and tags = 'size' ";
         $results = mysqli_query($db, $query);
 
-        echo "<br><h5>Choose Pizza size</h5>";
+        echo "<br><h4>Choose Pizza size</h4>";
         if ($results) {
             //print error message 
             while ($row = mysqli_fetch_array($results)) {
@@ -131,7 +131,7 @@ else{
         $query = "Select menu_item_id, menu_item_name, tags,  price from menu where hiden ='HI' and tags = 'sauce' ";
         $results = mysqli_query($db, $query);
 
-        echo "<br><h5>Choose Sauce</h5>";
+        echo "<br><h4>Choose Sauce</h4>";
         if ($results) {
             //print error message 
             while ($row = mysqli_fetch_array($results)) {
@@ -150,7 +150,7 @@ else{
         $query = "Select menu_item_id, menu_item_name, tags,  price from menu where hiden ='HI' and tags = 'meat' ";
         $results = mysqli_query($db, $query);
 
-        echo "<br><h5>Choose Meat</h5>";
+        echo "<br><h4>Choose Meat</h4>";
         if ($results) {
             //print error message 
             while ($row = mysqli_fetch_array($results)) {
