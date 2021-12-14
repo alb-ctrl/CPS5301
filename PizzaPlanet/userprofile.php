@@ -90,7 +90,7 @@ else{
     </nav>
     <div id = "container">
         <div id = "userform">
-        <?php if (isset($_COOKIE['up'])){echo $_COOKIE['up'] . "<br>"; unset($_COOKIE['up']); setcookie('up', '', time() - 3600, "/");} ?>
+        <?php if (isset($_COOKIE['up'])){echo $_COOKIE['up'] . "<br><br>"; unset($_COOKIE['up']); setcookie('up', '', time() - 3600, "/");} ?>
             <p>Update Information</p><br>
             <form action="update_user.php" method="POST">
                 <ul>
