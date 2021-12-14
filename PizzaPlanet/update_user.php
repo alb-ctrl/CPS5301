@@ -21,14 +21,15 @@ $oldpass_unencrypted = mysqli_real_escape_string($db,$_POST['old']);
 $oldpass = md5($oldpass_unencrypted);
 
 if (isset($_POST['submitpass'])){
-    $sql = "SELECT password FROM users WHERE email = '$email' LIMIT 1";
+    $old_email = $_COOKIE['email'];
+    $sql = "SELECT password FROM users WHERE email = '$old_email' LIMIT 1";
     $passcheck = mysqli_query($db, $sql);
     $get_pass_row = mysqli_fetch_array($passcheck);
     $userPass = $get_pass_row['password'];
 
     if ($oldpass != $userPass){
         $cookieid = 'wrongpass';
-        $cookie_val = 'Old password is incorrect';
+        $cookie_val = 'Current password is incorrect'; 
         setcookie($cookieid, $cookie_val, time() + (86400 * 30), "/");
         header("Location: userprofile.php?=old-password-incorrect");
     }
