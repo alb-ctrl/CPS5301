@@ -1,8 +1,10 @@
 *{
     padding: 0;
     margin: 0;
+    
 }
 div#userform{
+    
     margin-top: 40px;
     margin-bottom: 90px;
     margin-right: 100px;
@@ -29,19 +31,19 @@ div#userinfo{
 }
 
 div#container{
-    
+    font-size: 15px;
     display: block;
     padding: 20px;
 }
 
 button {
-    padding: 14px 20px;
+    padding: 5px 5px;
     margin: 8px 0;
     border:none;
     border-radius: 5px;
     background: rgb(255, 0, 0);
     color: white;
     
-    font-size: 15px;
+    font-size: 12px;
     }
 
