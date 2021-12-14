@@ -72,9 +72,8 @@
 
     <div class="container">
         <div class="py-5 text-center">
-            <img src="../rsrc/imgs/pizza.png" alt="logo" width="72" height="72">
+            <img src="../rsrc/imgs/pizza.png" alt="logo" width="100" height="100">
             <h2>Checkout</h2>
-            <p class="lead">Checkout</p>
         </div>
 
         <div class="row">
