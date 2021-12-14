@@ -1,9 +1,27 @@
 <?php header('Access-Control-Allow-Origin: *'); session_start();
 
+require ("/home/bitnami/dbconfig.php");
+$db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR
+        die('Coul not connect MySQL: ' . mysqli_connect_error () );
+    // Set the encoding...
+    mysqli_set_charset($db, 'utf8');
 if(!isset($_SESSION["verify"])){
     session_destroy();
     
 }
+$username = $_SESSION['username'];
+
+$result = mysqli_query($db, "select * from users where username = '$username' limit 1");
+
+$getrows = mysqli_fetch_array($result, MYSQLI_ASSOC);
+$user_name = $getrows['username'];
+$first_name = $getrows['fname'];
+$last_name = $getrows['lname'];
+$phone_num = $getrows['phone'];
+$addy = $getrows['address'];
+$user_email = $getrows['email'];
+$user_password = $getrows['password'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,8 +84,34 @@ else{
         </ul>
     </nav>
     <div>
-        <h3>My Profile</h3>
-    </div>
+        <p>My Profile</p>
+        <div id = "userform">
+            <form action="update_user.php" method="POST">
+                <ul>
+                    <li>Username <input type="text" name="user"></li>
+                    <li>New Password <input type="text" name="new"></li>
+                    <li>Confirm Password <input type="text" name="con"></li>
+                    <li>Old Password <input type="text" name="old"></li>
+                    <li>First Name <input type="text" name="fname"></li>
+                    <li>Last Name <input type="text" name="lname"></li>
+                    <li>Phone number <input type="text" name="num"></li>
+                    <li>Address <input type="text" name="add"></li>
+                    <li>Email <input type="text" name="email"></li>
+                    
+                </ul>
+            </form>
+        </div id = "userinfo">
+        <div>
+            <ul>
+                <li>Username&emsp;&emsp;&emsp;First Name&emsp;&emsp;&emsp;Last name</li>
+                <li><?php echo "$user_name"; ?>&emsp;&emsp;&emsp;<?php echo "$first_name"; ?>&emsp;&emsp;&emsp;<?php echo "$last_name"; ?></li>    
+                <li>Phone Number&emsp;&emsp;&emsp;Email</li>
+                <li><?php echo "$phone_num"; ?>&emsp;&emsp;&emsp;<?php echo "$user_email"; ?></li>
+                <li>Address</li>
+                <li><?php echo "$addy"; ?></li>
+            </ul>
+        </div>
+        </div>
 
     </div>
     <div><div id="l"><hr></div></div>
