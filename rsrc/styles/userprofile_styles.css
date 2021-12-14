@@ -1,4 +1,4 @@
-#userform{
+div#userform{
     float: left;
     max-width: 50vh;
     min-width: 45vh;
@@ -9,7 +9,7 @@
     box-shadow: 0px 1px 7px rgb(255, 0, 0); 
 }
 
-#userinfo{
+div#userinfo{
     float: right;
     max-width: 50vh;
     min-width: 45vh;
