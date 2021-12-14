@@ -49,8 +49,9 @@ button {
 
     button:hover {
         background: #da0000;
+        transition: .5s;
         }
-        
+
     input{
         height: 30px;
         width: 200px;
