@@ -27,6 +27,6 @@ div#userinfo{
 }
 
 div#container{
-    display: inline-block;
+    display: block;
     padding: 20px;
 }
