@@ -125,6 +125,7 @@ else{
                 <li>Phone Number: &nbsp;<?php echo $phone_num; ?></li><br>
                 <li>Email: &nbsp;<?php echo $user_email; ?></li><br>
                 <li>Address: &nbsp;<?php echo $addy?></li><br>
+                <li><a href="orderHistory.php">Order History</a></li>
             </ul>
         </div>
     </div>
