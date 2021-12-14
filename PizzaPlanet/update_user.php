@@ -30,13 +30,13 @@ if (isset($_POST['submit'])){
         $cookieid = 'wrongpass';
         $cookie_val = 'Old password is incorrect';
         setcookie($cookieid, $cookie_val, time() + (86400 * 30), "/");
-        header("Location: userProfile.php?=old-password-incorrect");
+        header("Location: userprofile.php?=old-password-incorrect");
     }
     elseif ($conpass != $newpass){
         $cookieid = 'nomatch';
         $cookie_val = 'Passwords do not match';
         setcookie($cookieid, $cookie_val, time() + (86400 * 30), "/");
-        header("Location: userProfile.php?=passwords-do-not-match");
+        header("Location: userprofile.php?=passwords-do-not-match");
         }
     else{
         $cookieid = 'up';
