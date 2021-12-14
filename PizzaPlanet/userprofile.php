@@ -117,7 +117,7 @@ else{
                             if (isset($_COOKIE['up'])){echo $_COOKIE['up']; unset($_COOKIE['up']); setcookie('up', '', time() - 3600, "/");} 
                         ?>
             </form>
-        </div >
+        </div>
         <div id = "userinfo">
             <ul>
                 <li>Username&emsp;&emsp;&emsp;First Name&emsp;&emsp;&emsp;Last name</li>
@@ -129,7 +129,6 @@ else{
             </ul>
         </div>
         </div>
-
     </div>
     <div><div id="l"><hr></div></div>
     <div class="footer">
