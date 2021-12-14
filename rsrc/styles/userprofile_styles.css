@@ -4,7 +4,7 @@
     
 }
 div#userform{
-    font-size: 15px;
+    font-size: 25px;
     margin-top: 40px;
     margin-bottom: 90px;
     margin-right: 100px;
@@ -21,7 +21,7 @@ div#userinfo{
     
     width: 40%;
     float: left;  
-    font-size: 15px;
+    font-size: 25px;
     min-height: 30vh;
     margin-top: 40px;
     margin-bottom: 90px;
