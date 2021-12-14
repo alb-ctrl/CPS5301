@@ -103,8 +103,8 @@ else{
                     <p><?php if (isset($_COOKIE['up'])){echo $_COOKIE['up']; unset($_COOKIE['up']); setcookie('up', '', time() - 3600, "/");} ?>
                     </p>
                 </ul>
-            </form>
-            <p>Change Password</p>
+            </form><br>
+            <p>Change Password</p><br>
             <form action="update_user.php" method="POST">
                     <li>New Password <input type="password" name="new" value="<?php echo $user_password; ?>"></li><br>
                     <li>Confirm Password <input type="password" name="con" value="<?php echo $user_password; ?>"></li><br>
