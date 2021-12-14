@@ -167,7 +167,7 @@ else{
 
         }
 
-        echo "<button type='submit' value='Done'></button>";
+        echo "<button type='submit' value='Done'>Done</button>";
 
         echo "</form>";
 
