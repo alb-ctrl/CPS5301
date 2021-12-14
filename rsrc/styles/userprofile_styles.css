@@ -34,3 +34,14 @@ div#container{
     padding: 20px;
 }
 
+button {
+    padding: 14px 20px;
+    margin: 8px 0;
+    border:none;
+    border-radius: 5px;
+    background: rgb(255, 0, 0);
+    color: white;
+    
+    font-size: 15px;
+    }
+
