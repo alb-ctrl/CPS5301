@@ -48,9 +48,6 @@ require("functions.php");
     </nav>
         <div class="Header">
             <h3 class="Heading">Shopping Cart</h3>
-            <form action="getdiscount.php">
-                Redeem Code: <input type="text" name="disc">
-            </form>
             <h5 class="Action" onclick="return removeAll();">Remove all</h5>
         </div>
 
