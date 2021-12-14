@@ -4,7 +4,7 @@
 }
 div#userform{
     margin-top: 40px;
-    margin-left: auto;
+    
     min-height: 50vh;
     width: 40%;
     float: left;    
@@ -20,12 +20,13 @@ div#userinfo{
     
     min-height: 50vh;
     margin-top: 40px;
-    margin-right: auto;
+    
     padding: 60px;
     border-radius: 10px;
     box-shadow: 0px 1px 7px rgb(255, 0, 0);
 }
 
 div#container{
+    display: flex;
     padding: 20px;
 }
