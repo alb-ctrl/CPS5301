@@ -62,6 +62,10 @@ elseif(isset($_POST['submitreg'])){
         lname='$last_name', phone='$phone_num', address='$addy', email='$email'
         WHERE email = '$old_email'";
 
+        $cookieid = 'up';
+        $cookie_val = 'Successful Update';
+        setcookie($cookieid, $cookie_val, time() + (86400 * 30), "/");
+        
         mysqli_query($db,$sql);
         unset($_COOKIE['email']); 
         setcookie('email', '', time() - 3600, "/");
