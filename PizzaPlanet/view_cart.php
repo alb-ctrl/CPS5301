@@ -28,7 +28,7 @@ require("functions.php");
 
         </label>
             <label href="#">
-                <a href="index.php"><img src="../rsrc/imgs/pizza.png" alt="logo" class="logo" style="border:none"></a>
+                <a href="index.php"><img src="../rsrc/imgs/pizza.png" alt="logo" class="logo" style="border-style:hidden "></a>
             </label>
         <ul class = "links">
             <li><a href="index.php">Home</a></li>
