@@ -90,7 +90,7 @@ else{
     </nav>
     <div id = "container">
         <div id = "userform">
-            <p>My Profile</p><br>
+            <p>Update Information</p><br>
             <form action="update_user.php" method="POST">
                 <ul>
                     <li>Username: &nbsp;<input type="text" name="user" value="<?php echo $user_name; ?>"></li><br>
