@@ -93,12 +93,12 @@ else{
             <p>My Profile</p><br>
             <form action="update_user.php" method="POST">
                 <ul>
-                    <li>Username: <input type="text" name="user" value="<?php echo $user_name; ?>"></li><br>
-                    <li>First Name: <input type="text" name="fname" value="<?php echo $first_name; ?>"></li><br>
-                    <li>Last Name: <input type="text" name="lname" value="<?php echo $last_name; ?>"></li><br>
-                    <li>Phone number: <input type="text" name="num" value="<?php echo $phone_num; ?>"></li><br>
-                    <li>Address: <input type="text" name="add" value="<?php echo $addy; ?>"></li><br>
-                    <li>Email: <input type="text" name="email" value="<?php echo $user_email; ?>"></li><br>
+                    <li>Username: &ensp;<input type="text" name="user" value="<?php echo $user_name; ?>"></li><br>
+                    <li>First Name: &ensp;<input type="text" name="fname" value="<?php echo $first_name; ?>"></li><br>
+                    <li>Last Name: &ensp;<input type="text" name="lname" value="<?php echo $last_name; ?>"></li><br>
+                    <li>Phone number: &ensp;<input type="text" name="num" value="<?php echo $phone_num; ?>"></li><br>
+                    <li>Address: &ensp;<input type="text" name="add" value="<?php echo $addy; ?>"></li><br>
+                    <li>Email: &ensp;<input type="text" name="email" value="<?php echo $user_email; ?>"></li><br>
                     <button type="submit" name="submitreg">Update</button><br>
                     <p><?php if (isset($_COOKIE['up'])){echo $_COOKIE['up']; unset($_COOKIE['up']); setcookie('up', '', time() - 3600, "/");} ?>
                     </p>
@@ -106,9 +106,9 @@ else{
             </form><br>
             <p>Change Password</p><br>
             <form action="update_user.php" method="POST">
-                    <li>New Password: <input type="password" name="new" value="<?php echo $user_password; ?>"></li><br>
-                    <li>Confirm Password: <input type="password" name="con" value="<?php echo $user_password; ?>"></li><br>
-                    <li>Current Password: <input type="password" name="old" value="<?php echo $user_password; ?>"></li><br>
+                    <li>New Password: &ensp;<input type="password" name="new" value="<?php echo $user_password; ?>"></li><br>
+                    <li>Confirm Password: &ensp;<input type="password" name="con" value="<?php echo $user_password; ?>"></li><br>
+                    <li>Current Password: &ensp;<input type="password" name="old" value="<?php echo $user_password; ?>"></li><br>
                     <button type="submit" name="submitpass">Update</button>
                     <?php 
                             if (isset($_COOKIE['wrongpass'])){echo $_COOKIE['wrongpass']; unset($_COOKIE['wrongpass']); setcookie('wrongpass', '', time() - 3600, "/");}
