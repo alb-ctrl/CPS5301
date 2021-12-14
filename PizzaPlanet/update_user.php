@@ -58,14 +58,15 @@ if (isset($_POST['submitpass'])){
     
 }
 elseif(isset($_POST['submitreg'])){
-    $sql = "UPDATE users SET username='$user_name', fname='$first_name', 
+        $old_email = $_COOKIE['email'];
+        $sql = "UPDATE users SET username='$user_name', fname='$first_name', 
         lname='$last_name', phone='$phone_num', address='$addy', email='$email'
         WHERE email = '$old_email'";
 
         $cookieid = 'up';
         $cookie_val = 'Successful Update';
         setcookie($cookieid, $cookie_val, time() + (86400 * 30), "/");
-        
+
         mysqli_query($db,$sql);
         unset($_COOKIE['email']); 
         setcookie('email', '', time() - 3600, "/");
