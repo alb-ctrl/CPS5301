@@ -104,7 +104,7 @@ else{
                     </p>
                 </ul>
             </form><br>
-            <p>Change Password</p><br>
+            <p>Update Password</p><br>
             <form action="update_user.php" method="POST">
                     <li>New Password: &nbsp;<input type="password" name="new" value="<?php echo $user_password; ?>"></li><br>
                     <li>Confirm Password: &nbsp;<input type="password" name="con" value="<?php echo $user_password; ?>"></li><br>
