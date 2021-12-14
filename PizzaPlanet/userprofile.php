@@ -119,7 +119,7 @@ else{
         </div>
         <div id = "userinfo">
             <ul>   
-                <li>My Info:</li>
+                <li>My Info:</li><br>
                 <li>Username:  <?php echo $user_name; ?></li><br>
                 <li>Name: <?php echo $first_name; echo $last_name;?></li><br>    
                 <li>Phone Number: <?php echo $phone_num; ?></li><br>
