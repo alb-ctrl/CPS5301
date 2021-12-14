@@ -97,7 +97,7 @@ elseif($report_period == "past_year"){
                                                 <th>Unit Cost</th>
                                                 <th>Sold Quantity</th>
                                                 <th>Sub Total</th>
-                                     
+
 
                                             </tr>
                                         </thead>
@@ -105,11 +105,13 @@ elseif($report_period == "past_year"){
 
 
 
-                                          <?php
+                                        <?php
 
 
 $time = get_time($report_period);
-$sql   = "SELECT menu_item_name , price as Unit_Cost, sum(quantity) as quantity,  sum(quantity*price )as Sub_Total  FROM user_orders u, menu m WHERE u.menu_item_id=m.menu_item_id and status = 'c' $time GROUP BY menu_item_name ORDER BY quantity desc ";
+$sql   = "SELECT menu_item_name , price as Unit_Cost, sum(quantity) as quantity,  
+sum(quantity*price )as Sub_Total  FROM user_orders u, menu m WHERE u.menu_item_id=m.menu_item_id 
+and status = 'c' $time GROUP BY menu_item_name ORDER BY quantity desc ";
 $query = mysqli_query($db, $sql);
 
 if (!mysqli_num_rows($query) > 0) {
@@ -130,7 +132,7 @@ echo '  <tr>
         echo "<td>$$subTotal</td></tr>";
         $i++;
 
-                                          
+
     }
         echo "<tr>
                         <th>Total</th>
