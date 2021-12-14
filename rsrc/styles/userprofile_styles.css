@@ -3,8 +3,6 @@
     margin: 0;
 }
 div#userform{
-    
-    float: left;
     max-width: 50vh;
     min-width: 45vh;
     min-height: 50vh;
@@ -15,7 +13,6 @@ div#userform{
 }
 
 div#userinfo{
-    float: right;
     max-width: 50vh;
     min-width: 45vh;
     min-height: 50vh;
