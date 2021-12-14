@@ -66,8 +66,9 @@ else{
             </li>
         </ul>
     </nav>
-
-        <h3>Preious Orders</h3>
+    <div style="margin-right: 10px;">
+        <br>
+        <h3>Previous Orders</h3>
 
 <!-- server side images -->
 
@@ -138,6 +139,7 @@ else{
 
     <!-- Optional JavaScript -->
     <script type="text/javascript" src="../rsrc/js/main.js"></script>
+    </div>
 </body>
 
 </html>
