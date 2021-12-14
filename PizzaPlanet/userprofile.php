@@ -89,8 +89,9 @@ else{
         </ul>
     </nav>
     <div>
-        <p>My Profile</p>
+        
         <div id = "userform">
+            <p>My Profile</p>
             <form action="update_user.php" method="POST">
                 <ul>
                     <li>Username <input type="text" name="user" value="<?php echo $user_name; ?>"></li>
