@@ -97,7 +97,7 @@ else{
                     <li>Confirm Password <input type="password" name="con" value="<?php echo $user_password; ?>"></li>
                     <li>Old Password <input type="password" name="old" value="<?php echo $user_password; ?>"></li>
                     <li>First Name <input type="text" name="fname" value="<?php echo $first_name; ?>"></li>
-                    <li>Last Name <input type="text" name="lname" value="<?php echo $last_name; ?>"></li>
+                    <li>Last Name <input type="text" name="lname" value=""></li>
                     <li>Phone number <input type="text" name="num" value="<?php echo $phone_num; ?>"></li>
                     <li>Address <input type="text" name="add" value="<?php echo $addy; ?>"></li>
                     <li>Email <input type="text" name="email" value="<?php echo $user_email; ?>"></li>
