@@ -16,8 +16,9 @@ $addy = mysqli_real_escape_string($db,$_POST['add']);
 $email = mysqli_real_escape_string($db,$_POST['email']);
 $newpass = mysqli_real_escape_string($db,$_POST['new']);
 $conpass = mysqli_real_escape_string($db,$_POST['con']);
-$oldpass = mysqli_real_escape_string($db,$_POST['old']);
+$oldpass_unencrypted = mysqli_real_escape_string($db,$_POST['old']);
 
+$oldpass = md5($oldpass_unencrypted);
 
 if (isset($_POST['submit'])){
     $sql = "SELECT password FROM users WHERE email = '$email' LIMIT 1";
@@ -44,7 +45,9 @@ if (isset($_POST['submit'])){
         
         $old_email = $_COOKIE['email'];
 
-        $sql = "UPDATE users SET username='$user_name', fname='$first_name', lname='$last_name', phone='$phone_num', address='$addy', email='$email', password='$newpass' WHERE email = '$old_email'";
+        $new = md5($newpass);
+
+        $sql = "UPDATE users SET username='$user_name', fname='$first_name', lname='$last_name', phone='$phone_num', address='$addy', email='$email', password='$new' WHERE email = '$old_email'";
         unset($_COOKIE['email']); 
         setcookie('email', '', time() - 3600, "/");
         header("Location: userprofile.php?=Update-successful");
