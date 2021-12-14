@@ -10,7 +10,7 @@ function get_cart($item_id, $quanitiy, $cart_index){
     // Set the encoding...
     mysqli_set_charset($db, 'utf8');
 
-    $query = "SELECT menu_item_id, menu_item_name, description, tags, picture_path, price from menu where menu_item_id = $item_id ";
+    $query = "SELECT menu_item_id, menu_item_name, description, tags, picture_path, price from menu where menu_item_id = $item_id  ";
 
     $results = mysqli_query($db, $query);
 
@@ -25,7 +25,7 @@ function get_cart($item_id, $quanitiy, $cart_index){
 
 <div id="<?php echo "$cart_index$item_id";?>" class="Cart-Items pad">
     <div class="image-box">
-        <img src="<?php echo $row['picture_path']; ?>" style='height:120px' />
+        <img src="../rsrc/imgs/menu/<?php echo $row['picture_path']; ?>" style='height:120px' />
     </div>
     <div class="about">
         <h1 class="title"><?php echo $row['menu_item_name']; ?></h1>
@@ -53,6 +53,7 @@ function get_cart($item_id, $quanitiy, $cart_index){
 
 
     }
+    
 
 /* Close the connection as soon as it's no longer needed */
 mysqli_close($db);
@@ -66,7 +67,7 @@ function get_checkout_cart($item_id, $quanitiy){
     // Set the encoding...
     mysqli_set_charset($db, 'utf8');
 
-    $query = "SELECT menu_item_id, menu_item_name, description, tags, picture_path, price from menu where menu_item_id = $item_id ";
+    $query = "SELECT menu_item_id, menu_item_name, description, tags, picture_path, price from menu where menu_item_id = $item_id  ";
 
     $results = mysqli_query($db, $query);
 
@@ -82,7 +83,7 @@ function get_checkout_cart($item_id, $quanitiy){
 <li class="list-group-item d-flex justify-content-between lh-condensed">
     <div>
         <h6 class="my-0"><?php echo $row['menu_item_name']; ?></h6>
-        <small class="text-muted"><?php echo $row['description']; ?></small>
+        <small class="text-muted"><?php if (count($row['description']) > 6) echo $row['description']; ?></small>
     </div>
     <span class="text-muted amount">$<?php echo $row['price']*$quanitiy; ?></span>
 </li>

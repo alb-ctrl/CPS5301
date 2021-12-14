@@ -60,7 +60,7 @@
         mysqli_set_charset($db, 'utf8');
 
         //$query = "SELECT fname, lname, phone, address, email FROM pizzaplace.users where username = '".$_SESSION['username']."' ";
-        $query = "select u.fname, u.lname, u.phone, u.address, u.email, u.zipcode, p.card_name, p.expiration_date, p.card_number, p.cvv from users u left join payment_info p on u.username=p.username where u.username='" . $_SESSION['username'] . "' ";
+        $query = "select u.fname, u.lname, u.phone, u.address, u.email, u.zipcode from users u  where u.username='" . $_SESSION['username'] . "' ";
 
         $results = mysqli_query($db, $query);
         $rows = mysqli_fetch_array($results);
@@ -72,11 +72,8 @@
 
     <div class="container">
         <div class="py-5 text-center">
-            <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-            <h2>Checkout form</h2>
-            <p class="lead">Below is an example form built entirely with Bootstrap's form controls. Each required form
-                group has a validation state that can be triggered by attempting to submit the form without completing
-                it.</p>
+            <img src="../rsrc/imgs/pizza.png" alt="logo" width="100" height="100">
+            <h2>Checkout</h2>
         </div>
 
         <div class="row">
@@ -91,14 +88,23 @@
                         get_checkout_cart($value['menu_item_id'], $value['quantity']);
                     }
                     ?>
-                    <li class="list-group-item d-flex justify-content-between">
+                    
+                    <li class="list-group-item d-flex justify-content-between" id="total_amount_cart_li">
                         <span>Total (USD)</span>
                         <strong id="total_amount_cart">$20</strong>
                     </li>
                 </ul>
-                <form class="card p-2">
+                <?php
+                if(!empty($_SESSION['username'])){
+                echo '<div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="save-order">
+                        <label class="custom-control-label" for="save-order">Save this order for next time</label>
+                </div>';
+                }
+                ?>
+                <form class="card p-2" id = "redeem-form">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Promo code">
+                        <input type="text" class="form-control" name="promo_code" placeholder="Promo code">
                         <div class="input-group-append">
                             <button type="submit" class="btn btn-secondary">Redeem</button>
                         </div>
@@ -108,6 +114,7 @@
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">Delivery Address</h4>
                 <form id="checkout" class="needs-validation" novalidate action="checkout_handler.php" method="POST">
+                    <input type = "hidden" value="" id="hidden_cost" name = "hidden_cost">
                     <div class="row">
                         <input type="hidden" name="username" value="<?php if (isset($_SESSION['username'])) echo $_SESSION['username']; ?>">
                         <div class="col-md-6 mb-3">
@@ -163,28 +170,74 @@
                         <input type="checkbox" class="custom-control-input" id="save-info">
                         <label class="custom-control-label" for="save-info">Save this information for next time</label>
                     </div> -->
+                    <?php
+                    if(!empty($_SESSION['username'])){
+                        echo '<div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="save-info">
+                                <label class="custom-control-label" for="save-info">Save this information for next time</label>
+                        </div>';
+                        }
+                    ?>
                     <hr class="mb-4">
 
                     <h4 class="mb-3">Payment</h4>
 
                     <div class="d-block my-3">
+                    
                         <div class="custom-control custom-radio">
                             <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
                             <label class="custom-control-label" for="credit">Credit card</label>
                         </div>
-                        <div class="custom-control custom-radio">
-                            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                            <label class="custom-control-label" for="debit">Debit card</label>
-                        </div>
+                        <?php if (isset($_SESSION['username'])) {
+                        echo '<div class="custom-control custom-radio">
+                        <input id="saved_card" name="paymentMethod" type="radio" class="custom-control-input"  required>
+                        <label class="custom-control-label" for="saved_card">saved card</label>
+                        </div>';
+                        
+                        } ?>
                         <div class="custom-control custom-radio">
                             <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
                             <label class="custom-control-label" for="paypal">Paypal</label>
                         </div>
+                        <div class="custom-control custom-radio">
+                            <input id="cash" name="paymentMethod" type="radio" class="custom-control-input" required>
+                            <label class="custom-control-label" for="cash">Cash</label>
+                        </div>
                     </div>
+                    <?php
+
+                        if (isset($_SESSION['username'])){
+                            $db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) or
+                            die('Coul not connect MySQL: ' . mysqli_connect_error());
+                            // Set the encoding...
+                            mysqli_set_charset($db, 'utf8');
+                            $user = $_SESSION['username'];
+                            $query = "select card_name, card_number from payment_info where username = '$user' ";
+                            $results = mysqli_query($db, $query);
+                            $rowNum = mysqli_num_rows($results);
+                            if ($rowNum > 0){
+                                echo "<g id='saved_card_info' style='display: none;'> ";
+                                while ( $row = mysqli_fetch_array($results) ){
+                                    echo '<div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" disabled>
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                    '.$row['card_name'].'<b> '.substr($row['card_number'], -4).'</b>
+                                    </label>
+                                    </div>';
+                                }
+                                echo "</g>";
+
+                            }
+                            mysqli_close($db);
+                            
+                        }
+                            ?>
+                    <g id = "card_info">
+
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="cc-name">Name on card</label>
-                            <input type="text" class="form-control" id="cc-name" value="<?php if (isset($_SESSION['username'])) echo $rows['card_name']; ?>" required>
+                            <input type="text" class="form-control" id="cc-name" required>
                             <small class="text-muted">Full name as displayed on card</small>
                             <div class="invalid-feedback">
                                 Name on card is required
@@ -192,7 +245,7 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="cc-number">Credit card number</label>
-                            <input type="text" class="form-control" id="cc-number" value="<?php if (isset($_SESSION['username'])) echo $rows['card_number']; ?>" required>
+                            <input type="text" class="form-control" id="cc-number"  required>
                             <div class="invalid-feedback">
                                 Credit card number is required
                             </div>
@@ -201,19 +254,22 @@
                     <div class="row">
                         <div class="col-md-3 mb-3">
                             <label for="cc-expiration">Expiration</label>
-                            <input type="text" class="form-control" id="cc-expiration" value="<?php if (isset($_SESSION['username'])) echo $rows['expiration_date']; ?>" required>
+                            <input type="text" class="form-control" id="cc-expiration" required>
                             <div class="invalid-feedback">
                                 Expiration date required
                             </div>
                         </div>
                         <div class="col-md-3 mb-3">
-                            <label for="cc-expiration">CVV</label>
-                            <input type="text" class="form-control" id="cc-cvv" placeholder="" value="<?php if (isset($_SESSION['username'])) echo $rows['cvv']; ?>" required>
+                            <label for="cc-cvv">CVV</label>
+                            <input type="text" class="form-control" id="cc-cvv" placeholder=""  required>
                             <div class="invalid-feedback">
                                 Security code required
                             </div>
                         </div>
                     </div>
+
+
+                    </g>
                     <hr class="mb-4">
                     <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
                 </form>
@@ -247,11 +303,49 @@
     <script>
         $(document).ready(function() {
             console.log("ready!");
+            studentCode();
             checkout_total();
-            //$("#checkout").submit(function(event) {
-            //    event.preventDefault();
-            //    final_checkout ();
-            //});
+
+            
+            $("#cash").click(function(event) {
+                console.log("did it hide now`?");
+                $("#card_info :input").prop("disabled", true);
+                $("#card_info").hide();
+
+                $("#saved_card_info :input").prop("disabled", true);
+                $("#saved_card_info").hide();
+                
+            });
+            $("#credit").click(function(event) {
+                console.log("did it hide now`?");
+                $("#card_info :input").prop("disabled", false);
+                $("#card_info").show();
+                
+            });
+            $("#saved_card").click(function(event) {
+                console.log("did it hide now`?");
+                $("#card_info :input").prop("disabled", true);
+                $("#card_info").hide();
+
+                $("#saved_card_info :input").prop("disabled", false);
+                $("#saved_card_info").show();
+                
+            });
+
+            $("#checkout").submit(function(event) {
+                //event.preventDefault();
+                if ($("#save-order").is(":checked"))
+                    saveOrder();
+                if ($("#save-info").is(":checked"))
+                    saveInfo($("#cc-name").val(),$("#cc-number").val(),$("#cc-expiration").val(),$("#cc-cvv").val());
+            });
+            $("#redeem-form").submit(function(event) {
+                event.preventDefault();
+                redeemCode();
+                checkout_total();
+                
+                
+            });
 
         });
         // Example starter JavaScript for disabling form submissions if there are invalid fields

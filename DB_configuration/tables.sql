@@ -45,8 +45,24 @@ menu_item_name varchar(222) NOT NULL,
 description varchar(255),
 tags varchar(255),
 picture_path varchar(100),
-price DECIMAL(10,2)
+price DECIMAL(10,2),
+hiden varchar(100)
 );
+# NA for any normal menu item 
+# HI for create your own pizza
+# HO for Hidden Orders
+
+CREATE TABLE IF NOT EXISTS user_orders (
+  user_order_id int(11) NOT NULL,
+  username varchar(50) NOT NULL,
+  menu_item_id int(11) NOT NULL,
+  quantity int(11) NOT NULL,
+  status char(1) DEFAULT 'O',
+  order_date timestamp NOT NULL DEFAULT current_timestamp(),
+  FOREIGN KEY (username) REFERENCES users(username),
+  FOREIGN KEY (menu_item_id) REFERENCES menu(menu_item_id),
+  PRIMARY KEY (user_order_id, menu_item_id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE IF NOT EXISTS user_orders (
   user_order_id int(11) NOT NULL,
@@ -68,3 +84,14 @@ CREATE TABLE IF NOT EXISTS user_orders (
 # X canceled 
 
 
+CREATE TABLE IF NOT EXISTS favorites_orders (
+menu_item_id int not null auto_increment primary key,
+username varchar(50) NOT NULL,
+FOREIGN KEY (username) REFERENCES users(username),
+FOREIGN KEY (menu_item_id) REFERENCES menu(menu_item_id)
+);
+
+CREATE TABLE IF NOT EXISTS promo_code (
+code_id varchar(50) NOT NULL primary key,
+price DECIMAL(10,2)
+);

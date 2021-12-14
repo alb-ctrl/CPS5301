@@ -30,7 +30,7 @@ session_start();
         <ul class = "links">
             <li><a href="index.php">Home</a></li>
             <li><a href="About_Us.php">About</a></li>
-            <li><a href="#">Menu</a></li>
+            <li><a href="get_menu.php">Menu</a></li>
             <li><a href="Contact_Us.php">Contact</a></li>
             <li>
 <?php
@@ -66,19 +66,14 @@ else{
             </li>
         </ul>
     </nav>
-    <div class="cont">
-        
-        
-        <div class="item">
-        <img class="pizza" src="../rsrc/imgs/menu/pizza_Cheese.png.jpeg" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Pizza</h5>
-            <p class="card-text">Build Your Own Pizza</p>
-            <button><a href="create_own.php" id="0" class="btn btn-primary">Add to cart</a></button>
-        </div>
-        </div>
-    </div>
-        
+    <div > 
+        <style>
+        div{
+        margin-left: 10px
+    }
+        </style>
+        <br>
+        <h3>Previous Orders</h3>
 
 <!-- server side images -->
 
@@ -89,8 +84,9 @@ else{
         die('Coul not connect MySQL: ' . mysqli_connect_error());
     // Set the encoding...
     mysqli_set_charset($db, 'utf8');
+    $user = $_SESSION['username'];
 
-    $query = "Select menu_item_id, menu_item_name, description, tags, picture_path, price from menu where hiden ='NA' ";
+    $query = "Select m.menu_item_id, m.menu_item_name, m.description, m.tags, m.picture_path, m.price from menu m, favorites_orders fo where m.menu_item_id=fo.menu_item_id and fo.username = '$user' ";
     $results = mysqli_query($db, $query);
 
     if (!$results) {
@@ -98,8 +94,14 @@ else{
         echo "didnt work";
 
     }
+    if (mysqli_num_rows($results) == 0){
+        echo "<p> Order something first</p>";
+        die();
+    }
 
     ?>
+
+
     
     <?php
     while ($row = mysqli_fetch_array($results)) {
@@ -142,6 +144,7 @@ else{
 
     <!-- Optional JavaScript -->
     <script type="text/javascript" src="../rsrc/js/main.js"></script>
+    </div>
 </body>
 
 </html>

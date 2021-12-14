@@ -28,7 +28,7 @@ require("functions.php");
 
         </label>
             <label href="#">
-                <a href="index.php"><img src="../rsrc/imgs/pizza.png" alt="logo" class="logo"></a>
+                <a href="index.php"><img src="../rsrc/imgs/pizza.png" alt="logo" class="logo" style="border-style:hidden "></a>
             </label>
         <ul class = "links">
             <li><a href="index.php">Home</a></li>
@@ -48,7 +48,7 @@ require("functions.php");
     </nav>
         <div class="Header">
             <h3 class="Heading">Shopping Cart</h3>
-            <h5 class="Action">Remove all</h5>
+            <h5 class="Action" onclick="return removeAll();">Remove all</h5>
         </div>
 
         <?php

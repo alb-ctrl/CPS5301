@@ -29,8 +29,8 @@ if(empty($_SESSION["adm_id"])){
 <!-- Container fluid  -->
 <div class="container-fluid" >
     <!-- Start Page Content -->
-    <div class="row" style="min-height:380px;">
-        <div class="col-md-3">
+    <div class="row" style="min-height:280px;">
+        <div class="col-md-4">
             <div class="card p-30">
                 <div class="media">
                     <div class="media-left meida media-middle">
@@ -47,7 +47,7 @@ if(empty($_SESSION["adm_id"])){
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="card p-30">
                 <div class="media">
                     <div class="media-left meida media-middle">
@@ -63,7 +63,7 @@ if(empty($_SESSION["adm_id"])){
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="card p-30">
                 <div class="media">
                     <div class="media-left meida media-middle">
@@ -80,6 +80,40 @@ if(empty($_SESSION["adm_id"])){
             </div>
         </div>
     </div>
+<div class="row" style="min-height:120px;">
+    <div class="col-md-4">
+    </div>
+
+<div class="col-md-6 col-sm-12">
+<?php
+ echo "<form name='input' action='salesreport.php' method='post'>";
+        echo "<label for='report_period'><H3> Sales Report - Period:</H3> </label>";
+        echo "<select  class='form-control-lg' name='report_period' style='
+    border-left-width: 14px;
+    border-right-width: 10px; 
+    border-color: #F9EEC9;'> ";
+        echo "<option value='all'>All</option>";
+        echo "<option value='past_week'>Past Week</option>";
+        echo "<option value='current_month'>Current Month</option>";
+        echo "<option value='past_month'>Past Month</option>";
+        echo "<option value='this_year'>This year</option>";
+        echo "<option value='past_year'>Past Year</option>";
+echo "<input type='submit'   class='btn btn-primary' value='Submit' style='height: 52px;' >";
+
+        echo "</form>";
+
+
+
+
+
+?>
+
+
+
+
+ </div>
+  </div>
+
     <!-- End PAge Content -->
     <!-- footer -->
     <?php include 'footer.php'; ?>

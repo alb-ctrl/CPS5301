@@ -53,7 +53,7 @@ else{
             style="margin-left:2px;font-size:18px;"></i></a>
             <ul class="drop">
                     <li><a href="logout.php">Sign out</a></li>
-                    <li><a href="#">My profile</a></li>
+                    <li><a href="userprofile.php">My profile</a></li>
                 </ul>
         </li>
 <?php            
@@ -72,6 +72,23 @@ else{
                 Stuffed Crust Deep Dish <a href="get_menu.php">Order now !</a>
             </p> 
         </div>
+        <br>
+
+        <?php
+        if(isset($_SESSION['username'])){
+        ?>
+
+<div id = "ftrbl">
+            <p>
+                See Previous Orders <a href="previous_orders.php">Order now !</a>
+            </p> 
+        </div>
+
+        <?php
+        }
+        ?>
+
+
     </div>
     <div><div id="l"><hr></div></div>
     <div class="footer">

@@ -135,6 +135,13 @@ if (isset($_POST['login_user']))
             sendAEmail($user_email, $username, $code);
             $_SESSION['code'] = $code;
             $_SESSION['username'] = $username;
+            if(filter_var($user_email, FILTER_VALIDATE_EMAIL)){
+              $mailDomain = explode(".",$user_email);
+              $mailDomain = $mailDomain[count($mailDomain)-1];
+              $_SESSION['mailDomain'] = $mailDomain;
+
+            }
+              
             header('location: 2fa-email-func.php');
         }
         //if user forgets password, let them log in and direct them to reset_password.html
