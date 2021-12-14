@@ -65,7 +65,7 @@ elseif(isset($_POST['submitreg'])){
         WHERE email = '$old_email'";
 
         $cookieid = 'up';
-        $cookie_val = 'Successful Update';
+        $cookie_val = 'Update Successful';
         setcookie($cookieid, $cookie_val, time() + (86400 * 30), "/");
 
         mysqli_query($db,$sql);
