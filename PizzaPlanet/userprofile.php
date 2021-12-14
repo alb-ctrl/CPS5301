@@ -88,7 +88,7 @@ else{
             </li>
         </ul>
     </nav>
-    <div>
+    <div id = "container">
         
         <div id = "userform">
             <p>My Profile</p>
