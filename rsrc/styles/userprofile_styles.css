@@ -12,7 +12,7 @@ div#userform{
     min-height: 30vh;
     width: 40%;
     float: left;    
-    padding: 60px;
+    padding: 50px 50px;
     border-radius: 10px;
     box-shadow: 0px 1px 7px rgb(255, 0, 0); 
 }
