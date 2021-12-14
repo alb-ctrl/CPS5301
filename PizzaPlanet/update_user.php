@@ -20,7 +20,7 @@ $oldpass_unencrypted = mysqli_real_escape_string($db,$_POST['old']);
 
 $oldpass = md5($oldpass_unencrypted);
 
-if (isset($_POST['submit'])){
+if (isset($_POST['submitpass'])){
     $sql = "SELECT password FROM users WHERE email = '$email' LIMIT 1";
     $passcheck = mysqli_query($db, $sql);
     $get_pass_row = mysqli_fetch_array($passcheck);
@@ -58,4 +58,11 @@ if (isset($_POST['submit'])){
         header("Location: userprofile.php?=Update-successful");
     }
     
+}
+elseif(isset($_POST['submitreg'])){
+    $sql = "UPDATE users SET username='$user_name', fname='$first_name', 
+        lname='$last_name', phone='$phone_num', address='$addy', email='$email'
+        WHERE email = '$old_email'";
+
+        mysqli_query($db,$sql);
 }
