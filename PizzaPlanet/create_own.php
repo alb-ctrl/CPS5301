@@ -91,7 +91,7 @@ else{
     $results = mysqli_query($db, $query);
     ?>
     <div id = "custom">
-        <p>Customize your pizza</p>
+        <h4>Customize your pizza</h4><br>
         <?php
         echo "<form action='handle_own.php' method='POST'>";
         echo "<h5>Choose crust</h5>";
@@ -167,7 +167,7 @@ else{
 
         }
 
-        echo "<input type='submit' value='Done'>";
+        echo "<button type='submit' value='Done'></button>";
 
         echo "</form>";
 
