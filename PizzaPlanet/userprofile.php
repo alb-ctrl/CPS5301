@@ -87,7 +87,7 @@ else{
 
             </li>
         </ul>
-    </nav>
+    </nav><?php if (isset($_COOKIE['up'])){echo $_COOKIE['up']; unset($_COOKIE['up']); setcookie('up', '', time() - 3600, "/");} ?>
     <div id = "container">
         <div id = "userform">
             <p>Update Information</p><br>
@@ -100,7 +100,7 @@ else{
                     <li>Address: &nbsp;<input type="text" name="add" value="<?php echo $addy; ?>"></li><br>
                     <li>Email: &nbsp;<input type="text" name="email" value="<?php echo $user_email; ?>"></li><br>
                     <button type="submit" name="submitreg">Update</button><br>
-                    <p><?php if (isset($_COOKIE['up'])){echo $_COOKIE['up']; unset($_COOKIE['up']); setcookie('up', '', time() - 3600, "/");} ?>
+                    <p>
                     </p>
                 </ul>
             </form><br>
@@ -113,7 +113,6 @@ else{
                     <?php 
                             if (isset($_COOKIE['wrongpass'])){echo $_COOKIE['wrongpass']; unset($_COOKIE['wrongpass']); setcookie('wrongpass', '', time() - 3600, "/");}
                             if (isset($_COOKIE['nomatch'])){echo $_COOKIE['nomatch']; unset($_COOKIE['nomatch']); setcookie('nomatch', '', time() - 3600, "/");} 
-                            if (isset($_COOKIE['up'])){echo $_COOKIE['up']; unset($_COOKIE['up']); setcookie('up', '', time() - 3600, "/");} 
                         ?>
             </form>
         </div>
