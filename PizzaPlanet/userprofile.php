@@ -37,6 +37,7 @@ setcookie($cookieid, $user_email, time() + (86400 * 30), "/");
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"  crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"  crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="../rsrc/styles/index_styles.css">
+    <link rel="stylesheet" type="text/css" href="../rsc/styles/user_profile.css">
 </head>
 <body>
     <body>
@@ -110,8 +111,8 @@ else{
                     </p>
                 </ul>
             </form>
-        </div id = "userinfo">
-        <div>
+        </div >
+        <div id = "userinfo">
             <ul>
                 <li>Username&emsp;&emsp;&emsp;First Name&emsp;&emsp;&emsp;Last name</li>
                 <li><?php echo $user_name; ?>&emsp;&emsp;&emsp;<?php echo $first_name; ?>&emsp;&emsp;&emsp;<?php echo $last_name; ?></li>    
