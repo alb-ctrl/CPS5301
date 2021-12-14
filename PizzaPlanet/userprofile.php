@@ -118,7 +118,8 @@ else{
             </form>
         </div>
         <div id = "userinfo">
-            <ul>
+            <ul>   
+                <li>My Info:</li>
                 <li>Username:  <?php echo $user_name; ?></li><br>
                 <li>Name: <?php echo $first_name; echo $last_name;?></li><br>    
                 <li>Phone Number: <?php echo $phone_num; ?></li><br>
