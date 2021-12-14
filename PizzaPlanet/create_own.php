@@ -90,7 +90,9 @@ else{
     $query = "Select menu_item_id, menu_item_name, tags,  price from menu where hiden ='HI' and tags = 'crust' ";
     $results = mysqli_query($db, $query);
     ?>
-    <div id = "custom"><?php
+    <div id = "custom">
+        <p>Customize your pizza</p>
+        <?php
         echo "<form action='handle_own.php' method='POST'>";
         echo "<h5>Choose crust</h5>";
         if ($results) {
@@ -185,6 +187,19 @@ else{
 
     <!-- Optional JavaScript -->
     <script type="text/javascript" src="../rsrc/js/main.js"></script>
+    <div><div id="l"><hr></div></div>
+    <div class="footer">
+        <ul id = "left">
+            <span><li>Hours of Operation</li></span>
+            <li>Monday - Sunday 10:00am - 10:00pm</li>
+        </ul>
+        <ul id = "right">
+            <span><li>For Reservation</li></span>
+            <li>Our Location</li>
+            <li><a href="#">Front St, Elizabeth, NJ 07206</a></li>
+            <li>Tel: (908)555-3474</li>
+        </ul>
+    </div>
 </body>
 
 </html>
