@@ -64,6 +64,18 @@ CREATE TABLE IF NOT EXISTS user_orders (
   PRIMARY KEY (user_order_id, menu_item_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE IF NOT EXISTS user_orders (
+  user_order_id int(11) NOT NULL,
+  username varchar(50) NOT NULL,
+  menu_item_id int(11) NOT NULL,
+  quantity int(11) NOT NULL,
+  status char(1) DEFAULT 'O',
+  order_date timestamp NOT NULL DEFAULT current_timestamp(),
+  FOREIGN KEY (username) REFERENCES users(username),
+  FOREIGN KEY (menu_item_id) REFERENCES menu(menu_item_id),
+  PRIMARY KEY (user_order_id, menu_item_id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 # O for ordered
 # P in progress

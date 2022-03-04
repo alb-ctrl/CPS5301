@@ -1,0 +1,59 @@
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+div#userform{
+    font-size: 20px;
+    margin-top: 40px;
+    margin-bottom: 90px;
+    margin-right: 100px;
+    margin-left: 90px;
+    min-height: 30vh;
+    width: 40%;
+    float: left;    
+    padding: 50px 50px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 7px rgb(255, 0, 0); 
+}
+
+div#userinfo{
+    
+    width: 40%;
+    float: left;  
+    font-size: 20px;
+    min-height: 30vh;
+    margin-top: 40px;
+    margin-bottom: 90px;
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 7px rgb(255, 0, 0);
+}
+
+div#container{
+    
+    display: block;
+    padding: 20px;
+}
+
+button {
+    padding: 5px 25px;
+    margin: 8px 0;
+    border:none;
+    border-radius: 5px;
+    background: rgb(255, 0, 0);
+    color: white;
+    
+    font-size: 20px;
+    }
+
+    button:hover {
+        background: #da0000;
+        
+        }
+
+    input{
+        height: 30px;
+        width: 200px;
+        font-size: 18px;
+    }

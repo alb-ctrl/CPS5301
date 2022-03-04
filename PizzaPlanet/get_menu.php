@@ -55,7 +55,7 @@ else{
             style="margin-left:2px;font-size:18px;"></i></a>
             <ul class="drop">
                     <li><a href="logout.php">Sign out</a></li>
-                    <li><a href="#">My profile</a></li>
+                    <li><a href="userprofile.php">My profile</a></li>
                 </ul>
         </li>
 <?php            
@@ -100,8 +100,6 @@ else{
     }
 
     ?>
-
-
     
     <?php
     while ($row = mysqli_fetch_array($results)) {

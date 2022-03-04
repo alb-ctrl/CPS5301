@@ -22,6 +22,10 @@ $addy = $getrows['address'];
 $user_email = $getrows['email'];
 $user_password = $getrows['password'];
 
+
+$cookieid = 'email';
+setcookie($cookieid, $user_email, time() + (86400 * 30), "/");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +37,7 @@ $user_password = $getrows['password'];
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"  crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"  crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="../rsrc/styles/index_styles.css">
+    <link rel="stylesheet" type="text/css" href="../rsrc/styles/userprofile_styles.css">
 </head>
 <body>
     <body>
@@ -83,36 +88,46 @@ else{
             </li>
         </ul>
     </nav>
-    <div>
-        <p>My Profile</p>
+    <div id = "container">
         <div id = "userform">
+        <?php if (isset($_COOKIE['up'])){echo "<span style='color:green'> ".$_COOKIE['up'] . "</span><br><br>"; unset($_COOKIE['up']); setcookie('up', '', time() - 3600, "/");} ?>
+            <p>Update Information</p><br>
             <form action="update_user.php" method="POST">
                 <ul>
-                    <li>Username <input type="text" name="user"></li>
-                    <li>New Password <input type="text" name="new"></li>
-                    <li>Confirm Password <input type="text" name="con"></li>
-                    <li>Old Password <input type="text" name="old"></li>
-                    <li>First Name <input type="text" name="fname"></li>
-                    <li>Last Name <input type="text" name="lname"></li>
-                    <li>Phone number <input type="text" name="num"></li>
-                    <li>Address <input type="text" name="add"></li>
-                    <li>Email <input type="text" name="email"></li>
-                    
+                    <li>Username: &nbsp;<input type="text" name="user" value="<?php echo $user_name; ?>"></li><br>
+                    <li>First Name: &nbsp;<input type="text" name="fname" value="<?php echo $first_name; ?>"></li><br>
+                    <li>Last Name: &nbsp;<input type="text" name="lname" value="<?php echo $last_name; ?>"></li><br>
+                    <li>Phone number: &nbsp;<input type="text" name="num" value="<?php echo $phone_num; ?>"></li><br>
+                    <li>Address: &nbsp;<input type="text" name="add" value="<?php echo $addy; ?>"></li><br>
+                    <li>Email: &nbsp;<input type="text" name="email" value="<?php echo $user_email; ?>"></li><br>
+                    <button type="submit" name="submitreg">Update</button><br>
+                    <p>
+                    </p>
                 </ul>
+            </form><br>
+            <p>Update Password</p><br>
+            <form action="update_user.php" method="POST">
+                    <li>New Password: &nbsp;<input type="password" name="new" value="<?php echo $user_password; ?>"></li><br>
+                    <li>Confirm Password: &nbsp;<input type="password" name="con" value="<?php echo $user_password; ?>"></li><br>
+                    <li>Current Password: &nbsp;<input type="password" name="old" value="<?php echo $user_password; ?>"></li><br>
+                    <button type="submit" name="submitpass">Update</button>
+                    <?php 
+                            if (isset($_COOKIE['wrongpass'])){echo $_COOKIE['wrongpass']; unset($_COOKIE['wrongpass']); setcookie('wrongpass', '', time() - 3600, "/");}
+                            if (isset($_COOKIE['nomatch'])){echo $_COOKIE['nomatch']; unset($_COOKIE['nomatch']); setcookie('nomatch', '', time() - 3600, "/");} 
+                        ?>
             </form>
-        </div id = "userinfo">
-        <div>
-            <ul>
-                <li>Username&emsp;&emsp;&emsp;First Name&emsp;&emsp;&emsp;Last name</li>
-                <li><?php echo "$user_name"; ?>&emsp;&emsp;&emsp;<?php echo "$first_name"; ?>&emsp;&emsp;&emsp;<?php echo "$last_name"; ?></li>    
-                <li>Phone Number&emsp;&emsp;&emsp;Email</li>
-                <li><?php echo "$phone_num"; ?>&emsp;&emsp;&emsp;<?php echo "$user_email"; ?></li>
-                <li>Address</li>
-                <li><?php echo "$addy"; ?></li>
+        </div>
+        <div id = "userinfo">
+            <ul>   
+                <li>My Info</li><br>
+                <li>Username:  &nbsp;<?php echo $user_name; ?></li><br>
+                <li>Name: &nbsp;<?php echo $first_name; echo $last_name;?></li><br>    
+                <li>Phone Number: &nbsp;<?php echo $phone_num; ?></li><br>
+                <li>Email: &nbsp;<?php echo $user_email; ?></li><br>
+                <li>Address: &nbsp;<?php echo $addy?></li><br>
             </ul>
         </div>
-        </div>
-
+    </div>
     </div>
     <div><div id="l"><hr></div></div>
     <div class="footer">

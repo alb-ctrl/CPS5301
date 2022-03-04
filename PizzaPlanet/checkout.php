@@ -72,9 +72,8 @@
 
     <div class="container">
         <div class="py-5 text-center">
-            <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-            <h2>Checkout form</h2>
-            <p class="lead">Checkout</p>
+            <img src="../rsrc/imgs/pizza.png" alt="logo" width="100" height="100">
+            <h2>Checkout</h2>
         </div>
 
         <div class="row">

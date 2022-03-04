@@ -30,7 +30,7 @@ session_start();
         <ul class = "links">
             <li><a href="index.php">Home</a></li>
             <li><a href="About_Us.php">About</a></li>
-            <li><a href="#">Menu</a></li>
+            <li><a href="get_menu.php">Menu</a></li>
             <li><a href="Contact_Us.php">Contact</a></li>
             <li>
 <?php
@@ -55,7 +55,7 @@ else{
             style="margin-left:2px;font-size:18px;"></i></a>
             <ul class="drop">
                     <li><a href="logout.php">Sign out</a></li>
-                    <li><a href="#">My profile</a></li>
+                    <li><a href="userprofile.php">My profile</a></li>
                 </ul>
         </li>
 <?php            
@@ -66,8 +66,14 @@ else{
             </li>
         </ul>
     </nav>
-
-        <h3>Preious Orders</h3>
+    <div > 
+        <style>
+        div{
+        margin-left: 10px
+    }
+        </style>
+        <br>
+        <h3>Previous Orders</h3>
 
 <!-- server side images -->
 
@@ -138,6 +144,7 @@ else{
 
     <!-- Optional JavaScript -->
     <script type="text/javascript" src="../rsrc/js/main.js"></script>
+    </div>
 </body>
 
 </html>

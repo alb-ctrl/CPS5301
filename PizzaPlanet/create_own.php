@@ -8,7 +8,7 @@ session_start();
 <html lang="en">
 <title>Menu</title>
 <link rel="stylesheet" href="../rsrc/styles/index_styles.css">
-<link rel="stylesheet" href="../rsrc/styles/menu_styles.css">
+<link rel="stylesheet" href="../rsrc/styles/create_own_styles.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 
 <!-- Bootstrap Scripts -->
@@ -61,7 +61,7 @@ else{
                 <i class="fas fa-user-astronaut fa-5x" style="margin-left:2px;font-size:18px;"></i></a>
             <ul class="drop">
                 <li><a href="logout.php">Sign out</a></li>
-                <li><a href="#">My profile</a></li>
+                <li><a href="userprofile.php">My profile</a></li>
             </ul>
             </li>
             <?php            
@@ -88,87 +88,90 @@ else{
 
     $query = "Select menu_item_id, menu_item_name, tags,  price from menu where hiden ='HI' and tags = 'crust' ";
     $results = mysqli_query($db, $query);
-
-    echo "<form action='handle_own.php' method='POST'>";
-    echo "<h5>CHoose crust</h5>";
-    if ($results) {
-        //print error message 
-        while ($row = mysqli_fetch_array($results)) {
-
-        echo '<div class="form-check">
-        <input class="form-check-input" type="radio" value="'.$row["menu_item_id"].'" name="crust" id="flexRadioDefault1">
-        <label class="form-check-label" for="flexRadioDefault1">
-         '. $row["menu_item_name"];
-          echo '
-        </label>
-      </div>';
-        }
-
-    }
-
-    $query = "Select menu_item_id, menu_item_name, tags,  price from menu where hiden ='HI' and tags = 'size' ";
-    $results = mysqli_query($db, $query);
-
-    echo "<h5>CHoose Pizza sice</h5>";
-    if ($results) {
-        //print error message 
-        while ($row = mysqli_fetch_array($results)) {
-
-        echo '<div class="form-check">
-        <input class="form-check-input" type="radio" value="'.$row["menu_item_id"].'" name="size" id="flexRadioDefault1">
-        <label class="form-check-label" for="flexRadioDefault1">
-         '. $row["menu_item_name"];
-          echo '
-        </label>
-      </div>';
-        }
-
-    }
-
-    $query = "Select menu_item_id, menu_item_name, tags,  price from menu where hiden ='HI' and tags = 'sauce' ";
-    $results = mysqli_query($db, $query);
-
-    echo "<h5>CHoose Sauce</h5>";
-    if ($results) {
-        //print error message 
-        while ($row = mysqli_fetch_array($results)) {
-
-        echo '<div class="form-check">
-        <input class="form-check-input" type="radio" value="'.$row["menu_item_id"].'" name="sauce" id="flexRadioDefault1">
-        <label class="form-check-label" for="flexRadioDefault1">
-         '. $row["menu_item_name"];
-          echo '
-        </label>
-      </div>';
-        }
-
-    }
-
-    $query = "Select menu_item_id, menu_item_name, tags,  price from menu where hiden ='HI' and tags = 'meat' ";
-    $results = mysqli_query($db, $query);
-
-    echo "<h5>CHoose Meat</h5>";
-    if ($results) {
-        //print error message 
-        while ($row = mysqli_fetch_array($results)) {
+    ?>
+    <div id = "custom">
+        <h4>Customize your pizza</h4><br>
+        <?php
+        echo "<form action='handle_own.php' method='POST'>";
+        echo "<h4>Choose crust</h4>";
+        if ($results) {
+            //print error message 
+            while ($row = mysqli_fetch_array($results)) {
 
             echo '<div class="form-check">
-            <input class="form-check-input" type="checkbox" name="meat[]" value="'.$row["menu_item_id"].'" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-             '. $row["menu_item_name"];
-             echo '
+            <input class="form-check-input" type="radio" value="'.$row["menu_item_id"].'" name="crust" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+            '. $row["menu_item_name"];
+            echo '
             </label>
-          </div>';
+        </div>';
+            }
+
         }
 
-    }
+        $query = "Select menu_item_id, menu_item_name, tags,  price from menu where hiden ='HI' and tags = 'size' ";
+        $results = mysqli_query($db, $query);
 
-    echo "<input type='submit' value='Done'>";
+        echo "<br><h4>Choose Pizza size</h4>";
+        if ($results) {
+            //print error message 
+            while ($row = mysqli_fetch_array($results)) {
 
-    echo "</form>";
+            echo '<div class="form-check">
+            <input class="form-check-input" type="radio" value="'.$row["menu_item_id"].'" name="size" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+            '. $row["menu_item_name"];
+            echo '
+            </label>
+        </div>';
+            }
 
-    ?>
+        }
 
+        $query = "Select menu_item_id, menu_item_name, tags,  price from menu where hiden ='HI' and tags = 'sauce' ";
+        $results = mysqli_query($db, $query);
+
+        echo "<br><h4>Choose Sauce</h4>";
+        if ($results) {
+            //print error message 
+            while ($row = mysqli_fetch_array($results)) {
+
+            echo '<div class="form-check">
+            <input class="form-check-input" type="radio" value="'.$row["menu_item_id"].'" name="sauce" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+            '. $row["menu_item_name"];
+            echo '
+            </label>
+        </div>';
+            }
+
+        }
+
+        $query = "Select menu_item_id, menu_item_name, tags,  price from menu where hiden ='HI' and tags = 'meat' ";
+        $results = mysqli_query($db, $query);
+
+        echo "<br><h4>Choose Meat</h4>";
+        if ($results) {
+            //print error message 
+            while ($row = mysqli_fetch_array($results)) {
+
+                echo '<div class="form-check">
+                <input class="form-check-input" type="checkbox" name="meat[]" value="'.$row["menu_item_id"].'" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                '. $row["menu_item_name"];
+                echo '
+                </label>
+            </div>';
+            }
+
+        }
+
+        echo "<br><button type='submit' value='Done' style='color:white'>Done</button>";
+
+        echo "</form>";
+
+        ?>
+    </div> 
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -183,6 +186,19 @@ else{
 
     <!-- Optional JavaScript -->
     <script type="text/javascript" src="../rsrc/js/main.js"></script>
+    <div><div id="l"><hr></div></div>
+    <div class="footer">
+        <ul id = "left">
+            <span><li>Hours of Operation</li></span>
+            <li>Monday - Sunday 10:00am - 10:00pm</li>
+        </ul>
+        <ul id = "right">
+            <span><li>For Reservation</li></span>
+            <li>Our Location</li>
+            <li><a href="#">Front St, Elizabeth, NJ 07206</a></li>
+            <li>Tel: (908)555-3474</li>
+        </ul>
+    </div>
 </body>
 
 </html>
